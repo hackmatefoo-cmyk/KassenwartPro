@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kassenwart Pro – Das offline Haushaltsbuch für deine Familie. Einmalig 19 €, komplett lokal auf deinem PC. Notgroschen, Rücklagen, Budgetziele & Fixkosten im Blick. Keine Cloud, keine Abos.">
+    <meta name="keywords" content="Haushaltsbuch, Haushaltsbudget App, offline Haushaltsbuch, Kassenwart Pro, persönliches Finanztool, Budgetplaner Windows, Rücklagen sparen, Notgroschen">
+    <title>Kassenwart Pro • Dein offline Haushaltsbuch</title>
+    <style>
+        :root {
+            --bg: #e4ebe6;
+            --card: #ffffff;
+            --primary: #4a7c68;
+            --text: #1a2a24;
+            --muted: #6b8278;
+            --border: #cdd8d2;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1100px; margin: auto; }
+        header { text-align:center; margin-bottom:40px; }
+        .logo { font-size:2.8rem; font-weight:700; color:var(--primary); }
+        .hero {
+            background:var(--card); border-radius:18px; padding:60px 40px;
+            box-shadow:var(--shadow); border:1px solid var(--border); text-align:center;
+        }
+        .hero h1 { font-size:2.6rem; margin-bottom:16px; }
+        .price { font-size:2.2rem; font-weight:700; color:var(--primary); margin:20px 0; }
+        .btn {
+            display:inline-block; background:var(--primary); color:white;
+            padding:16px 44px; border-radius:12px; font-size:1.2rem; font-weight:600;
+            text-decoration:none; margin:12px 8px; box-shadow:var(--shadow);
+        }
+        .btn:hover { transform:translateY(-3px); }
+        .screenshot { 
+            max-width:100%; border-radius:16px; box-shadow:var(--shadow); 
+            border:1px solid var(--border); margin:40px 0;
+        }
+        .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; margin:60px 0; }
+        .feature-card {
+            background:var(--card); padding:32px; border-radius:14px;
+            border:1px solid var(--border); box-shadow:var(--shadow);
+        }
+        footer { text-align:center; color:var(--muted); margin-top:80px; font-size:0.95rem; }
+    </style>
+</head>
+<body>
 
+<div class="container">
+
+    <header>
+        <div class="logo">Kassenwart Pro</div>
+        <p style="font-size:1.3rem;color:var(--muted);margin-top:8px;">Dein persönliches Haushaltsbuch – komplett offline</p>
+    </header>
+
+    <div class="hero">
+        <h1>Endlich Klarheit über dein Geld.<br>Ohne Cloud. Ohne Abos. Einfach lokal.</h1>
+        <p style="font-size:1.25rem;max-width:680px;margin:24px auto;color:var(--muted);">
+            Notgroschen • Rücklagen • Budgetziele • Fixkosten • Transaktionen<br>
+            Alles übersichtlich. Alles auf deinem PC.
+        </p>
+
+        <div class="price">einmalig 19 €</div>
+
+        <a href="#kauf" class="btn">Jetzt kaufen &amp; sofort nutzen</a>
+        <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro/releases/latest/download/KassenwartPro.zip" class="btn" style="background:white;color:var(--primary);border:2px solid var(--primary);">Direkt herunterladen (nach Kauf)</a>
+    </div>
+
+    <!-- ECHTES SCREENSHOT -->
+    <img src="screenshot-main.png" alt="Kassenwart Pro Haushaltsbudget App Screenshot" class="screenshot">
+
+    <h2 style="text-align:center;margin:60px 0 30px;">Warum Familien Kassenwart Pro lieben</h2>
+    <div class="features">
+        <div class="feature-card">
+            <h3>✅ 100 % offline &amp; privat</h3>
+            <p>Deine Daten verlassen nie deinen Rechner. Kein Tracking, keine Cloud.</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ Notgroschen &amp; Rücklagen immer im Blick</h3>
+            <p>Fortschrittsbalken, Sparziele und Unterpositionen – sofort sichtbar.</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ Fixkosten automatisch erinnern</h3>
+            <p>Am Monatsanfang mit einem Klick übernehmen.</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ Klare Budget-Übersicht</h3>
+            <p>Variable Kosten, Soll/Ist-Vergleich und Sparquote auf einen Blick.</p>
+        </div>
+    </div>
+
+    <h2 id="kauf" style="text-align:center;margin:80px 0 40px;">So einfach ist der Kauf</h2>
+    <div style="background:var(--card);border-radius:14px;padding:40px;border:1px solid var(--border);box-shadow:var(--shadow);max-width:700px;margin:auto;">
+        <ol style="font-size:1.1rem;line-height:2;">
+            <li>Hier auf „Jetzt kaufen“ klicken (oder über Stripe, sobald eingerichtet)</li>
+            <li>Google Sheet trägt dich automatisch ein</li>
+            <li>Du bekommst sofort eine E-Mail mit:
+                <ul>
+                    <li>Deinem persönlichen Lizenzcode</li>
+                    <li>Direktem Download-Link zur .exe/.zip</li>
+                </ul>
+            </li>
+            <li>Programm starten → Lizenzcode eingeben → fertig.</li>
+        </ol>
+        <p style="text-align:center;margin-top:24px;color:var(--muted);">
+            Test-Lizenzcode (für Demo): <strong>9005-BB85-A222-BD9A</strong>
+        </p>
+    </div>
+
+    <div style="text-align:center;margin:80px 0;">
+        <a href="#kauf" class="btn" style="font-size:1.35rem;padding:20px 60px;">Jetzt Kassenwart Pro für 19 € kaufen</a>
+    </div>
+
+    <p style="text-align:center;color:var(--muted);margin-top:20px;">
+        Windows • Einmalig • Für immer • Updates kostenlos
+    </p>
+
+    <footer>
+        Kassenwart Pro © 2026 Simon • Wetzlar, Hessen<br>
+        <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" style="color:var(--muted);">GitHub Repository</a>
+    </footer>
+
+</div>
+
+</body>
+</html>
