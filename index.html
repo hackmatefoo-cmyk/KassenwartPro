@@ -1,427 +1,309 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kassenwart Pro – Übersichtliches Haushaltsbuch für den PC. Einmalig 15 €, komplett lokal, kein Abo, kein Bankzugang. Jetzt Demo ansehen.">
-<meta name="keywords" content="Haushaltsbuch offline Windows, Haushaltsbudget App einmalig kaufen, YNAB Alternative Deutschland, Finanzguru Alternative lokal, Kassenwart Pro">
+<meta name="description" content="Kassenwart Pro – Haushaltsbuch für den PC. Einmalig 15 €, komplett lokal, kein Abo, kein Bankzugang.">
 <title>Kassenwart Pro · Haushaltsbuch für den PC</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:       #e4ebe6;
-  --card:     #ffffff;
-  --primary:  #4a7c68;
-  --primary2: #3a6355;
-  --text:     #1a2a24;
-  --muted:    #6b8278;
-  --border:   #cdd8d2;
-  --shadow:   0 4px 24px rgba(0,0,0,0.08);
-  --green:    #2d6e4a;
+  --bg:      #e4ebe6;
+  --card:    #ffffff;
+  --primary: #4a7c68;
+  --prim2:   #3a6355;
+  --text:    #1a2a24;
+  --muted:   #6b8278;
+  --border:  #cdd8d2;
+  --shadow:  0 4px 24px rgba(0,0,0,0.08);
 }
-
-- { margin:0; padding:0; box-sizing:border-box; }
-
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-font-family: ‘DM Sans’, system-ui, sans-serif;
-background: var(–bg);
-color: var(–text);
-line-height: 1.6;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
-
 .container { max-width: 1080px; margin: auto; padding: 0 24px; }
 
-/* ── NAV ── */
+/* NAV */
 nav {
-padding: 20px 0;
-display: flex;
-align-items: center;
-justify-content: space-between;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .nav-logo {
-font-family: ‘DM Serif Display’, serif;
-font-size: 1.3rem;
-color: var(–primary);
-text-decoration: none;
-letter-spacing: -0.01em;
-}
-.nav-logo span {
-font-family: ‘DM Sans’, sans-serif;
-font-weight: 500;
-font-size: 0.75rem;
-color: var(–muted);
-display: block;
-letter-spacing: 0.12em;
-text-transform: uppercase;
-margin-top: -2px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
 }
 .nav-links {
-display: flex;
-gap: 28px;
-align-items: center;
-list-style: none;
+  display: flex;
+  gap: 28px;
+  list-style: none;
 }
 .nav-links a {
-font-size: 0.88rem;
-color: var(–muted);
-text-decoration: none;
-font-weight: 500;
-transition: color 0.15s;
+  font-size: 0.88rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
 }
-.nav-links a:hover { color: var(–primary); }
+.nav-links a:hover { color: var(--primary); }
 
-/* ── HERO ── */
+hr.divider { border: none; border-top: 1px solid var(--border); }
+
+/* HERO */
 .hero {
-padding: 60px 0 72px;
-display: grid;
-grid-template-columns: 1fr 340px;
-gap: 56px;
-align-items: center;
+  padding: 60px 0 72px;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 56px;
+  align-items: center;
 }
-
-.hero-left { }
-
 .hero-eyebrow {
-display: inline-flex;
-align-items: center;
-gap: 6px;
-background: white;
-border: 1px solid var(–border);
-border-radius: 999px;
-padding: 5px 14px;
-font-size: 0.78rem;
-font-weight: 600;
-color: var(–primary);
-letter-spacing: 0.04em;
-margin-bottom: 22px;
+  display: inline-block;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 20px;
 }
-.hero-eyebrow::before {
-content: ‘’;
-width: 7px; height: 7px;
-border-radius: 50%;
-background: var(–primary);
-flex-shrink: 0;
-}
-
 .hero h1 {
-font-family: ‘DM Serif Display’, serif;
-font-size: 3rem;
-line-height: 1.15;
-color: var(–text);
-letter-spacing: -0.02em;
-margin-bottom: 20px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
 }
-
 .hero-sub {
-font-size: 1.05rem;
-color: var(–muted);
-max-width: 480px;
-margin-bottom: 30px;
-line-height: 1.65;
+  font-size: 1.02rem;
+  color: var(--muted);
+  max-width: 480px;
+  margin-bottom: 28px;
 }
-
 .hero-bullets {
-list-style: none;
-display: flex;
-flex-direction: column;
-gap: 10px;
-margin-bottom: 36px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 34px;
 }
 .hero-bullets li {
-display: flex;
-align-items: center;
-gap: 10px;
-font-size: 0.92rem;
-font-weight: 500;
-color: var(–text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 500;
 }
 .hero-bullets li::before {
-content: ‘✓’;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-width: 20px; height: 20px;
-border-radius: 50%;
-background: var(–primary);
-color: white;
-font-size: 0.7rem;
-font-weight: 700;
-flex-shrink: 0;
+  content: '✓';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 0.68rem;
+  font-weight: 700;
+  flex-shrink: 0;
 }
-
-.hero-actions {
-display: flex;
-gap: 12px;
-align-items: center;
-flex-wrap: wrap;
-}
-
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .btn-primary {
-display: inline-block;
-background: var(–primary);
-color: white;
-padding: 13px 28px;
-border-radius: 10px;
-font-size: 0.95rem;
-font-weight: 600;
-text-decoration: none;
-transition: background 0.15s, transform 0.15s;
-border: none;
-cursor: pointer;
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 13px 28px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
 }
-.btn-primary:hover { background: var(–primary2); transform: translateY(-1px); }
-
+.btn-primary:hover { background: var(--prim2); }
 .btn-outline {
-display: inline-block;
-background: white;
-color: var(–primary);
-padding: 13px 28px;
-border-radius: 10px;
-font-size: 0.95rem;
-font-weight: 600;
-text-decoration: none;
-border: 1.5px solid var(–border);
-transition: border-color 0.15s, transform 0.15s;
-cursor: not-allowed;
-opacity: 0.55;
+  display: inline-block;
+  background: white;
+  color: var(--muted);
+  padding: 13px 28px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1.5px solid var(--border);
+  cursor: not-allowed;
+  opacity: 0.55;
 }
+.btn-hint { font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
 
-.btn-disabled-hint {
-font-size: 0.75rem;
-color: var(–muted);
-margin-top: 10px;
+/* PRODUCT CARD */
+.hero-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 32px 28px;
+  text-align: center;
 }
-
-/* ── HERO RIGHT ── */
-.hero-right {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 20px;
+.hero-card img {
+  width: 100%;
+  max-width: 240px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
 }
-
-.hero-product-card {
-background: white;
-border-radius: 20px;
-border: 1px solid var(–border);
-box-shadow: var(–shadow);
-padding: 36px 32px;
-text-align: center;
-width: 100%;
-}
-
-.hero-product-card img {
-width: 110px;
-height: 110px;
-object-fit: contain;
-margin-bottom: 16px;
-}
-
 .hero-price {
-font-family: ‘DM Serif Display’, serif;
-font-size: 2.4rem;
-color: var(–primary);
-letter-spacing: -0.02em;
-margin-bottom: 4px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
 }
-.hero-price-label {
-font-size: 0.8rem;
-color: var(–muted);
-font-weight: 500;
-letter-spacing: 0.04em;
-text-transform: uppercase;
-margin-bottom: 20px;
+.hero-price-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
 }
 .hero-tags {
-display: flex;
-flex-wrap: wrap;
-gap: 6px;
-justify-content: center;
-margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 18px;
 }
-.hero-tag {
-background: var(–bg);
-border: 1px solid var(–border);
-border-radius: 6px;
-padding: 4px 10px;
-font-size: 0.75rem;
-font-weight: 600;
-color: var(–muted);
+.tag {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
 }
 .hero-demo-link {
-display: block;
-font-size: 0.85rem;
-color: var(–primary);
-font-weight: 600;
-text-decoration: none;
-border-top: 1px solid var(–border);
-padding-top: 16px;
-transition: opacity 0.15s;
+  display: block;
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
 }
 .hero-demo-link:hover { opacity: 0.75; }
 
-/* ── DIVIDER ── */
-.section-divider {
-border: none;
-border-top: 1px solid var(–border);
-margin: 0;
+/* FEATURES */
+.features { padding: 72px 0; }
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 10px;
 }
-
-/* ── FEATURES ── */
-.features {
-padding: 72px 0;
-}
-.features-label {
-font-size: 0.75rem;
-font-weight: 700;
-text-transform: uppercase;
-letter-spacing: 0.1em;
-color: var(–muted);
-text-align: center;
-margin-bottom: 10px;
-}
-.features h2 {
-font-family: ‘DM Serif Display’, serif;
-font-size: 2rem;
-text-align: center;
-color: var(–text);
-letter-spacing: -0.02em;
-margin-bottom: 48px;
+.section-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.02em;
+  margin-bottom: 44px;
 }
 .features-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 .feature-card {
-background: white;
-border-radius: 14px;
-border: 1px solid var(–border);
-box-shadow: var(–shadow);
-padding: 28px 28px 24px;
+  background: white;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 28px;
 }
-.feature-icon {
-font-size: 1.4rem;
-margin-bottom: 12px;
-display: block;
-}
-.feature-card h3 {
-font-size: 0.95rem;
-font-weight: 600;
-color: var(–text);
-margin-bottom: 8px;
-}
-.feature-card p {
-font-size: 0.85rem;
-color: var(–muted);
-line-height: 1.6;
-}
+.feature-icon { font-size: 1.4rem; display: block; margin-bottom: 12px; }
+.feature-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; }
+.feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
 
-/* ── HOW IT WORKS ── */
-.how {
-padding: 0 0 72px;
-}
+/* HOW */
+.how { padding: 0 0 72px; }
 .how-inner {
-background: white;
-border-radius: 16px;
-border: 1px solid var(–border);
-box-shadow: var(–shadow);
-padding: 48px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 48px;
 }
-.how h2 {
-font-family: ‘DM Serif Display’, serif;
-font-size: 1.6rem;
-color: var(–text);
-letter-spacing: -0.02em;
-margin-bottom: 32px;
+.how-inner h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
 }
 .how-steps {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
-.how-step { }
-.how-step-num {
-width: 32px; height: 32px;
-border-radius: 50%;
-background: var(–bg);
-border: 1.5px solid var(–border);
-display: flex; align-items: center; justify-content: center;
-font-size: 0.8rem;
-font-weight: 700;
-color: var(–primary);
-margin-bottom: 12px;
+.step-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
 }
-.how-step h4 {
-font-size: 0.92rem;
-font-weight: 600;
-color: var(–text);
-margin-bottom: 6px;
-}
-.how-step p {
-font-size: 0.83rem;
-color: var(–muted);
-line-height: 1.55;
-}
+.how-steps h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 6px; }
+.how-steps p { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
-border-top: 1px solid var(–border);
-padding: 32px 0;
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
 }
 .footer-inner {
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
-gap: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
-.footer-copy {
-font-size: 0.82rem;
-color: var(–muted);
-}
-.footer-links {
-display: flex;
-gap: 20px;
-}
-.footer-links a {
-font-size: 0.82rem;
-color: var(–muted);
-text-decoration: none;
-transition: color 0.15s;
-}
-.footer-links a:hover { color: var(–primary); }
+.footer-copy { font-size: 0.82rem; color: var(--muted); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--primary); }
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media (max-width: 780px) {
-.hero {
-grid-template-columns: 1fr;
-padding: 40px 0 56px;
-gap: 40px;
-}
-.hero h1 { font-size: 2.2rem; }
-.hero-right { order: -1; }
-.hero-product-card { max-width: 320px; margin: auto; }
-.features-grid { grid-template-columns: 1fr; }
-.how-steps { grid-template-columns: 1fr; }
-.how-inner { padding: 32px 24px; }
-.footer-inner { flex-direction: column; align-items: flex-start; }
-.nav-links { display: none; }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 0 56px;
+    gap: 36px;
+  }
+  .hero h1 { font-size: 2rem; }
+  .hero-right { order: -1; }
+  .hero-card { max-width: 300px; margin: auto; }
+  .features-grid { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: 1fr; }
+  .how-inner { padding: 28px 20px; }
+  .nav-links { display: none; }
 }
 </style>
-
 </head>
 <body>
 
 <div class="container">
   <nav>
-    <a href="/" class="nav-logo">
-      Kassenwart
-      <span>Pro</span>
-    </a>
+    <a href="/" class="nav-logo">Kassenwart Pro</a>
     <ul class="nav-links">
       <li><a href="https://siregikajo.pythonanywhere.com" target="_blank">Demo ansehen</a></li>
       <li><a href="impressum.html">Impressum</a></li>
@@ -429,103 +311,94 @@ gap: 40px;
   </nav>
 </div>
 
-<hr class="section-divider">
+<hr class="divider">
 
 <div class="container">
 
-  <!-- HERO -->
-
   <section class="hero">
     <div class="hero-left">
-      <div class="hero-eyebrow">Für Windows · Offline · Einmalkauf</div>
+      <div class="hero-eyebrow">Für Windows &middot; Offline &middot; Einmalkauf</div>
       <h1>Endlich wissen,<br>wo das Geld bleibt.</h1>
       <p class="hero-sub">
-        Kassenwart Pro ist ein übersichtliches Haushaltsbuch für den PC — ohne Abo, ohne Bankzugang, ohne Einrichtungsaufwand. Einmal kaufen, sofort loslegen.
+        Kassenwart Pro ist ein übersichtliches Haushaltsbuch für den PC — ohne Abo, ohne Bankzugang, ohne Cloud. Einmal kaufen, sofort loslegen.
       </p>
       <ul class="hero-bullets">
         <li>Einnahmen, Ausgaben, Rücklagen und Budgets auf einen Blick</li>
-        <li>Deine Daten bleiben lokal auf deinem PC — keine Cloud, kein Account</li>
+        <li>Deine Daten bleiben lokal auf deinem PC — kein Account nötig</li>
         <li>15 &euro; einmalig. Kein Abo, keine Folgekosten.</li>
       </ul>
       <div class="hero-actions">
         <a href="https://siregikajo.pythonanywhere.com" target="_blank" class="btn-primary">Demo ansehen</a>
-        <a href="#kauf" class="btn-outline" title="Kaufoption folgt in Kürze">Jetzt kaufen</a>
+        <a href="#" class="btn-outline" title="Kaufoption folgt in Kürze">Jetzt kaufen</a>
       </div>
-      <p class="btn-disabled-hint">Kauf wird in Kürze freigeschaltet.</p>
+      <p class="btn-hint">Kauf wird in Kürze freigeschaltet.</p>
     </div>
 
-```
-<div class="hero-right">
-  <div class="hero-product-card">
-    <img src="kassenwart_preview.png" alt="Kassenwart Pro">
-    <div class="hero-price">15 &euro;</div>
-    <div class="hero-price-label">einmalig · für immer</div>
-    <div class="hero-tags">
-      <span class="hero-tag">Windows</span>
-      <span class="hero-tag">100 % offline</span>
-      <span class="hero-tag">Kein Abo</span>
-      <span class="hero-tag">Deutsch</span>
+    <div class="hero-right">
+      <div class="hero-card">
+        <img src="kassenwart_preview.png" alt="Kassenwart Pro Screenshot">
+        <div class="hero-price">15 &euro;</div>
+        <div class="hero-price-sub">einmalig &middot; für immer</div>
+        <div class="hero-tags">
+          <span class="tag">Windows</span>
+          <span class="tag">100 % offline</span>
+          <span class="tag">Kein Abo</span>
+          <span class="tag">Deutsch</span>
+        </div>
+        <a href="https://siregikajo.pythonanywhere.com" target="_blank" class="hero-demo-link">
+          &#8594; Demo ausprobieren
+        </a>
+      </div>
     </div>
-    <a href="https://siregikajo.pythonanywhere.com" target="_blank" class="hero-demo-link">
-      → Demo ausprobieren
-    </a>
-  </div>
-</div>
-```
-
   </section>
 
-  <hr class="section-divider">
-
-  <!-- FEATURES -->
+  <hr class="divider">
 
   <section class="features">
-    <p class="features-label">Was drin ist</p>
-    <h2>Alles was ein Haushalt braucht.</h2>
+    <p class="section-label">Was drin ist</p>
+    <h2 class="section-title">Alles was ein Haushalt braucht.</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <span class="feature-icon">🔒</span>
+        <span class="feature-icon">&#128274;</span>
         <h3>100 % offline &amp; privat</h3>
         <p>Deine Finanzdaten verlassen nie deinen Rechner. Kein Account, kein Cloud-Sync, kein Tracking.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">🏦</span>
+        <span class="feature-icon">&#127968;</span>
         <h3>Notgroschen &amp; Rücklagen im Blick</h3>
         <p>Fortschrittsbalken, Sparziele und Unterpositionen — du siehst sofort wie weit du bist.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">📋</span>
+        <span class="feature-icon">&#128203;</span>
         <h3>Fixkosten mit einem Klick</h3>
         <p>Hinterlege wiederkehrende Buchungen einmal. Am Monatsanfang mit einem Klick übernehmen.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">📊</span>
+        <span class="feature-icon">&#128202;</span>
         <h3>Klare Budget-Übersicht</h3>
         <p>Variable Kosten, Soll/Ist-Vergleich und Sparquote — alles auf einen Blick, ohne Tabellenarbeit.</p>
       </div>
     </div>
   </section>
 
-  <hr class="section-divider">
-
-  <!-- HOW IT WORKS -->
+  <hr class="divider">
 
   <section class="how" style="padding-top: 72px;">
     <div class="how-inner">
       <h2>In drei Schritten startklar.</h2>
       <div class="how-steps">
-        <div class="how-step">
-          <div class="how-step-num">1</div>
+        <div>
+          <div class="step-num">1</div>
           <h4>Kaufen &amp; herunterladen</h4>
           <p>Nach dem Kauf erhältst du sofort eine E-Mail mit Lizenzcode und Download-Link.</p>
         </div>
-        <div class="how-step">
-          <div class="how-step-num">2</div>
+        <div>
+          <div class="step-num">2</div>
           <h4>Lizenzcode eingeben</h4>
           <p>Programm starten, Code eingeben — fertig. Läuft komplett lokal auf deinem PC.</p>
         </div>
-        <div class="how-step">
-          <div class="how-step-num">3</div>
+        <div>
+          <div class="step-num">3</div>
           <h4>Loslegen</h4>
           <p>Kategorien anpassen, erste Buchungen eintragen, Überblick haben. Kein Einrichtungsaufwand.</p>
         </div>
