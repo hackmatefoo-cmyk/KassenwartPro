@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>Impressum &amp; Datenschutz &middot; Kassenwart Pro</title>
+<style>
+:root {
+  --bg:      #e4ebe6;
+  --card:    #ffffff;
+  --primary: #4a7c68;
+  --prim2:   #3a6355;
+  --text:    #1a2a24;
+  --muted:   #6b8278;
+  --border:  #cdd8d2;
+  --shadow:  0 4px 24px rgba(0,0,0,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+.container { max-width: 720px; margin: auto; padding: 0 24px; }
+nav { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-size: 1.2rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+.nav-back { font-size: 0.88rem; color: var(--muted); text-decoration: none; font-weight: 500; }
+.nav-back:hover { color: var(--primary); }
+hr.divider { border: none; border-top: 1px solid var(--border); }
+
+main { padding: 48px 0 72px; }
+.card { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 40px 48px; margin-bottom: 32px; }
+
+h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 28px; color: var(--text); }
+h2 { font-size: 1.1rem; font-weight: 700; margin: 28px 0 10px; color: var(--text); }
+h2:first-of-type { margin-top: 0; }
+p { font-size: 0.92rem; color: var(--muted); margin-bottom: 10px; }
+p strong { color: var(--text); }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { padding-left: 18px; margin-bottom: 10px; }
+ul li { font-size: 0.92rem; color: var(--muted); margin-bottom: 4px; }
+
+footer { border-top: 1px solid var(--border); padding: 32px 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-copy { font-size: 0.82rem; color: var(--muted); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--primary); }
+
+@media (max-width: 600px) {
+  .card { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <nav>
+    <a href="index.html" class="nav-logo">Kassenwart Pro</a>
+    <a href="index.html" class="nav-back">&#8592; Zur&#252;ck</a>
+  </nav>
+</div>
+
+<hr class="divider">
+
+<div class="container">
+<main>
+
+  <!-- IMPRESSUM -->
+  <div class="card" id="impressum">
+    <h1>Impressum</h1>
+
+    <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+    <p>
+      <strong>[VORNAME NACHNAME]</strong><br>   <!-- ZEILE 1: Deinen vollen Namen eintragen -->
+      [STRASSE HAUSNUMMER]<br>                  <!-- ZEILE 2: Deine Straße + Hausnummer -->
+      35576 Wetzlar                             <!-- ZEILE 3: PLZ ggf. anpassen -->
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      E-Mail: <a href="mailto:[DEINE-EMAIL]">[DEINE-EMAIL]</a>  <!-- ZEILE: E-Mail-Adresse eintragen -->
+    </p>
+
+    <h2>Hinweis zur Umsatzsteuer</h2>
+    <p>
+      Gem&auml;&szlig; &sect; 19 UStG wird keine Umsatzsteuer berechnet
+      (Kleinunternehmerregelung).
+    </p>
+
+    <h2>Verantwortlich f&uuml;r den Inhalt</h2>
+    <p>
+      <strong>[VORNAME NACHNAME]</strong>, Anschrift wie oben.  <!-- ZEILE: selber Name wie oben -->
+    </p>
+
+    <h2>Streitschlichtung</h2>
+    <p>
+      Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+      <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.
+      Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren
+      vor einer Verbraucherschlichtungsstelle teilzunehmen.
+    </p>
+  </div>
+
+  <!-- DATENSCHUTZ -->
+  <div class="card" id="datenschutz">
+    <h1>Datenschutzerkl&auml;rung</h1>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>
+      Verantwortlich im Sinne der DSGVO ist die unter &bdquo;Impressum&ldquo; genannte Person.
+    </p>
+
+    <h2>2. Welche Daten wir verarbeiten</h2>
+    <p>
+      Beim Kauf von Kassenwart Pro werden folgende Daten erhoben und verarbeitet:
+    </p>
+    <ul>
+      <li>Name und E-Mail-Adresse (f&uuml;r den Lizenzversand)</li>
+      <li>Zahlungsdaten (werden ausschlie&szlig;lich durch Stripe verarbeitet &ndash; wir erhalten keinen Zugriff auf Karten- oder Bankdaten)</li>
+      <li>Rechnungsnummer und Lizenzcode (f&uuml;r Support und Nachweise)</li>
+    </ul>
+    <p>
+      Diese Daten werden in einer passwortgesch&uuml;tzten Google-Tabelle gespeichert
+      und nicht an Dritte weitergegeben.
+    </p>
+
+    <h2>3. Hosting &ndash; GitHub Pages</h2>
+    <p>
+      Diese Website wird &uuml;ber GitHub Pages (GitHub, Inc., USA) gehostet.
+      Beim Aufruf der Seite werden technische Zugriffsdaten (u.&thinsp;a. IP-Adresse) von GitHub
+      verarbeitet. Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.
+    </p>
+
+    <h2>4. Demo-Instanz &ndash; PythonAnywhere</h2>
+    <p>
+      Die optionale Demo l&auml;uft auf PythonAnywhere (Anvil Works Ltd., UK).
+      Beim Aufruf der Demo werden technische Zugriffsdaten verarbeitet.
+      Weitere Informationen: <a href="https://www.pythonanywhere.com/privacy_v2/" target="_blank" rel="noopener">PythonAnywhere Privacy Policy</a>.
+      In der Demo werden keine echten Nutzerdaten gespeichert; alle Eingaben gehen
+      beim Neuladen verloren.
+    </p>
+
+    <h2>5. Zahlungsabwicklung &ndash; Stripe</h2>
+    <p>
+      Zahlungen werden &uuml;ber Stripe (Stripe, Inc., USA / Stripe Payments Europe, Ltd., Irland)
+      abgewickelt. Stripe erhebt und verarbeitet Zahlungsdaten gem&auml;&szlig; seiner eigenen
+      Datenschutzrichtlinie: <a href="https://stripe.com/de/privacy" target="_blank" rel="noopener">stripe.com/de/privacy</a>.
+    </p>
+
+    <h2>6. Cookies &amp; Tracking</h2>
+    <p>
+      Diese Website verwendet keine Cookies, kein Analytics und kein Tracking.
+    </p>
+
+    <h2>7. Die App selbst</h2>
+    <p>
+      Kassenwart Pro l&auml;uft vollst&auml;ndig lokal auf dem PC des Nutzers.
+      Die App &uuml;bertr&auml;gt keine Daten ins Internet. Alle Haushaltsdaten
+      bleiben ausschlie&szlig;lich auf dem Ger&auml;t des Nutzers.
+    </p>
+
+    <h2>8. Rechte der betroffenen Personen</h2>
+    <p>
+      Du hast das Recht auf Auskunft, Berichtigung, L&ouml;schung, Einschr&auml;nkung der
+      Verarbeitung sowie Daten&uuml;bertragbarkeit. Anfragen richten an die im Impressum
+      genannte E-Mail-Adresse.
+    </p>
+
+    <h2>9. Beschwerderecht</h2>
+    <p>
+      Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbeh&ouml;rde zu beschweren.
+      Zust&auml;ndig f&uuml;r Hessen ist der
+      <a href="https://datenschutz.hessen.de" target="_blank" rel="noopener">Hessische Beauftragte f&uuml;r Datenschutz und Informationsfreiheit</a>.
+    </p>
+  </div>
+
+</main>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <p class="footer-copy">Kassenwart Pro &copy; 2026 &middot; Wetzlar, Hessen</p>
+      <div class="footer-links">
+        <a href="index.html">Startseite</a>
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
