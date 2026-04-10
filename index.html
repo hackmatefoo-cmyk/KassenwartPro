@@ -38,11 +38,19 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .btn-primary:hover { background: var(--prim2); }
 .btn-outline { display: inline-block; background: white; color: var(--muted); padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; border: 1.5px solid var(--border); cursor: not-allowed; opacity: 0.55; }
 .btn-hint { font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
-.hero-card { background: white; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 32px 28px; text-align: center; }
-.hero-card img { width: 100%; max-width: 240px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 20px; }
-.hero-price { font-size: 2.2rem; font-weight: 700; color: var(--primary); letter-spacing: -0.02em; }
-.hero-price-sub { font-size: 0.8rem; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
-.hero-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 18px; }
+.hero-card { background: white; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px 24px 20px; text-align: center; }
+.hero-img-wrap { position: relative; display: inline-block; width: 100%; margin-bottom: 16px; }
+.hero-card img { width: 100%; border-radius: 10px; border: 1px solid var(--border); display: block; }
+.hero-stamp {
+  position: absolute; bottom: -14px; right: -10px;
+  background: var(--primary); color: white;
+  border-radius: 12px; padding: 10px 14px;
+  text-align: center; box-shadow: 0 4px 14px rgba(74,124,104,0.35);
+  min-width: 90px;
+}
+.hero-stamp-price { font-size: 1.6rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+.hero-stamp-sub { font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.85; margin-top: 3px; line-height: 1.3; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 20px 0 14px; }
 .tag { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: 0.75rem; font-weight: 600; color: var(--muted); }
 .hero-demo-link { display: block; font-size: 0.85rem; color: var(--primary); font-weight: 600; text-decoration: none; border-top: 1px solid var(--border); padding-top: 14px; }
 .hero-demo-link:hover { opacity: 0.75; }
@@ -172,9 +180,13 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     </div>
     <div class="hero-right">
       <div class="hero-card">
-        <img src="Screenshot - kassenwartpro.pythonanywhere.com.png" alt="Kassenwart Pro Haushaltsbuch Screenshot">
-        <div class="hero-price">15 &euro;</div>
-        <div class="hero-price-sub">einmalig &middot; f&#252;r immer</div>
+        <div class="hero-img-wrap">
+          <img src="Screenshot - kassenwartpro.pythonanywhere.com.png" alt="Kassenwart Pro Haushaltsbuch Screenshot">
+          <div class="hero-stamp">
+            <div class="hero-stamp-price">15 &euro;</div>
+            <div class="hero-stamp-sub">einmalig<br>f&#252;r immer</div>
+          </div>
+        </div>
         <div class="hero-tags">
           <span class="tag">Windows</span>
           <span class="tag">100 % offline</span>
@@ -239,7 +251,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
         <tbody id="compareBody"></tbody>
       </table>
       <div class="compare-seo">
-        <p><strong>Kassenwart Pro</strong> ist eine schlanke Alternative zu <strong>WISO Haushaltsbuch</strong>, <strong>Finanzguru</strong> und <strong>YNAB</strong>. Viele Haushaltsbuch-Programme kosten nicht nur mehr &#8212; sie bringen auch Features mit, die du nie anfasst. Kassenwart Pro macht das Gegenteil: nur was ein normaler Haushalt wirklich braucht, kein Lernaufwand, kein Preis f&#252;r Komplexit&#228;t die du nicht willst. Wer ein <strong>Haushaltsbuch offline f&#252;r Windows</strong> sucht &#8212; ohne Bankzugang, ohne Abo, ohne Jahreslizenz &#8212; findet in Kassenwart Pro eine direkte <strong>WISO Alternative</strong>, <strong>Finanzguru Alternative</strong> und <strong>YNAB Alternative</strong> f&#252;r einen einmaligen Preis.</p>
+        <p><strong>Kassenwart Pro</strong> ist eine schlanke Alternative zu <strong>WISO Haushaltsbuch</strong>, <strong>Finanzguru</strong> und <strong>YNAB</strong>. Viele Haushaltsbuch-Programme kosten nicht nur mehr &#8212; sie bringen auch Features mit, die im Regelfall nicht gebraucht werden. Kassenwart Pro macht das Gegenteil: nur was ein normaler Haushalt wirklich braucht, kein Lernaufwand, kein Preis f&#252;r zus&#228;tzliche Komplexit&#228;t. Wer ein <strong>Haushaltsbuch offline f&#252;r Windows</strong> sucht &#8212; ohne einen Account einrichten zu wollen, ohne Bankzugang, ohne Abo, ohne Jahreslizenz &#8212; findet in Kassenwart Pro eine direkte <strong>WISO Alternative</strong>, <strong>Finanzguru Alternative</strong> und <strong>YNAB Alternative</strong> f&#252;r einen einmaligen Preis.</p>
       </div>
     </div>
   </section>
