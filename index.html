@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kassenwart Pro &#8211; Haushaltsbuch f&#252;r den PC. Einmalig 15 &#8364;, komplett lokal, kein Abo, kein Bankzugang. Alternative zu WISO, Finanzguru und YNAB.">
+<meta name="description" content="Kassenwart Pro – Haushaltsbuch für den PC. Einmalig 15 €, komplett lokal, kein Abo, kein Bankzugang. Alternative zu WISO, Finanzguru und YNAB.">
 <meta name="robots" content="index, follow">
-<title>Kassenwart Pro &#183; Haushaltsbuch f&#252;r den PC</title>
+<title>Kassenwart Pro · Haushaltsbuch für den PC</title>
 <style>
 :root {
   --bg:      #e4ebe6;
@@ -36,8 +36,8 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .btn-primary { display: inline-block; background: var(--primary); color: white; padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: background 0.15s; }
 .btn-primary:hover { background: var(--prim2); }
-.btn-outline { display: inline-block; background: white; color: var(--muted); padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; border: 1.5px solid var(--border); cursor: not-allowed; opacity: 0.55; }
-.btn-hint { font-size: 0.75rem; color: var(--muted); margin-top: 8px; }
+.btn-buy { display: inline-block; background: var(--text); color: white; padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: background 0.15s; }
+.btn-buy:hover { background: #2a3a34; }
 .hero-card { background: white; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px 24px 20px; text-align: center; }
 .hero-img-wrap { position: relative; display: inline-block; width: 100%; margin-bottom: 16px; }
 .hero-card img { width: 100%; border-radius: 10px; border: 1px solid var(--border); display: block; }
@@ -68,14 +68,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 /* VERGLEICHS-SLIDER */
 .compare { padding: 0 0 72px; }
 .compare-inner { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 40px 40px 32px; }
-
-/* Header mit Titel links, Pfeile rechts */
-.compare-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 28px;
-}
+.compare-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
 .compare-header h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
 .compare-arrows { display: flex; gap: 8px; }
 .compare-arrow {
@@ -92,8 +85,6 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
   user-select: none;
 }
 .compare-arrow:hover { background: var(--primary); color: white; border-color: var(--primary); }
-
-/* Tabelle */
 .compare-table { width: 100%; border-collapse: collapse; }
 .compare-table thead th { padding: 10px 16px 14px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); text-align: center; border-bottom: 2px solid var(--border); }
 .compare-table thead th.col-feature { text-align: left; width: 44%; }
@@ -164,27 +155,26 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
   <!-- 1. HERO -->
   <section class="hero">
     <div class="hero-left">
-      <div class="hero-eyebrow">F&#252;r Windows &middot; Offline &middot; Einmalkauf</div>
+      <div class="hero-eyebrow">Für Windows · Offline · Einmalkauf</div>
       <h1>Endlich wissen,<br>wo das Geld bleibt.</h1>
-      <p class="hero-sub">Kassenwart Pro ist ein &#252;bersichtliches Haushaltsbuch f&#252;r den PC &#8212; ohne Abo, ohne Bankzugang, ohne Cloud. Einmal kaufen, sofort loslegen.</p>
+      <p class="hero-sub">Kassenwart Pro ist ein übersichtliches Haushaltsbuch für den PC — ohne Abo, ohne Bankzugang, ohne Cloud. Einmal kaufen, sofort loslegen.</p>
       <ul class="hero-bullets">
-        <li>Einnahmen, Ausgaben, R&#252;cklagen und Budgets auf einen Blick</li>
-        <li>Deine Daten bleiben lokal auf deinem PC &#8212; kein Account n&#246;tig</li>
-        <li>15 &euro; einmalig. Kein Abo, keine Folgekosten.</li>
+        <li>Einnahmen, Ausgaben, Rücklagen und Budgets auf einen Blick</li>
+        <li>Alle Daten bleiben lokal auf dem PC — kein Account nötig</li>
+        <li>15 € einmalig. Kein Abo, keine Folgekosten.</li>
       </ul>
       <div class="hero-actions">
+        <a href="https://buy.stripe.com/test_5kQ7sLdM1eoW04c1gmeEo00" class="btn-buy">Jetzt kaufen · 15 €</a>
         <a href="https://kassenwartpro.pythonanywhere.com/" target="_blank" class="btn-primary">Demo ansehen</a>
-        <a href="#" class="btn-outline" title="Kaufoption folgt in K&#252;rze">Jetzt kaufen</a>
       </div>
-      <p class="btn-hint">Kauf wird in K&#252;rze freigeschaltet.</p>
     </div>
     <div class="hero-right">
       <div class="hero-card">
         <div class="hero-img-wrap">
           <img src="Screenshot - kassenwartpro.pythonanywhere.com.png" alt="Kassenwart Pro Haushaltsbuch Screenshot">
           <div class="hero-stamp">
-            <div class="hero-stamp-price">15 &euro;</div>
-            <div class="hero-stamp-sub">einmalig<br>f&#252;r immer</div>
+            <div class="hero-stamp-price">15 €</div>
+            <div class="hero-stamp-sub">einmalig<br>für immer</div>
           </div>
         </div>
         <div class="hero-tags">
@@ -193,7 +183,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
           <span class="tag">Kein Abo</span>
           <span class="tag">Deutsch</span>
         </div>
-        <a href="https://kassenwartpro.pythonanywhere.com/" target="_blank" class="hero-demo-link">&#8594; Demo ausprobieren</a>
+        <a href="https://kassenwartpro.pythonanywhere.com/" target="_blank" class="hero-demo-link">→ Demo ausprobieren</a>
       </div>
     </div>
   </section>
@@ -206,24 +196,24 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     <h2 class="section-title">Alles was ein Haushalt braucht.</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <span class="feature-icon">&#128274;</span>
+        <span class="feature-icon">🔒</span>
         <h3>100 % offline &amp; privat</h3>
-        <p>Deine Finanzdaten verlassen nie deinen Rechner. Kein Account, kein Cloud-Sync, kein Tracking.</p>
+        <p>Finanzdaten verlassen nie den Rechner. Kein Account, kein Cloud-Sync, kein Tracking.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">&#127968;</span>
-        <h3>Notgroschen &amp; R&#252;cklagen im Blick</h3>
-        <p>Fortschrittsbalken, Sparziele und Unterpositionen &#8212; du siehst sofort wie weit du bist.</p>
+        <span class="feature-icon">🏠</span>
+        <h3>Notgroschen &amp; Rücklagen im Blick</h3>
+        <p>Fortschrittsbalken, Sparziele und Unterpositionen — sofort sehen wie weit es noch ist.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">&#128203;</span>
+        <span class="feature-icon">📋</span>
         <h3>Fixkosten mit einem Klick</h3>
-        <p>Hinterlege wiederkehrende Buchungen einmal. Am Monatsanfang mit einem Klick &#252;bernehmen.</p>
+        <p>Wiederkehrende Buchungen einmal hinterlegen. Am Monatsanfang mit einem Klick übernehmen.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">&#127919;</span>
+        <span class="feature-icon">🎯</span>
         <h3>Kein Feature-Overkill</h3>
-        <p>Nur die Features die ein normaler Haushalt wirklich braucht. Kein Lernaufwand, kein Preis f&#252;r Komplexit&#228;t die du nicht willst.</p>
+        <p>Nur die Features die ein normaler Haushalt wirklich braucht. Kein Lernaufwand, kein Preis für Komplexität.</p>
       </div>
     </div>
   </section>
@@ -236,8 +226,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       <div class="compare-header">
         <h2>Kassenwart Pro im Vergleich.</h2>
         <div class="compare-arrows">
-          <button class="compare-arrow" onclick="sliderPrev()" title="Zur&#252;ck">&#8592;</button>
-          <button class="compare-arrow" onclick="sliderNext()" title="Weiter">&#8594;</button>
+          <button class="compare-arrow" onclick="sliderPrev()" title="Zurück">←</button>
+          <button class="compare-arrow" onclick="sliderNext()" title="Weiter">→</button>
         </div>
       </div>
       <table class="compare-table">
@@ -251,7 +241,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
         <tbody id="compareBody"></tbody>
       </table>
       <div class="compare-seo">
-        <p><strong>Kassenwart Pro</strong> ist eine schlanke Alternative zu <strong>WISO Haushaltsbuch</strong>, <strong>Finanzguru</strong> und <strong>YNAB</strong>. Viele Haushaltsbuch-Programme kosten nicht nur mehr &#8212; sie bringen auch Features mit, die im Regelfall nicht gebraucht werden. Kassenwart Pro macht das Gegenteil: nur was ein normaler Haushalt wirklich braucht, kein Lernaufwand, kein Preis f&#252;r zus&#228;tzliche Komplexit&#228;t. Wer ein <strong>Haushaltsbuch offline f&#252;r Windows</strong> sucht &#8212; ohne einen Account einrichten zu wollen, ohne Bankzugang, ohne Abo, ohne Jahreslizenz &#8212; findet in Kassenwart Pro eine direkte <strong>WISO Alternative</strong>, <strong>Finanzguru Alternative</strong> und <strong>YNAB Alternative</strong> f&#252;r einen einmaligen Preis.</p>
+        <p><strong>Kassenwart Pro</strong> ist eine schlanke Alternative zu <strong>WISO Haushaltsbuch</strong>, <strong>Finanzguru</strong> und <strong>YNAB</strong>. Viele Haushaltsbuch-Programme kosten nicht nur mehr — sie bringen auch Features mit, die im Regelfall nicht gebraucht werden. Kassenwart Pro macht das Gegenteil: nur was ein normaler Haushalt wirklich braucht, kein Lernaufwand, kein Preis für zusätzliche Komplexität. Wer ein <strong>Haushaltsbuch offline für Windows</strong> sucht — ohne einen Account einrichten zu wollen, ohne Bankzugang, ohne Abo, ohne Jahreslizenz — findet in Kassenwart Pro eine direkte <strong>WISO Alternative</strong>, <strong>Finanzguru Alternative</strong> und <strong>YNAB Alternative</strong> für einen einmaligen Preis.</p>
       </div>
     </div>
   </section>
@@ -266,17 +256,17 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
         <div>
           <div class="step-num">1</div>
           <h4>Kaufen &amp; herunterladen</h4>
-          <p>Nach dem Kauf erh&#228;ltst du sofort eine E-Mail mit Lizenzcode und Download-Link.</p>
+          <p>Nach dem Kauf kommt sofort eine E-Mail mit Lizenzcode und Download-Link.</p>
         </div>
         <div>
           <div class="step-num">2</div>
           <h4>Lizenzcode eingeben</h4>
-          <p>Programm starten, Code eingeben &#8212; fertig. L&#228;uft komplett lokal auf deinem PC.</p>
+          <p>Programm starten, Code eingeben — fertig. Läuft komplett lokal auf dem PC.</p>
         </div>
         <div>
           <div class="step-num">3</div>
           <h4>Loslegen</h4>
-          <p>Kategorien anpassen, erste Buchungen eintragen, &#220;berblick haben. Kein Einrichtungsaufwand.</p>
+          <p>Kategorien anpassen, erste Buchungen eintragen, Überblick haben. Kein Einrichtungsaufwand.</p>
         </div>
       </div>
     </div>
@@ -287,7 +277,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <p class="footer-copy">Kassenwart Pro &copy; 2026 &middot; Simon &middot; Wetzlar, Hessen</p>
+      <p class="footer-copy">Kassenwart Pro © 2026 · Simon Bellviure Bigas · Leun</p>
       <div class="footer-links">
         <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank">GitHub</a>
         <a href="impressum.html">Impressum</a>
@@ -300,31 +290,31 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 <script>
 var competitors=[
   {name:"WISO 2026",rows:[
-    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">15 &euro; einmalig</span>',comp:'<span class="c-price-comp">~20 &euro;/Jahr</span>'},
-    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf n\u00f6tig",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-warn">&#9888; Jahreslizenz</span>'},
-    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-warn">&#9888; Online-Pflicht</span>'},
-    {feature:"Kein Bankzugang n\u00f6tig",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-yes">&#10003;</span>'},
-    {feature:"Deutsch",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-yes">&#10003;</span>'},
-    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-yes">&#10003;</span>'},
-    {feature:"Kein Feature-Overkill",hint:"nur was du wirklich nutzt",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-no">&#10007;</span>'}
+    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">15 € einmalig</span>',comp:'<span class="c-price-comp">~20 €/Jahr</span>'},
+    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf nötig",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ Jahreslizenz</span>'},
+    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ Online-Pflicht</span>'},
+    {feature:"Kein Bankzugang nötig",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-yes">✓</span>'},
+    {feature:"Deutsch",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-yes">✓</span>'},
+    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-yes">✓</span>'},
+    {feature:"Kein Feature-Overkill",hint:"nur was wirklich genutzt wird",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'}
   ]},
   {name:"Finanzguru",rows:[
-    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">15 &euro; einmalig</span>',comp:'<span class="c-price-comp">kostenlos / 2,99 &euro;/Mo.</span>'},
-    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf n\u00f6tig",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-no">&#10007;</span>'},
-    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-no">&#10007;</span>'},
-    {feature:"Kein Bankzugang n\u00f6tig",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-warn">&#9888; Pflicht</span>'},
-    {feature:"Deutsch",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-yes">&#10003;</span>'},
-    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-no">&#10007; Cloud</span>'},
-    {feature:"Kein Feature-Overkill",hint:"nur was du wirklich nutzt",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-no">&#10007;</span>'}
+    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">15 € einmalig</span>',comp:'<span class="c-price-comp">kostenlos / 2,99 €/Mo.</span>'},
+    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf nötig",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Kein Bankzugang nötig",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ Pflicht</span>'},
+    {feature:"Deutsch",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-yes">✓</span>'},
+    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ Cloud</span>'},
+    {feature:"Kein Feature-Overkill",hint:"nur was wirklich genutzt wird",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'}
   ]},
   {name:"YNAB",rows:[
-    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">15 &euro; einmalig</span>',comp:'<span class="c-price-comp">~109 USD/Jahr</span>'},
-    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf n\u00f6tig",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-no">&#10007;</span>'},
-    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-no">&#10007;</span>'},
-    {feature:"Kein Bankzugang n\u00f6tig",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-warn">&#9888; optional</span>'},
-    {feature:"Deutsch",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-no">&#10007; nur Englisch</span>'},
-    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-no">&#10007; Cloud/USA</span>'},
-    {feature:"Kein Feature-Overkill",hint:"nur was du wirklich nutzt",kp:'<span class="c-yes">&#10003;</span>',comp:'<span class="c-no">&#10007;</span>'}
+    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">15 € einmalig</span>',comp:'<span class="c-price-comp">~109 USD/Jahr</span>'},
+    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf nötig",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Kein Bankzugang nötig",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ optional</span>'},
+    {feature:"Deutsch",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ nur Englisch</span>'},
+    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ Cloud/USA</span>'},
+    {feature:"Kein Feature-Overkill",hint:"nur was wirklich genutzt wird",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'}
   ]}
 ];
 var idx=0;
