@@ -22,7 +22,9 @@ body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg);
 .container { max-width: 1080px; margin: auto; padding: 0 24px; }
 nav { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
 .nav-logo { font-size: 2.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-.nav-links { display: none; }
+.nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+.nav-links a { font-size: 0.88rem; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.nav-links a:hover { color: var(--primary); }
 hr.divider { border: none; border-top: 1px solid var(--border); }
 
 /* HERO */
@@ -54,6 +56,16 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .tag { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: 0.75rem; font-weight: 600; color: var(--muted); }
 .hero-demo-link { display: block; font-size: 0.85rem; color: var(--primary); font-weight: 600; text-decoration: none; border-top: 1px solid var(--border); padding-top: 14px; }
 .hero-demo-link:hover { opacity: 0.75; }
+.hero-sub-link { display: block; font-size: 0.8rem; color: var(--muted); font-weight: 600; text-decoration: none; padding-top: 6px; }
+.hero-sub-link:hover { color: var(--primary); }
+
+/* TRUST-STRIP */
+.trust-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 32px 0; }
+.trust-strip a { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; transition: border-color 0.15s, box-shadow 0.15s; }
+.trust-strip a:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+.trust-icon { font-size: 1.3rem; margin-bottom: 8px; }
+.trust-label { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.trust-sub { font-size: 0.76rem; color: var(--muted); line-height: 1.4; }
 
 /* FEATURES */
 .features { padding: 72px 0; }
@@ -132,7 +144,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
   .how-steps { grid-template-columns: 1fr; }
   .how-inner { padding: 28px 20px; }
   .compare-inner { padding: 24px 16px; }
-  .nav-links { display: none; }
+  .trust-strip { grid-template-columns: 1fr; }
+  .nav-links { gap: 16px; }
 }
 </style>
 </head>
@@ -140,9 +153,10 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 
 <div class="container">
   <nav>
-    <a href="/" class="nav-logo">Kassenwart Pro</a>
+    <a href="index.html" class="nav-logo">Kassenwart Pro</a>
     <ul class="nav-links">
-      <li><a href="https://kassenwartpro.pythonanywhere.com/" target="_blank">Demo ansehen</a></li>
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="transparenz.html">Transparenz</a></li>
       <li><a href="impressum.html">Impressum</a></li>
     </ul>
   </nav>
@@ -184,11 +198,31 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
           <span class="tag">Deutsch</span>
         </div>
         <a href="https://kassenwartpro.pythonanywhere.com/" target="_blank" class="hero-demo-link">→ Demo ausprobieren</a>
+        <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro/blob/main/KassenwartPro_Kurzanleitung.pdf" target="_blank" class="hero-sub-link">→ Kurzanleitung (PDF)</a>
       </div>
     </div>
   </section>
 
   <hr class="divider">
+
+  <!-- TRUST-STREIFEN -->
+  <section class="trust-strip">
+    <a href="transparenz.html">
+      <span class="trust-icon">🔒</span>
+      <span class="trust-label">SHA256-geprüft</span>
+      <span class="trust-sub">Datei-Integrität verifizieren</span>
+    </a>
+    <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro/blob/main/KassenwartPro_Kurzanleitung.pdf" target="_blank">
+      <span class="trust-icon">📄</span>
+      <span class="trust-label">Kurzanleitung</span>
+      <span class="trust-sub">Installation & Bedienung (PDF)</span>
+    </a>
+    <a href="transparenz.html#smartscreen">
+      <span class="trust-icon">🛡️</span>
+      <span class="trust-label">SmartScreen-Info</span>
+      <span class="trust-sub">Windows-Warnung einordnen</span>
+    </a>
+  </section>
 
   <!-- 2. WAS DRIN IST -->
   <section class="features">
@@ -280,6 +314,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       <p class="footer-copy">Kassenwart Pro © 2026 · Simon Bellviure Bigas · Leun</p>
       <div class="footer-links">
         <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank">GitHub</a>
+        <a href="transparenz.html">Transparenz</a>
         <a href="impressum.html">Impressum</a>
         <a href="impressum.html#datenschutz">Datenschutz</a>
       </div>
