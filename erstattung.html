@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Erstattung · Kassenwart Pro</title>
+<style>
+:root {
+  --bg:      #e4ebe6;
+  --card:    #ffffff;
+  --primary: #4a7c68;
+  --prim2:   #3a6355;
+  --text:    #1a2a24;
+  --muted:   #6b8278;
+  --border:  #cdd8d2;
+  --red:     #c0392b;
+  --shadow:  0 4px 24px rgba(0,0,0,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1080px; margin: auto; padding: 0 24px; }
+nav { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-size: 2.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+.nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+.nav-links a { font-size: 0.88rem; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.nav-links a:hover { color: var(--primary); }
+hr.divider { border: none; border-top: 1px solid var(--border); }
+footer { border-top: 1px solid var(--border); padding: 32px 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-copy { font-size: 0.82rem; color: var(--muted); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--primary); }
+
+.refund-wrap { max-width: 520px; margin: 60px auto 80px; }
+.refund-card { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 36px; text-align: center; }
+.refund-card h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+.refund-card p { font-size: 0.92rem; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+.refund-warning { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 14px 18px; font-size: 0.85rem; color: #856404; margin: 20px 0; text-align: left; line-height: 1.6; }
+.btn-refund { display: inline-block; background: var(--red); color: white; padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.15s; margin: 8px; }
+.btn-refund:hover { opacity: 0.85; }
+.btn-refund:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-cancel { display: inline-block; background: #95a5a6; color: white; padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: opacity 0.15s; margin: 8px; }
+.btn-cancel:hover { opacity: 0.85; }
+
+.status-spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid #ddd; border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.result-success { background: #e8f5e9; border: 1px solid var(--primary); border-radius: 8px; padding: 20px; margin-top: 20px; text-align: left; }
+.result-success h3 { color: var(--primary); margin-bottom: 8px; font-size: 1rem; }
+.result-success p { font-size: 0.88rem; color: var(--text); margin: 0; line-height: 1.6; }
+
+.result-error { background: #fdecea; border: 1px solid var(--red); border-radius: 8px; padding: 20px; margin-top: 20px; text-align: left; }
+.result-error h3 { color: var(--red); margin-bottom: 8px; font-size: 1rem; }
+.result-error p { font-size: 0.88rem; color: var(--text); margin: 0; line-height: 1.6; }
+.result-error a { color: var(--primary); }
+
+/* View states */
+.view { display: none; }
+.view.active { display: block; }
+
+@media (max-width: 780px) {
+  .refund-wrap { margin: 40px auto 60px; }
+  .refund-card { padding: 24px 20px; }
+  .nav-links { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <nav>
+    <a href="index.html" class="nav-logo">Kassenwart Pro</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="transparenz.html">Transparenz</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+  </nav>
+</div>
+
+<hr class="divider">
+
+<div class="container">
+  <div class="refund-wrap">
+
+    <!-- ZUSTAND 1: Kein Token -->
+    <div class="refund-card view" id="viewNoToken">
+      <h2>Ungültiger Link</h2>
+      <p>Dieser Link enthält keinen gültigen Erstattungs-Token. Bitte den Link aus der Kauf-E-Mail verwenden.</p>
+      <p>Bei Fragen: <a href="mailto:info@kassenwartpro.de" style="color:var(--primary);">info@kassenwartpro.de</a></p>
+    </div>
+
+    <!-- ZUSTAND 2: Bestätigung -->
+    <div class="refund-card view" id="viewConfirm">
+      <h2>Erstattung anfordern?</h2>
+      <p>Die Erstattung für Kassenwart Pro kann hier angefordert werden.</p>
+      <div class="refund-warning">&#9888; Nach der Erstattung wird die Lizenz deaktiviert und das Programm kann nicht mehr verwendet werden.</div>
+      <div>
+        <button class="btn-refund" id="btnConfirm" onclick="submitRefund()">Ja, Erstattung anfordern</button>
+        <a href="https://kassenwartpro.de" class="btn-cancel">Abbrechen</a>
+      </div>
+    </div>
+
+    <!-- ZUSTAND 3: Wird verarbeitet -->
+    <div class="refund-card view" id="viewLoading">
+      <h2><span class="status-spinner"></span> Wird verarbeitet...</h2>
+      <p>Die Anfrage wird übermittelt. Bitte das Fenster nicht schließen.</p>
+    </div>
+
+    <!-- ZUSTAND 4: Erfolg -->
+    <div class="refund-card view" id="viewSuccess">
+      <h2>&#10003; Erstattungsanfrage gesendet</h2>
+      <div class="result-success">
+        <h3>Was passiert jetzt?</h3>
+        <p>Die Anfrage wurde übermittelt und wird schnellstmöglich bearbeitet. Sobald die Erstattung durchgeführt wurde, kommt eine Bestätigung per E-Mail.</p>
+        <p style="margin-top:10px;">Der Betrag wird je nach Zahlungsanbieter innerhalb von 5–10 Werktagen gutgeschrieben.</p>
+      </div>
+    </div>
+
+    <!-- ZUSTAND 5: Fehler -->
+    <div class="refund-card view" id="viewError">
+      <h2>Etwas ist schiefgelaufen</h2>
+      <div class="result-error">
+        <h3>Anfrage konnte nicht übermittelt werden</h3>
+        <p>Bitte erneut versuchen oder direkt Kontakt aufnehmen: <a href="mailto:info@kassenwartpro.de">info@kassenwartpro.de</a></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <p class="footer-copy">Kassenwart Pro &copy; 2026 &middot; Simon Bellviure Bigas &middot; Leun</p>
+      <div class="footer-links">
+        <a href="index.html">Startseite</a>
+        <a href="transparenz.html">Transparenz</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="impressum.html#datenschutz">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Hidden iframe for Apps Script call -->
+<iframe id="scriptFrame" style="display:none;" name="scriptFrame"></iframe>
+
+<script>
+// ============================================================
+// DIESE URL NACH DEM DEPLOY ANPASSEN:
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_OEPXdoGqJiKgjyW07WY7E08k55A7gM57H62COT3FrxLgS8xNvi2Wqzs0e6V0WptsIQ/exec";
+// ============================================================
+
+var token = new URLSearchParams(window.location.search).get("token") || "";
+
+function showView(id) {
+  document.querySelectorAll(".view").forEach(function(el) { el.classList.remove("active"); });
+  document.getElementById(id).classList.add("active");
+}
+
+// Initialzustand
+if (!token) {
+  showView("viewNoToken");
+} else {
+  showView("viewConfirm");
+}
+
+function submitRefund() {
+  var btn = document.getElementById("btnConfirm");
+  btn.disabled = true;
+  showView("viewLoading");
+
+  // Apps Script im hidden iframe aufrufen
+  var url = SCRIPT_URL + "?refund=" + encodeURIComponent(token) + "&confirm=yes";
+  var frame = document.getElementById("scriptFrame");
+
+  // Timeout: nach 8 Sekunden Erfolg anzeigen (Server hat verarbeitet)
+  var timeout = setTimeout(function() {
+    showView("viewSuccess");
+  }, 8000);
+
+  // Iframe load = Server hat geantwortet
+  frame.onload = function() {
+    clearTimeout(timeout);
+    showView("viewSuccess");
+  };
+
+  frame.onerror = function() {
+    clearTimeout(timeout);
+    showView("viewError");
+  };
+
+  frame.src = url;
+}
+</script>
+
+</body>
+</html>
