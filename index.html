@@ -1,304 +1,22 @@
-
-Haushaltsbuch
-/
-
-Deine Landingpage für das selbstprogrammierte Haushaltsbudget-Datei ist schon technisch top – perfekt! Jetzt geht’s um SEO, also die organische Auffindbarkeit bei Google & Co. Ich gebe dir einen klaren, praxisnahen Überblick: Was du alles beachten musst, welche Tools du für welche Keywords nutzt, wi
-
-pasted
-
-Unsere landing Page muss geprüft werden.
-
-Ist diese antwort richtig? Dann brauchen wir Anpassungen
-
-15:26
-
-Analysierte HTML-Struktur und Meta-Daten der Landingpage
-Analysierte HTML-Struktur und Meta-Daten der Landingpage
-Jetzt prüfe ich den Quelltext auf die technischen Meta-Tags:
-
-
-Analysierte SEO-Defizite und priorisierte notwendige Verbesserungen
-Analysierte SEO-Defizite und priorisierte notwendige Verbesserungen
-Gut. Hier ist der Befund — was stimmt, was fehlt, was wir ändern müssen.
-
-Was bereits korrekt ist:
-
-<meta name="description"> vorhanden, ~145 Zeichen ✓
-lang="de", viewport, robots index/follow ✓
-H1 vorhanden, Alt-Text am Screenshot ✓
-Keyword-Text im Vergleichsblock (WISO/Finanzguru/YNAB-Alternativen) ✓
-Trustpilot-Widget eingebunden ✓
-Was fehlt — nach Priorität:
-
-1. Schema-Markup (JSON-LD) — fehlt komplett. Das ist das Wichtigste. Ohne SoftwareApplication + Offer-Schema zeigt Google keinen Preis, keine Bewertungssterne in den Suchergebnissen.
-
-2. FAQ-Sektion — fehlt. Direkt relevant für KI-Suche (Google AI Overviews, Perplexity). 4–5 Fragen würden reichen.
-
-3. Canonical-Tag — fehlt. <link rel="canonical" href="https://kassenwartpro.de/"> verhindert Duplicate-Content-Probleme zwischen / und /index.html.
-
-4. Open Graph Tags — fehlen. Kein Bild, kein Titel wenn jemand die Seite teilt.
-
-5. Title-Tag könnte schärfer sein. Aktuell: Kassenwart Pro · Haushaltsbuch für den PC — kein transaktionales Signal. Besser: Kassenwart Pro – Haushaltsbuch für Windows kaufen | 15 € einmalig
-
-Soll ich direkt die index.html mit allen fünf Punkten liefern? Ich bräuchte dafür den aktuellen Stand der Datei — entweder hochladen oder ich baue auf dem gefetchten Inhalt auf.
-
-
-<!DOCTYPE html> <html lang="de"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="description" content="Kassenwart Pro – Haushaltsbuch für den PC. Einmalig 15 €, komplett lokal, kein Abo, kein Bankzugang. Alternative zu WISO, Finanzguru
-
-pasted
-
-Ja, mach mal hier im Chat eine Beispielseite, wie es optimiert aussieht. Ich hab es nicht gelesen oder verstanden, ob wir jetzt auch so ein Format haben, das bei jedem Handy, Mobilfunk auf gut aussieht. Das sollte natürlich dabei sein. Hier hast Du den Code, leg mal los und dann gehen wir hier im Chat die Möglichkeiten und die Visualisierung einfach durch.
-
-16:39
-
-Orchestrierte SEO-Optimierungen und mobile Responsivität für Landingpage-Vorschau
-Orchestrierte SEO-Optimierungen und mobile Responsivität für Landingpage-Vorschau
-Hier die Vorschau. Was wurde geändert und warum:
-
-SEO-Änderungen (unsichtbar im <head>):
-
-Title neu: Kassenwart Pro – Haushaltsbuch für Windows kaufen | 15 € einmalig — Keyword und transaktionales Signal jetzt vorn
-Canonical-Tag hinzugefügt — verhindert dass Google / und /index.html als Duplikat wertet
-Open Graph komplett neu — beim Teilen via WhatsApp, LinkedIn etc. erscheint jetzt Bild + Titel korrekt
-Schema-Markup JSON-LD (SoftwareApplication + Offer) — Voraussetzung für Preis-Snippet in Google
-FAQ-Schema zusätzlich — direkte Antworten in Google AI Overviews möglich
-Sichtbare Änderungen:
-
-FAQ-Sektion neu am Ende — Accordion, 5 Fragen, funktioniert auf Mobile per Tap
-Nav-Kaufen-Button auf Desktop sichtbar — auf Mobile reduziert sich die Nav automatisch auf nur diesen Button
-Mobile: Buttons auf sehr kleinen Bildschirmen (<420px) stacken vertikal und gehen auf volle Breite
-Schau dir das in der Vorschau an — sieht die FAQ gut aus, oder soll die anders positioniert werden?
-
-
-Index optimized
-Code · HTML 
-IMG_2367.png
-IMG_2366.png
-Wir müssen an den Farbauswahlen etwas arbeiten, weil siehe den Fotos bei dunklem Hintergrund der Kontrast ganz ganz schlecht zum Tragen kommt. Und die Slides haben jetzt über meinem Handy zumindest mal nicht funktioniert. Jetzt code mal nicht sondern bloß ein feedback
-
-16:53
-
-Identifizierte Kontrastprobleme und fehlerhafte Mobile-Funktionalität
-Identifizierte Kontrastprobleme und fehlerhafte Mobile-Funktionalität
-Zwei klare Probleme, bevor wir coden:
-
-Problem 1: Dark Mode Kontrast
-
-Das ist kein Design-Fehler, sondern ein technisches Versäumnis. Der Browser auf deinem iPhone läuft im Dark Mode — und die Seite hat keine prefers-color-scheme: dark Anweisung und auch kein <meta name="color-scheme" content="light">. Der Browser übernimmt dann eigenmächtig die Hintergrundfarbe (dunkel), aber die Text- und Hintergrundfarben aus dem CSS (dunkelgrün auf hellgrün gedacht) bleiben unverändert — Ergebnis: dunkelgrüner Text auf schwarzem Hintergrund, kaum lesbar. Fix: Ein einzelnes Meta-Tag zwingt den Browser, die Seite immer als Light-Mode zu rendern. Das ist für eine Produktseite dieser Art die richtige Entscheidung — kein Dark Mode nötig.
-
-Problem 2: Slider funktioniert nicht auf Mobile
-
-Der Slider läuft über onclick auf den Buttons. Auf Mobile ist onclick an sich kein Problem, aber die Buttons sind klein (40×40px) und die Touch-Zielfläche reicht nicht zuverlässig. Dazu kommt: der Vergleichs-Block hat auf Mobile overflow-x: auto + min-width: 460px auf der Tabelle — es ist möglich, dass der Tap auf den Button als Scroll-Intent interpretiert wird und der Click-Event gar nicht feuert. Fix: Buttons größer machen, Touch-Events explizit behandeln, und die Tabelle auf Mobile anders darstellen (kein horizontales Scroll, stattdessen gestapelte Ansicht).
-
-Fazit für den nächsten Code-Schritt:
-
-<meta name="color-scheme" content="light"> in den Head
-Slider-Buttons auf Mobile vergrößern + Touch-Events absichern
-Vergleichstabelle auf Mobile umstrukturieren (kein overflow-x)
-Soll ich das alles in einem Rutsch beheben?
-
-Ja, genauso wie gerade eben schön für mich hier im Chat zum Angucken.
-
-16:54
-
-Orchestrated HTML fixes für mobile Ansicht und Benutzerfreundlichkeit
-Orchestrated HTML fixes für mobile Ansicht und Benutzerfreundlichkeit
-Jetzt das Mobile-Card-HTML nach der Tabelle einfügen und das JS erweitern:
-
-
-2 Dateien bearbeitet
-2 Dateien bearbeitet
-Jetzt die Slider-Buttons auf Touch absichern:
-
-
-3 Dateien bearbeitet, datei lesen
-3 Dateien bearbeitet, datei lesen
-Die drei Fixes drin:
-
-1. Dark Mode — <meta name="color-scheme" content="light"> zwingt den Browser, die Seite immer hell zu rendern, egal was das Handy-System eingestellt hat. Sofort wirksam.
-
-2. Slider auf Mobile — Buttons haben jetzt touchend-Events zusätzlich zu click, und preventDefault() stoppt den Browser daran, den Tap als Scroll zu interpretieren. Buttons sind auf Mobile auch auf 48×48px vergrößert.
-
-3. Vergleichstabelle auf Mobile — Die Tabelle ist auf kleinen Screens komplett ausgeblendet. Stattdessen erscheint ein Card-Layout: Kassenwart Pro links, Konkurrent rechts, zeilenweise mit Label darüber. Kein horizontales Scrollen mehr.
-
-Schick mir wieder ein Screenshot wenn's passt — dann machen wir aus dem Stand die echte index.html daraus.
-
-
-Index optimized
-Code · HTML 
-Ich hab immer noch die gleichen Kontrast Probleme, also schwarzer Hintergrund habe gezogen. Konnte ich jetzt keinen Unterschied feststellen. Bei dem Vergleich wird jetzt als erstes Fenster der Text angezeigt mit 2 Pfeilen. Die 2 Pfeilen kann ich aber nicht bewegen. Als Erstes sollte auf jeden Fall ein Vergleich vom ersten Vergleichskonkurrenten dastehen und der Text ganz am Ende.
-
-16:56
-
-Identifizierte drei Probleme: Dunkelmodus-Kontrast, Schieberegler-Reihenfolge und fehlerhafte Schaltflächen
-Identifizierte drei Probleme: Dunkelmodus-Kontrast, Schieberegler-Reihenfolge und fehlerhafte Schaltflächen
-Erst reden, dann coden — zwei Diagnosen:
-
-Dark Mode: Das color-scheme Meta-Tag allein reicht nicht. Safari Mobile ignoriert es in bestimmten Kontexten (File-Preview, In-App-Browser). Die Lösung ist eine explizite @media (prefers-color-scheme: dark) CSS-Regel, die alle Farb-Variablen hart zurücksetzt. Damit wird dem Browser aktiv gesagt: "Nein, mach hier keinen Dark Mode."
-
-Slider: Zwei Probleme auf einmal. Erstens: Die Reihenfolge im HTML ist tatsächlich falsch — der SEO-Text steht im Code vor compare-mobile, also rendert er oben. Zweitens: Die Event-Listener werden per getElementById gesetzt, aber das Script läuft bevor das DOM fertig ist — btnNext wird nicht gefunden, kein Event, kein Klick. Fix: DOMContentLoaded + Reihenfolge im HTML tauschen (Tabelle/Cards zuerst, SEO-Text danach).
-
-Jetzt codiere ich alles sauber neu in einem Rutsch.
-
-
-Identifizierte drei Probleme und plante systematische Lösungen dafür
-Identifizierte drei Probleme und plante systematische Lösungen dafür
-Klar. Alle drei Fixes in einem Durchgang:
-
-
-2 Dateien bearbeitet
-2 Dateien bearbeitet
-Jetzt schaue ich, wo genau der SEO-Text noch im alten compare-inner Block steht und entferne das Duplikat:
-
-
-Identifizierte HTML-Fehler und Event-Listener-Probleme zur Behebung
-Identifizierte HTML-Fehler und Event-Listener-Probleme zur Behebung
-Da ist noch ein verwaistes </div></section> von einer alten Iteration. Und jetzt der DOMContentLoaded Fix für die Buttons:
-
-
-2 Dateien bearbeitet, datei lesen
-2 Dateien bearbeitet, datei lesen
-Was jetzt anders ist:
-
-Dark Mode — color-scheme: light jetzt in :root CSS statt nur im Meta-Tag, plus expliziter @media (prefers-color-scheme: dark) Block der alle Farb-Variablen und html/body hart auf die hellen Werte zwingt. Das ist die zuverlässigste Methode.
-
-Slider Reihenfolge — Tabelle und Mobile-Cards stehen jetzt im HTML vor dem SEO-Text. Beim Öffnen ist sofort WISO 2026 sichtbar, der Text kommt am Ende.
-
-Slider Buttons — DOMContentLoaded sorgt dafür, dass die Event-Listener erst gesetzt werden wenn die Buttons tatsächlich im DOM existieren. Außerdem war ein verwaistes </section> im Markup das den DOM-Baum verbogen hat — das ist auch raus.
-
-Schick wieder einen Screenshot.
-
-
-Index optimized
-Code · HTML 
-die drei kacheln Sha256 geprüft - kurzanleitung und Smaart Scrren info
-mit dem ganzen KAchelblock unterhalb "alles was der ein haushalt braucht" tauschen.
-
-trustpilot anzeieg solle noch im hero unter dem screenshoot platziert werden.
-
-in der mobile versin (also der anzeieg) der Vergleiche: start mit dem vergleich - der text als letztes
-
-19:05
-
-Orchestrierte drei Layout-Umstrukturierungen für Seitenelemente
-Orchestrierte drei Layout-Umstrukturierungen für Seitenelemente
-Alles klar, drei Änderungen auf einmal:
-
-
-Move Trustpilot into hero-card under screenshot, reorder features before trust-strip, remove old trustpilot placement
-Move Trustpilot into hero-card under screenshot, reorder features before trust-strip, remove old trustpilot placement
-Jetzt noch den <hr> nach Trust-Strip und den Vergleichs-Abstand anpassen:
-
-
-Hat eine Datei bearbeitet, hat einen Befehl ausgeführt, datei angesehen
-Hat eine Datei bearbeitet, hat einen Befehl ausgeführt, datei angesehen
-Gut — Reihenfolge stimmt, nur fehlt noch ein <hr> + Abstand zwischen Trust-Strip und Vergleich:
-
-
-Hat eine Datei bearbeitet, datei lesen
-Hat eine Datei bearbeitet, datei lesen
-Neue Reihenfolge auf der Seite:
-
-Hero (Screenshot + Trustpilot darunter im Card)
-Features — „Alles was ein Haushalt braucht"
-Trust-Strip — SHA256 / Kurzanleitung / SmartScreen
-Vergleich
-Drei Schritte
-FAQ
-Schick wieder Screenshots wenn's passt.
-
-
-Index optimized
-Code · HTML 
-tausche die drei kacheln von vorhin weiter nach unten mit dem vergelich
-
-19:19
-
-Thinking about concerns with this request
-Thinking about concerns with this request
-Neue Reihenfolge:
-
-Hero
-Features — „Alles was ein Haushalt braucht"
-Vergleich
-Trust-Strip (SHA256 / Kurzanleitung / SmartScreen)
-Drei Schritte
-FAQ
-
-Index optimized
-Code · HTML 
-okay. und wie ist undsere textmenge? ist dasauch ausreichend, dass es gefunden werden kann?
-
-20:18
-
-Inventarisierte sichtbare Textmenge auf der Seite
-Inventarisierte sichtbare Textmenge auf der Seite
-493 Wörter — das ist knapp unter der Grenze. Die SEO-Empfehlung für eine Produkt-Landingpage liegt bei 600–800 Wörtern als Minimum.
-
-Was fehlt inhaltlich, nicht als Fülltext:
-
-1. Wer ist die Zielgruppe? — Aktuell steht nirgends explizit: "für Familien, Paare, Selbstständige, die einen einfachen Überblick wollen — keine Buchhaltungssoftware". Google versteht den Kontext dann besser, und Besucher fühlen sich direkt angesprochen.
-
-2. Feature-Karten sind zu kurz — jede Karte hat nur einen Satz. 2–3 Sätze pro Karte wären realistisch und würden ~80 Wörter bringen.
-
-3. "Drei Schritte"-Sektion — die drei Schritte haben je einen Satz. Auch hier je ein zweiter Satz möglich, z.B. was passiert nach der Installation, wie schnell ist man ready.
-
-4. Ein kurzer Intro-Absatz vor den Features fehlt noch — also ein Übergang zwischen Hero und Feature-Grid der erklärt warum das Programm so gebaut ist wie es ist. Das wären ~50–70 Wörter.
-
-Wenn wir diese vier Punkte befüllen, landen wir bei ~700–750 Wörtern — im grünen Bereich, ohne dass es sich aufgebläht anfühlt. Soll ich das direkt einbauen, oder willst du die Formulierungen selbst vorgeben?
-
-mach mal einen versuch ja.
-
-20:20
-
-Optimierte Wortanzahl und plante zusätzlichen Call-to-Action
-Optimierte Wortanzahl und plante zusätzlichen Call-to-Action
-Noch 8 Wörter unter 600 — ich füge einen kurzen Abschluss-Satz nach der FAQ ein:
-
-
-Hat eine Datei bearbeitet, hat einen Befehl ausgeführt, datei lesen
-Hat eine Datei bearbeitet, hat einen Befehl ausgeführt, datei lesen
-619 Wörter — im grünen Bereich.
-
-Was dazugekommen ist:
-
-Intro-Absatz über den Features — erklärt die Zielgruppe (Einzelperson, Paar, Familie) und warum das Programm so gebaut ist. Google versteht damit besser, wer die Seite braucht.
-Feature-Karten — jede hat jetzt 2 Sätze statt einem, mit konkreten Beispielen (Urlaub, Reparaturen, Miete, Strom).
-Drei Schritte — je ein zweiter Satz der den echten Nutzen konkretisiert.
-Abschluss-CTA am Ende — grüner Banner mit nochmal dem Kaufbutton und dem Kernversprechen. Bringt nochmal Keywords rein und gibt dem Nutzer am Ende der Seite einen klaren Handlungsimpuls.
-Alles korrekt so, oder willst du an einzelnen Formulierungen was ändern?
-
-
-Index optimized
-Code · HTML 
-
-
-
-
-
-Claude ist eine KI und kann Fehler machen. Bitte überprüfe die Antworten.
-Index optimized · HTML
-Kopieren
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
 <!-- ═══ SEO: Title optimiert (transaktional + Keyword vorn) ═══ -->
 <title>Kassenwart Pro – Haushaltsbuch für Windows kaufen | 15 € einmalig</title>
- 
+
 <!-- ═══ SEO: Meta Description ═══ -->
 <meta name="description" content="Kassenwart Pro – das Haushaltsbuch für Windows. Einnahmen, Ausgaben und Rücklagen auf einen Blick. Komplett offline, kein Abo, kein Bankzugang. 15 € einmalig.">
- 
+
 <!-- ═══ SEO: Canonical (verhindert Duplicate Content /) vs /index.html) ═══ -->
 <link rel="canonical" href="https://kassenwartpro.de/">
- 
+
 <meta name="robots" content="index, follow">
 <!-- ═══ FIX: Browser immer als Light-Mode rendern ═══ -->
 <meta name="color-scheme" content="light">
- 
+
 <!-- ═══ SEO: Open Graph (für Teilen / Social / WhatsApp) ═══ -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kassenwartpro.de/">
@@ -306,7 +24,7 @@ Kopieren
 <meta property="og:description" content="Haushaltsbuch für den PC. 100 % offline, kein Abo, kein Bankzugang. Einnahmen, Ausgaben und Rücklagen auf einen Blick. 15 € einmalig.">
 <meta property="og:image" content="https://kassenwartpro.de/Screenshot - kassenwartpro.pythonanywhere.com.png">
 <meta property="og:locale" content="de_DE">
- 
+
 <!-- ═══ SEO: Schema Markup (JSON-LD) → Preis + Bewertung in Suchergebnissen ═══ -->
 <script type="application/ld+json">
 {
@@ -330,7 +48,7 @@ Kopieren
   }
 }
 </script>
- 
+
 <!-- ═══ SEO: FAQ Schema (für Google AI Overview / Snippets) ═══ -->
 <script type="application/ld+json">
 {
@@ -380,14 +98,14 @@ Kopieren
   ]
 }
 </script>
- 
+
 <!-- TrustBox script -->
 <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 <!-- End TrustBox script -->
- 
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap');
- 
+
 :root {
   color-scheme: light;
   --bg:      #e4ebe6;
@@ -423,7 +141,7 @@ nav { padding: 20px 0; display: flex; align-items: center; justify-content: spac
 .nav-buy-btn { background: var(--text); color: white !important; padding: 8px 18px; border-radius: 8px; font-weight: 600 !important; font-size: 0.84rem !important; transition: background 0.15s !important; }
 .nav-buy-btn:hover { background: var(--primary) !important; color: white !important; }
 hr.divider { border: none; border-top: 1px solid var(--border); }
- 
+
 /* HERO */
 .hero { padding: 56px 0 68px; display: grid; grid-template-columns: 1fr 460px; gap: 48px; align-items: center; }
 .hero-eyebrow { display: inline-block; background: white; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; color: var(--primary); margin-bottom: 18px; }
@@ -437,7 +155,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .btn-primary:hover { background: var(--prim2); }
 .btn-buy { display: inline-block; background: var(--text); color: white; padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: background 0.15s; }
 .btn-buy:hover { background: #2a3a34; }
- 
+
 /* HERO CARD */
 .hero-card { background: white; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px 24px 20px; text-align: center; }
 .hero-img-wrap { position: relative; display: inline-block; width: 100%; margin-bottom: 16px; }
@@ -451,7 +169,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .hero-demo-link:hover { opacity: 0.75; }
 .hero-sub-link { display: block; font-size: 0.8rem; color: var(--muted); font-weight: 600; text-decoration: none; padding-top: 6px; }
 .hero-sub-link:hover { color: var(--primary); }
- 
+
 /* TRUST-STRIP */
 .trust-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 32px 0; }
 .trust-strip a { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; transition: border-color 0.15s, box-shadow 0.15s; }
@@ -459,7 +177,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .trust-icon { font-size: 1.3rem; margin-bottom: 8px; }
 .trust-label { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 3px; }
 .trust-sub { font-size: 0.76rem; color: var(--muted); line-height: 1.4; }
- 
+
 /* FEATURES */
 .features { padding: 72px 0; }
 .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); text-align: center; margin-bottom: 10px; }
@@ -469,7 +187,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .feature-icon { font-size: 1.4rem; display: block; margin-bottom: 12px; }
 .feature-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; }
 .feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
- 
+
 /* COMPARE */
 .compare { padding: 0 0 72px; }
 .compare-inner { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 40px 40px 32px; }
@@ -497,7 +215,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .compare-seo { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); }
 .compare-seo p { font-size: 0.86rem; color: var(--muted); line-height: 1.75; max-width: 860px; }
 .compare-seo strong { color: var(--text); }
- 
+
 /* HOW */
 .how { padding: 0 0 72px; }
 .how-inner { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 48px; }
@@ -506,7 +224,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
 .how-steps h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 6px; }
 .how-steps p { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
- 
+
 /* ═══ NEU: FAQ-SEKTION ═══ */
 .faq { padding: 0 0 72px; }
 .faq-inner { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 48px; }
@@ -520,7 +238,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .faq-item.open .faq-chevron { transform: rotate(180deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
 .faq-answer p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; padding-bottom: 18px; }
- 
+
 /* FOOTER */
 footer { border-top: 1px solid var(--border); padding: 32px 0; }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
@@ -528,7 +246,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
 .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
 .footer-links a:hover { color: var(--primary); }
- 
+
 /* ═══ RESPONSIVE — MOBILE FIRST ═══ */
 @media (max-width: 780px) {
   /* NAV */
@@ -536,54 +254,54 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
   .nav-logo { font-size: 1.3rem; }
   .nav-links { gap: 12px; }
   .nav-links li:not(:last-child) { display: none; }
- 
+
   /* HERO */
   .hero { grid-template-columns: 1fr; padding: 36px 0 52px; gap: 32px; }
   .hero h1 { font-size: 2.2rem; }
   .hero-right { order: -1; }
   .hero-card { max-width: 320px; margin: auto; }
   .hero-sub { font-size: 0.95rem; }
- 
+
   /* FEATURES */
   .features-grid { grid-template-columns: 1fr; }
   .features { padding: 48px 0; }
- 
+
   /* TRUST */
   .trust-strip { grid-template-columns: 1fr; }
- 
+
   /* HOW */
   .how-steps { grid-template-columns: 1fr; }
   .how-inner { padding: 28px 20px; }
   .how { padding: 0 0 48px; }
- 
+
   /* COMPARE: Tabelle auf Mobile ausblenden, Card-Layout stattdessen */
   .compare-inner { padding: 24px 16px; }
   .compare { padding: 0 0 48px; padding-top: 48px; }
   .compare-table { display: none; }
   .compare-mobile { display: flex; flex-direction: column; gap: 8px; }
   .compare-arrow { width: 48px; height: 48px; font-size: 1.2rem; } /* größere Touch-Fläche */
- 
+
   /* FAQ */
   .faq-inner { padding: 28px 20px; }
   .faq { padding: 0 0 48px; }
   .faq-question { padding: 16px 0; }
- 
+
   /* SECTION TITLES */
   .section-title { font-size: 1.5rem; }
   .compare-header h2, .how-inner h2, .faq-inner h2 { font-size: 1.35rem; }
- 
+
   /* FOOTER */
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
   .footer-links { gap: 14px; }
 }
- 
+
 @media (max-width: 420px) {
   .container { padding: 0 16px; }
   .hero h1 { font-size: 1.85rem; }
   .btn-buy, .btn-primary { padding: 12px 20px; font-size: 0.88rem; width: 100%; text-align: center; }
   .hero-actions { flex-direction: column; }
 }
- 
+
 /* Compare Mobile Cards (desktop: versteckt) */
 .compare-mobile { display: none; }
 .cmp-card { background: var(--bg); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
@@ -598,7 +316,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 </style>
 </head>
 <body>
- 
+
 <div class="container">
   <nav>
     <a href="index.html" class="nav-logo">Kassenwart Pro</a>
@@ -610,11 +328,11 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     </ul>
   </nav>
 </div>
- 
+
 <hr class="divider">
- 
+
 <div class="container">
- 
+
   <!-- 1. HERO -->
   <section class="hero">
     <div class="hero-left">
@@ -655,9 +373,9 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       </div>
     </div>
   </section>
- 
+
   <hr class="divider">
- 
+
   <!-- 2. WAS DRIN IST -->
   <section class="features">
     <p class="section-label">Was drin ist</p>
@@ -686,9 +404,9 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       </div>
     </div>
   </section>
- 
+
   <hr class="divider">
- 
+
   <!-- 3. VERGLEICH -->
   <section class="compare" style="padding-top:72px;">
     <div class="compare-inner">
@@ -711,15 +429,15 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       </table>
       <!-- Mobile Card-Ansicht (ersetzt Tabelle auf kleinen Screens) -->
       <div class="compare-mobile" id="compareMobile"></div>
- 
+
       <div class="compare-seo">
         <p><strong>Kassenwart Pro</strong> ist eine schlanke Alternative zu <strong>WISO Haushaltsbuch</strong>, <strong>Finanzguru</strong> und <strong>YNAB</strong>. Viele Haushaltsbuch-Programme kosten nicht nur mehr — sie bringen auch Features mit, die im Regelfall nicht gebraucht werden. Kassenwart Pro macht das Gegenteil: nur was ein normaler Haushalt wirklich braucht, kein Lernaufwand, kein Preis für zusätzliche Komplexität. Wer ein <strong>Haushaltsbuch offline für Windows</strong> sucht — ohne einen Account einrichten zu wollen, ohne Bankzugang, ohne Abo, ohne Jahreslizenz — findet in Kassenwart Pro eine direkte <strong>WISO Alternative</strong>, <strong>Finanzguru Alternative</strong> und <strong>YNAB Alternative</strong> für einen einmaligen Preis.</p>
       </div>
     </div>
   </section>
- 
+
   <hr class="divider">
- 
+
   <!-- TRUST-STREIFEN -->
   <section class="trust-strip">
     <a href="transparenz.html">
@@ -738,9 +456,9 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       <span class="trust-sub">Windows-Warnung einordnen</span>
     </a>
   </section>
- 
+
   <hr class="divider">
- 
+
   <!-- 4. DREI SCHRITTE -->
   <section class="how" style="padding-top:72px;">
     <div class="how-inner">
@@ -764,15 +482,15 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       </div>
     </div>
   </section>
- 
+
   <hr class="divider">
- 
+
   <!-- 5. NEU: FAQ-SEKTION -->
   <section class="faq" style="padding-top:72px;">
     <div class="faq-inner">
       <h2>Häufige Fragen.</h2>
       <div class="faq-list">
- 
+
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span class="faq-question-text">Brauche ich ein Abo für Kassenwart Pro?</span>
@@ -782,7 +500,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
             <p>Nein. Kassenwart Pro ist ein Einmalkauf für 15 €. Keine monatlichen Kosten, keine Jahreslizenz, keine Folgekosten — das Programm gehört einem nach dem Kauf.</p>
           </div>
         </div>
- 
+
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span class="faq-question-text">Werden meine Finanzdaten in die Cloud hochgeladen?</span>
@@ -792,7 +510,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
             <p>Nein. Kassenwart Pro läuft vollständig lokal auf dem PC. Alle Daten bleiben auf dem eigenen Rechner — kein Cloud-Sync, kein Server, kein Konto erforderlich.</p>
           </div>
         </div>
- 
+
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span class="faq-question-text">Muss ich ein Bankkonto verknüpfen?</span>
@@ -802,7 +520,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
             <p>Nein. Es ist kein Bankzugang erforderlich. Buchungen werden manuell eingetragen — das schützt die Privatsphäre und macht das Programm unabhängig von Drittanbietern.</p>
           </div>
         </div>
- 
+
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span class="faq-question-text">Auf welchen Systemen läuft Kassenwart Pro?</span>
@@ -812,7 +530,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
             <p>Kassenwart Pro läuft auf Windows 10 und Windows 11. Eine Mac- oder Linux-Version ist aktuell nicht geplant.</p>
           </div>
         </div>
- 
+
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span class="faq-question-text">Wie bekomme ich das Programm nach dem Kauf?</span>
@@ -822,11 +540,11 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
             <p>Nach dem Kauf wird sofort eine E-Mail mit Lizenzcode und Download-Link verschickt. Programm herunterladen, starten, Lizenzcode eingeben — fertig. Kein Account, keine Wartezeit.</p>
           </div>
         </div>
- 
+
       </div>
     </div>
   </section>
- 
+
   <!-- ABSCHLUSS CTA -->
   <section style="padding: 0 0 72px;">
     <div style="background:var(--primary); border-radius:16px; padding:40px 48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;">
@@ -837,9 +555,9 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       <a href="https://buy.stripe.com/00weVe6rHaAj28T2Dh6Ri01" style="display:inline-block; background:white; color:var(--primary); padding:13px 28px; border-radius:10px; font-size:0.95rem; font-weight:700; text-decoration:none; white-space:nowrap;">Jetzt kaufen · 15 €</a>
     </div>
   </section>
- 
+
 </div>
- 
+
 <footer>
   <div class="container">
     <div class="footer-inner">
@@ -854,7 +572,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     </div>
   </div>
 </footer>
- 
+
 <script>
 // Vergleichs-Slider
 var competitors=[
@@ -906,7 +624,7 @@ function renderSlider(){
 function sliderNext(){idx=(idx+1)%competitors.length;renderSlider();}
 function sliderPrev(){idx=(idx-1+competitors.length)%competitors.length;renderSlider();}
 renderSlider();
- 
+
 // Touch-sichere Event-Listener für Slider-Buttons
 document.addEventListener('DOMContentLoaded', function() {
   ['click','touchend'].forEach(function(ev){
@@ -914,7 +632,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('btnPrev').addEventListener(ev,function(e){e.preventDefault();idx=(idx-1+competitors.length)%competitors.length;renderSlider();},{passive:false});
   });
 });
- 
+
 // FAQ Accordion
 function toggleFaq(btn) {
   var item = btn.closest('.faq-item');
@@ -932,16 +650,6 @@ function toggleFaq(btn) {
   }
 }
 </script>
- 
+
 </body>
 </html>
- 
-
-
-
-
-
-
-
-
-
