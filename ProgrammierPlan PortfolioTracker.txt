@@ -1,0 +1,129 @@
+Programmierplan — Portfolio Tracker
+Projekt: Kassenwart Pro — Modul "Portfolio"
+Architektur: Flask + Browser (zweiter Tab via window.open)
+Stand: 21. April 2026
+Phase 0 — Vorarbeit (kein Code)
+Voraussetzung: Nichts — Startpunkt
+☐ JSON-Schema für Portfolio-Daten definieren (Positionen, Lots, Transaktionen, Sparpläne, Watchlist, Verrechnungskonto)
+☐ Test-Dataset erstellen (5 Positionen, diverse Lots, 2 Dividenden, 1 Verkauf, Sparplan-Einträge)
+☐ API-Keys beschaffen: CoinGecko Free, Metals API, OpenFIGI
+☐ Config-Datei-Format festlegen (Speicherort für API-Keys, analog zu bestehenden .dat-Dateien)
+Phase 1 — Datenmodell
+Voraussetzung: Phase 0 (JSON-Schema)
+☐ portfolio_data.py: JSON laden/speichern, Pfad-Handling via os.path.dirname(sys.executable)
+☐ CRUD: Position anlegen, Lot hinzufügen, Lot entfernen (FIFO-Logik)
+☐ Verrechnungskonto als Cash-Saldo im Datenmodell
+☐ Transaktionslog: jede Buchung wird als Eintrag gespeichert (Kauf, Verkauf, Dividende, Übertrag, Sparplan)
+☐ Validierung: nicht mehr verkaufen als vorhanden, Verrechnungskonto nicht negativ
+☐ Test: Lot anlegen, FIFO-Verkauf durchrechnen, Saldo prüfen — alles gegen Test-Dataset
+Phase 2 — Datenquellen-Adapter
+Voraussetzung: Phase 0 (API-Keys, Config-Format)
+2a — Interface
+☐ portfolio_api.py mit einheitlichem Interface: get_price(), get_history(), get_dividends(), search_ticker()
+2b — yfinance-Adapter
+☐ Aktien, ETFs, Indizes — Kurse, Historie, Dividenden
+☐ Graceful Degradation: Timeout/404 abfangen, kein Crash
+2c — CoinGecko-Adapter
+☐ Krypto-Kurse, Historie
+2d — Metals-API-Adapter
+☐ Gold, Silber — Kurse
+2e — OpenFIGI-Adapter
+☐ ISIN → Ticker Auflösung
+2f — Cache-Layer
+☐ Historische Kurse lokal speichern (JSON)
+☐ Alter prüfen, tägliches Update bei App-Start
+☐ Offline-Fallback: gecachte Kurse anzeigen mit Hinweis "Kurs von vor X Tagen"
+2g — Währungsumrechnung
+☐ EUR-Umrechnung für USD-notierte Werte (via yfinance EURUSD=X)
+Phase 3 — Flask-Routing & UI-Grundgerüst
+Voraussetzung: Phase 1 (Datenmodell), Phase 2a (Interface)
+☐ 3a: Portfolio-Button im Haushaltsbuch → window.open('/portfolio', '_blank')
+☐ 3b: /portfolio-Route mit eigenem Template (HTML/CSS/JS)
+☐ 3c: Kopfzeile — Depotwert, Gewinn/Verlust gesamt
+☐ 3d: Vier KPI-Kacheln: Investiert, Dividenden YTD, Verrechnungskonto, Realisierte G/V
+☐ 3e: Positionstabelle (Ticker, Anzahl, Kurs, G/V%, ⋯-Menü als Skeleton)
+☐ 3f: Sub-Tab-Navigation: Positionen / Sparpläne / Orderhistorie
+☐ 3g: Auto-Reload bei Tab-Fokus (visibilitychange-Event → Daten neu laden)
+Phase 4 — Kauf, Verkauf, Dividende
+Voraussetzung: Phase 3 (UI steht), Phase 2b+ (Kursdaten verfügbar)
+☐ 4a: Kauf-Dialog — Ticker suchen (search_ticker), Anzahl + Kurs eingeben, Lot anlegen, Verrechnungskonto belasten
+☐ 4b: Verkauf-Popup — FIFO-Berechnung anzeigen, "Tatsächlich erhalten"-Feld, Steuer als Differenz berechnen, Verrechnungskonto gutschreiben
+☐ 4c: Dividenden-Popup — Brutto anzeigen, "Tatsächlich erhalten"-Feld, Verrechnungskonto gutschreiben
+☐ 4d: Jede Aktion erzeugt Eintrag im Transaktionslog
+Phase 5 — Budget-Brücke (Haushaltsbuch ↔ Depot)
+Voraussetzung: Phase 4 (Kernfunktionen laufen)
+☐ 5a: Übertrag-Dialog — Betrag, Richtung (Haushaltsbuch → Depot / Depot → Haushaltsbuch)
+☐ 5b: Write-Ahead-Log — Journal-Datei schreiben → beide JSON updaten → Journal löschen
+☐ 5c: Crash-Recovery beim App-Start — offenes Journal erkennen und abschließen
+☐ 5d: System-Kategorie "Depot-Übertrag" im Haushaltsbuch (analog Rücklagen, system: true)
+Phase 6 — Charts
+Voraussetzung: Phase 4 (Daten zum Anzeigen), Phase 2f (Cache für Historie)
+☐ 6a: Chart-Library einbinden (Chart.js oder Plotly.js)
+☐ 6b: Allocation Donut-Chart — Ist-Verteilung nach Asset-Klasse, Cash als eigene Scheibe
+☐ 6c: Depotwert-Verlauf — Liniendiagramm, Zeitraum-Buttons (1M / 3M / 6M / 1J / Max)
+☐ 6d: Benchmark-Linie — gestrichelt, wählbar (z.B. MSCI World)
+☐ 6e: Einzelposition-Chart via ⋯-Menü → "Chart anzeigen"
+☐ 6f: Soll vs. Ist Donut — zweiter Ring, Soll-Werte vom Nutzer definierbar
+Phase 7 — Watchlist & Orderhistorie
+Voraussetzung: Phase 3 (Tabelle + Sub-Tabs)
+☐ 7a: Watchlist-Positionen in gleicher Tabelle, ausgegraut, ohne Wert/Anteile
+☐ 7b: Durchschalt-Button: Alle → Positionen → Watchlist → Alle
+☐ 7c: Orderhistorie-Tab — chronologische Liste aller Transaktionen
+Phase 8 — Sparplan
+Voraussetzung: Phase 4 (Kauf-Logik), Phase 2f (historische Kurse)
+Komplexester Block — bewusst spät eingeplant. Grundfunktionen müssen sauber stehen.
+☐ 8a: Sparplan anlegen/bearbeiten/löschen — Dialog analog Haushaltsbuch (Betrag, Intervall, Stichtag, Start/Ende)
+☐ 8b: Letztes Ausführungsdatum pro Sparplan persistent speichern
+☐ 8c: Auto-Nachbuchung beim App-Start — fällige Stichtage erkennen, historische Kurse abrufen, Lots anlegen
+☐ 8d: Wochenende/Feiertag → Fallback auf letzten Handelstag
+☐ 8e: Doppelbuchungs-Prüfung (Abgleich gegen letztes Ausführungsdatum)
+☐ 8f: Notification: "X Sparplan-Ausführungen nachgebucht"
+Phase 9 — Extras
+Voraussetzung: Phase 6 (Charts), Phase 4 (Kennzahlen-Daten)
+☐ 9a: Prognose-Rechner ("Spielwiese") — Dialog mit Slidern (Rendite, Horizont, Sparrate), Liniendiagramm
+☐ 9b: Erstbefüllung — Schnelleingabe-Tabelle (Ticker / Datum / Anzahl / Kaufkurs), kein CSV-Import
+☐ 9c: Performance-Kennzahlen in KPI-Kacheln — annualisierte Rendite, realisierte Gewinne YTD, Dividenden YTD
+Phase 10 — Integration & Hardening
+Voraussetzung: Alle vorherigen Phasen
+☐ 10a: PyInstaller-Bundle mit allen neuen Dateien testen (portfolio_tracker.py, portfolio_data.py, portfolio_api.py)
+☐ 10b: Offline-Verhalten — kein Internet → Cache → Hinweis statt Crash
+☐ 10c: Error Handling — API-Fehler, korrupte JSON, leeres Depot, ungültige Ticker
+☐ 10d: Manueller Durchlauf mit Test-Dataset — alle Flows einmal komplett durch
+☐ 10e: Release v1.1 schnüren
+Abhängigkeiten — Übersicht
+Phase 0 → alles andere
+Phase 1 + 2 → können parallel laufen
+Phase 3 → braucht Phase 1 + 2a
+Phase 4 → braucht Phase 3 + 2b
+Phase 5 → braucht Phase 4
+Phase 6 → braucht Phase 4 + 2f
+Phase 7 → braucht Phase 3
+Phase 8 → braucht Phase 4 + 2f (komplexester Block, bewusst spät)
+Phase 9 → braucht Phase 6 + 4
+Phase 10 → braucht alles
+Erledigt:
+Was final festgelegt ist (damit wir es nie wieder anfassen müssen):
+Dateinamen:
+portfolio.dat — alle Portfoliodaten
+cache.dat — zwischengespeicherte Kurse (Cache = Zwischenspeicher)
+wal.dat — Übertrags-Absicherung (WAL = Write-Ahead-Log, zu Deutsch: "vorab schreiben bevor wir die eigentliche Änderung machen") — kommt erst in Phase 5
+Haupt-Keys in portfolio.dat:
+version · cash_account · positions · savings_plans · transactions
+Transaktionstypen (werden in der UI dann auf Deutsch übersetzt):
+buy → Kauf
+sell → Verkauf
+savings_plan → Sparplan-Ausführung
+dividend → Dividende
+transfer_in → Übertrag ins Depot
+transfer_out → Übertrag aus dem Depot
+Asset-Klassen (werden in der UI auf Deutsch übersetzt):
+stock → Aktie
+etf → ETF
+crypto → Krypto
+precious_metal → Edelmetall
+commodity → Rohstoff (noch nicht im Testset verwendet)
+bond → Anleihe
+cash → Bargeld
+Sparplan-Intervalle:
+weekly · biweekly · monthly · quarterly · semiannual · yearly
+
