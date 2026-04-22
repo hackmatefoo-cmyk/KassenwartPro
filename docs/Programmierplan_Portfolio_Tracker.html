@@ -1,0 +1,210 @@
+<html>
+<head>
+<style>
+body { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5; }
+h1 { font-size: 18pt; color: #1a1a1a; margin-top: 24pt; }
+h2 { font-size: 14pt; color: #2e75b6; margin-top: 18pt; }
+h3 { font-size: 12pt; color: #333; margin-top: 12pt; }
+p { margin: 6pt 0; }
+ul { list-style-type: none; padding-left: 20pt; }
+li { margin: 4pt 0; }
+.note { color: #666; font-style: italic; font-size: 10pt; }
+.dep { color: #c00; font-weight: bold; font-size: 10pt; }
+hr { border: none; border-top: 1px solid #ccc; margin: 12pt 0; }
+</style>
+</head>
+<body>
+
+<h1>Programmierplan — Portfolio Tracker</h1>
+<p>Projekt: Kassenwart Pro — Modul "Portfolio"<br>
+Architektur: Flask + Browser (zweiter Tab via window.open)<br>
+Stand: 21. April 2026</p>
+
+<hr>
+
+<h2>Phase 0 — Vorarbeit (kein Code)</h2>
+<p class="dep">Voraussetzung: Nichts — Startpunkt</p>
+
+<ul>
+<li>☐ JSON-Schema für Portfolio-Daten definieren (Positionen, Lots, Transaktionen, Sparpläne, Watchlist, Verrechnungskonto)</li>
+<li>☐ Test-Dataset erstellen (5 Positionen, diverse Lots, 2 Dividenden, 1 Verkauf, Sparplan-Einträge)</li>
+<li>☐ API-Keys beschaffen: CoinGecko Free, Metals API, OpenFIGI</li>
+<li>☐ Config-Datei-Format festlegen (Speicherort für API-Keys, analog zu bestehenden .dat-Dateien)</li>
+</ul>
+
+<hr>
+
+<h2>Phase 1 — Datenmodell</h2>
+<p class="dep">Voraussetzung: Phase 0 (JSON-Schema)</p>
+
+<ul>
+<li>☐ portfolio_data.py: JSON laden/speichern, Pfad-Handling via os.path.dirname(sys.executable)</li>
+<li>☐ CRUD: Position anlegen, Lot hinzufügen, Lot entfernen (FIFO-Logik)</li>
+<li>☐ Verrechnungskonto als Cash-Saldo im Datenmodell</li>
+<li>☐ Transaktionslog: jede Buchung wird als Eintrag gespeichert (Kauf, Verkauf, Dividende, Übertrag, Sparplan)</li>
+<li>☐ Validierung: nicht mehr verkaufen als vorhanden, Verrechnungskonto nicht negativ</li>
+<li>☐ Test: Lot anlegen, FIFO-Verkauf durchrechnen, Saldo prüfen — alles gegen Test-Dataset</li>
+</ul>
+
+<hr>
+
+<h2>Phase 2 — Datenquellen-Adapter</h2>
+<p class="dep">Voraussetzung: Phase 0 (API-Keys, Config-Format)</p>
+
+<h3>2a — Interface</h3>
+<ul>
+<li>☐ portfolio_api.py mit einheitlichem Interface: get_price(), get_history(), get_dividends(), search_ticker()</li>
+</ul>
+
+<h3>2b — yfinance-Adapter</h3>
+<ul>
+<li>☐ Aktien, ETFs, Indizes — Kurse, Historie, Dividenden</li>
+<li>☐ Graceful Degradation: Timeout/404 abfangen, kein Crash</li>
+</ul>
+
+<h3>2c — CoinGecko-Adapter</h3>
+<ul>
+<li>☐ Krypto-Kurse, Historie</li>
+</ul>
+
+<h3>2d — Metals-API-Adapter</h3>
+<ul>
+<li>☐ Gold, Silber — Kurse</li>
+</ul>
+
+<h3>2e — OpenFIGI-Adapter</h3>
+<ul>
+<li>☐ ISIN → Ticker Auflösung</li>
+</ul>
+
+<h3>2f — Cache-Layer</h3>
+<ul>
+<li>☐ Historische Kurse lokal speichern (JSON)</li>
+<li>☐ Alter prüfen, tägliches Update bei App-Start</li>
+<li>☐ Offline-Fallback: gecachte Kurse anzeigen mit Hinweis "Kurs von vor X Tagen"</li>
+</ul>
+
+<h3>2g — Währungsumrechnung</h3>
+<ul>
+<li>☐ EUR-Umrechnung für USD-notierte Werte (via yfinance EURUSD=X)</li>
+</ul>
+
+<hr>
+
+<h2>Phase 3 — Flask-Routing &amp; UI-Grundgerüst</h2>
+<p class="dep">Voraussetzung: Phase 1 (Datenmodell), Phase 2a (Interface)</p>
+
+<ul>
+<li>☐ 3a: Portfolio-Button im Haushaltsbuch → window.open('/portfolio', '_blank')</li>
+<li>☐ 3b: /portfolio-Route mit eigenem Template (HTML/CSS/JS)</li>
+<li>☐ 3c: Kopfzeile — Depotwert, Gewinn/Verlust gesamt</li>
+<li>☐ 3d: Vier KPI-Kacheln: Investiert, Dividenden YTD, Verrechnungskonto, Realisierte G/V</li>
+<li>☐ 3e: Positionstabelle (Ticker, Anzahl, Kurs, G/V%, ⋯-Menü als Skeleton)</li>
+<li>☐ 3f: Sub-Tab-Navigation: Positionen / Sparpläne / Orderhistorie</li>
+<li>☐ 3g: Auto-Reload bei Tab-Fokus (visibilitychange-Event → Daten neu laden)</li>
+</ul>
+
+<hr>
+
+<h2>Phase 4 — Kauf, Verkauf, Dividende</h2>
+<p class="dep">Voraussetzung: Phase 3 (UI steht), Phase 2b+ (Kursdaten verfügbar)</p>
+
+<ul>
+<li>☐ 4a: Kauf-Dialog — Ticker suchen (search_ticker), Anzahl + Kurs eingeben, Lot anlegen, Verrechnungskonto belasten</li>
+<li>☐ 4b: Verkauf-Popup — FIFO-Berechnung anzeigen, "Tatsächlich erhalten"-Feld, Steuer als Differenz berechnen, Verrechnungskonto gutschreiben</li>
+<li>☐ 4c: Dividenden-Popup — Brutto anzeigen, "Tatsächlich erhalten"-Feld, Verrechnungskonto gutschreiben</li>
+<li>☐ 4d: Jede Aktion erzeugt Eintrag im Transaktionslog</li>
+</ul>
+
+<hr>
+
+<h2>Phase 5 — Budget-Brücke (Haushaltsbuch ↔ Depot)</h2>
+<p class="dep">Voraussetzung: Phase 4 (Kernfunktionen laufen)</p>
+
+<ul>
+<li>☐ 5a: Übertrag-Dialog — Betrag, Richtung (Haushaltsbuch → Depot / Depot → Haushaltsbuch)</li>
+<li>☐ 5b: Write-Ahead-Log — Journal-Datei schreiben → beide JSON updaten → Journal löschen</li>
+<li>☐ 5c: Crash-Recovery beim App-Start — offenes Journal erkennen und abschließen</li>
+<li>☐ 5d: System-Kategorie "Depot-Übertrag" im Haushaltsbuch (analog Rücklagen, system: true)</li>
+</ul>
+
+<hr>
+
+<h2>Phase 6 — Charts</h2>
+<p class="dep">Voraussetzung: Phase 4 (Daten zum Anzeigen), Phase 2f (Cache für Historie)</p>
+
+<ul>
+<li>☐ 6a: Chart-Library einbinden (Chart.js oder Plotly.js)</li>
+<li>☐ 6b: Allocation Donut-Chart — Ist-Verteilung nach Asset-Klasse, Cash als eigene Scheibe</li>
+<li>☐ 6c: Depotwert-Verlauf — Liniendiagramm, Zeitraum-Buttons (1M / 3M / 6M / 1J / Max)</li>
+<li>☐ 6d: Benchmark-Linie — gestrichelt, wählbar (z.B. MSCI World)</li>
+<li>☐ 6e: Einzelposition-Chart via ⋯-Menü → "Chart anzeigen"</li>
+<li>☐ 6f: Soll vs. Ist Donut — zweiter Ring, Soll-Werte vom Nutzer definierbar</li>
+</ul>
+
+<hr>
+
+<h2>Phase 7 — Watchlist &amp; Orderhistorie</h2>
+<p class="dep">Voraussetzung: Phase 3 (Tabelle + Sub-Tabs)</p>
+
+<ul>
+<li>☐ 7a: Watchlist-Positionen in gleicher Tabelle, ausgegraut, ohne Wert/Anteile</li>
+<li>☐ 7b: Durchschalt-Button: Alle → Positionen → Watchlist → Alle</li>
+<li>☐ 7c: Orderhistorie-Tab — chronologische Liste aller Transaktionen</li>
+</ul>
+
+<hr>
+
+<h2>Phase 8 — Sparplan</h2>
+<p class="dep">Voraussetzung: Phase 4 (Kauf-Logik), Phase 2f (historische Kurse)</p>
+<p class="note">Komplexester Block — bewusst spät eingeplant. Grundfunktionen müssen sauber stehen.</p>
+
+<ul>
+<li>☐ 8a: Sparplan anlegen/bearbeiten/löschen — Dialog analog Haushaltsbuch (Betrag, Intervall, Stichtag, Start/Ende)</li>
+<li>☐ 8b: Letztes Ausführungsdatum pro Sparplan persistent speichern</li>
+<li>☐ 8c: Auto-Nachbuchung beim App-Start — fällige Stichtage erkennen, historische Kurse abrufen, Lots anlegen</li>
+<li>☐ 8d: Wochenende/Feiertag → Fallback auf letzten Handelstag</li>
+<li>☐ 8e: Doppelbuchungs-Prüfung (Abgleich gegen letztes Ausführungsdatum)</li>
+<li>☐ 8f: Notification: "X Sparplan-Ausführungen nachgebucht"</li>
+</ul>
+
+<hr>
+
+<h2>Phase 9 — Extras</h2>
+<p class="dep">Voraussetzung: Phase 6 (Charts), Phase 4 (Kennzahlen-Daten)</p>
+
+<ul>
+<li>☐ 9a: Prognose-Rechner ("Spielwiese") — Dialog mit Slidern (Rendite, Horizont, Sparrate), Liniendiagramm</li>
+<li>☐ 9b: Erstbefüllung — Schnelleingabe-Tabelle (Ticker / Datum / Anzahl / Kaufkurs), kein CSV-Import</li>
+<li>☐ 9c: Performance-Kennzahlen in KPI-Kacheln — annualisierte Rendite, realisierte Gewinne YTD, Dividenden YTD</li>
+</ul>
+
+<hr>
+
+<h2>Phase 10 — Integration &amp; Hardening</h2>
+<p class="dep">Voraussetzung: Alle vorherigen Phasen</p>
+
+<ul>
+<li>☐ 10a: PyInstaller-Bundle mit allen neuen Dateien testen (portfolio_tracker.py, portfolio_data.py, portfolio_api.py)</li>
+<li>☐ 10b: Offline-Verhalten — kein Internet → Cache → Hinweis statt Crash</li>
+<li>☐ 10c: Error Handling — API-Fehler, korrupte JSON, leeres Depot, ungültige Ticker</li>
+<li>☐ 10d: Manueller Durchlauf mit Test-Dataset — alle Flows einmal komplett durch</li>
+<li>☐ 10e: Release v1.1 schnüren</li>
+</ul>
+
+<hr>
+
+<h2>Abhängigkeiten — Übersicht</h2>
+<p>Phase 0 → alles andere<br>
+Phase 1 + 2 → können parallel laufen<br>
+Phase 3 → braucht Phase 1 + 2a<br>
+Phase 4 → braucht Phase 3 + 2b<br>
+Phase 5 → braucht Phase 4<br>
+Phase 6 → braucht Phase 4 + 2f<br>
+Phase 7 → braucht Phase 3<br>
+Phase 8 → braucht Phase 4 + 2f (komplexester Block, bewusst spät)<br>
+Phase 9 → braucht Phase 6 + 4<br>
+Phase 10 → braucht alles</p>
+
+</body>
+</html>
