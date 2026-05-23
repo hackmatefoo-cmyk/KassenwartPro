@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Neuigkeiten · Kassenwart Pro</title>
+<!--
+  News-Page-Template fuer Kassenwart Pro.
+
+  Workflow: Fuer eine neue Mitteilung diese Datei nach
+  news/v<X>.html oder news/<thema>.html kopieren und die Inhalte
+  zwischen den BEGIN/END-CONTENT-Markern austauschen. Anschliessend
+  im Lizenz-Spreadsheet im Tab "News" die Zelle news_id um 1
+  hochzaehlen und news_url auf die neue Datei zeigen lassen.
+  Beim naechsten Lizenz-Ping (max. 5 Tage) erscheint der Button
+  beim Beenden der App.
+
+  Konvention: noindex/nofollow ist Pflicht — die Seite wird nur
+  ueber den Programm-Link erreicht und soll nicht in Google landen.
+-->
+<style>
+:root {
+  --bg:      #e4ebe6;
+  --card:    #ffffff;
+  --primary: #4a7c68;
+  --prim2:   #3a6355;
+  --text:    #1a2a24;
+  --muted:   #6b8278;
+  --border:  #cdd8d2;
+  --accent:  #f4b400;
+  --shadow:  0 4px 24px rgba(0,0,0,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+.container { max-width: 1080px; margin: auto; padding: 0 24px; }
+nav { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-size: 2.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+.nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+.nav-links a { font-size: 0.88rem; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.nav-links a:hover { color: var(--primary); }
+hr.divider { border: none; border-top: 1px solid var(--border); }
+
+.news-wrap { max-width: 760px; margin: 48px auto 72px; }
+.news-card { background: var(--card); border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 44px 48px; }
+.news-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
+.news-pill { display: inline-block; background: var(--primary); color: #fff; font-size: 0.74rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.03em; text-transform: uppercase; }
+.news-pill.accent { background: var(--accent); color: var(--text); }
+.news-date { font-size: 0.82rem; color: var(--muted); }
+.news-card h1 { font-size: 1.7rem; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
+.news-lead { font-size: 1.02rem; color: var(--muted); margin-bottom: 28px; line-height: 1.65; }
+
+.news-body h2 { font-size: 1.18rem; font-weight: 700; color: var(--primary); margin: 26px 0 10px; }
+.news-body h3 { font-size: 1.02rem; font-weight: 700; color: var(--text); margin: 20px 0 8px; }
+.news-body p  { font-size: 0.96rem; color: var(--text); margin-bottom: 14px; }
+.news-body ul, .news-body ol { padding-left: 22px; margin-bottom: 14px; }
+.news-body li { font-size: 0.96rem; color: var(--text); margin-bottom: 6px; }
+.news-body a  { color: var(--primary); }
+.news-body strong { color: var(--text); }
+.news-body code { background: #f0f3f1; padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
+
+.news-box { background: #eaf3ee; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 6px; margin: 18px 0; font-size: 0.92rem; }
+.news-box.warn { background: #fff3cd; border-left-color: #f4b400; }
+.news-box.tip  { background: #e8f3ec; border-left-color: var(--primary); }
+
+.news-cta { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary { display: inline-block; background: var(--primary); color: #fff; padding: 11px 22px; border-radius: 10px; font-size: 0.92rem; font-weight: 600; text-decoration: none; transition: background 0.15s; }
+.btn-primary:hover { background: var(--prim2); }
+.btn-ghost { display: inline-block; color: var(--muted); padding: 11px 6px; font-size: 0.88rem; text-decoration: none; }
+.btn-ghost:hover { color: var(--primary); }
+
+footer { border-top: 1px solid var(--border); padding: 32px 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-copy { font-size: 0.82rem; color: var(--muted); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--primary); }
+
+@media (max-width: 780px) {
+  .news-wrap { margin: 32px auto 48px; }
+  .news-card { padding: 28px 22px; }
+  .news-card h1 { font-size: 1.4rem; }
+  .nav-links { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <nav>
+    <a href="../index.html" class="nav-logo">Kassenwart Pro</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Startseite</a></li>
+      <li><a href="../transparenz.html">Transparenz</a></li>
+      <li><a href="../impressum.html">Impressum</a></li>
+    </ul>
+  </nav>
+</div>
+
+<hr class="divider">
+
+<div class="container">
+  <div class="news-wrap">
+    <div class="news-card">
+
+      <!-- ════════════ BEGIN CONTENT ════════════ -->
+
+      <div class="news-meta">
+        <span class="news-pill">Version 1.7</span>
+        <span class="news-date">Veröffentlicht am 23. Mai 2026</span>
+      </div>
+
+      <h1>Beispiel-Überschrift: Was sich in dieser Version geändert hat</h1>
+
+      <p class="news-lead">
+        Kurzer Einleitungstext in einem Satz. Erklärt, worum es in dieser
+        Mitteilung geht — neue Funktion, Hinweis, Verbesserung. Kein
+        Marketing-Sprech, sachlich und konkret.
+      </p>
+
+      <div class="news-body">
+
+        <h2>Neue Funktion: Platzhalter</h2>
+        <p>
+          Was die neue Funktion macht und warum sie nützlich ist.
+          Eine bis drei Sätze. Konkrete Stelle in der App nennen,
+          wo sie zu finden ist.
+        </p>
+
+        <h2>Was sich geändert hat</h2>
+        <ul>
+          <li><strong>Punkt 1:</strong> Kurze Beschreibung der Änderung.</li>
+          <li><strong>Punkt 2:</strong> Weitere Änderung mit Bezug zur App.</li>
+          <li><strong>Punkt 3:</strong> Verbesserung oder Bugfix.</li>
+        </ul>
+
+        <div class="news-box tip">
+          <strong>Tipp:</strong> Hier passt ein Hinweis hin, der für
+          alle Nutzer relevant ist — z.B. wo eine neue Einstellung
+          liegt oder wie sich Bestandsdaten verhalten.
+        </div>
+
+        <h2>Was unverändert bleibt</h2>
+        <p>
+          Bestandsdaten bleiben unangetastet. Beim Update wird nur die
+          Programmdatei ersetzt; alle <code>.dat</code>-Dateien
+          (Haushaltsbuch, Depot, Einstellungen) bleiben erhalten.
+        </p>
+
+        <div class="news-box warn">
+          <strong>Achtung:</strong> Hier passt ein Hinweis hin, wenn
+          es bei diesem Update etwas Spezielles zu beachten gibt —
+          z.B. eine einmalige manuelle Aktion. Sonst diesen Block
+          entfernen.
+        </div>
+
+        <h2>Update einspielen</h2>
+        <ol>
+          <li>Die neue Version von der Kassenwart-Pro-Seite herunterladen.</li>
+          <li>In den vorhandenen Installations-Ordner kopieren und
+              die alte <code>KassenwartPro.exe</code> überschreiben.</li>
+          <li>Programm starten — fertig.</li>
+        </ol>
+
+        <p>
+          Alternativ über den Installer-Wizard: die heruntergeladene
+          Datei einfach ausführen und im Wizard „Aktualisierung —
+          bestehende Installation überschreiben" wählen.
+        </p>
+
+      </div>
+
+      <div class="news-cta">
+        <a href="https://kassenwartpro.de" class="btn-primary">Zur Startseite</a>
+        <a href="https://kassenwartpro.de/feedback.html?v=1.7" class="btn-ghost">Feedback geben →</a>
+      </div>
+
+      <!-- ════════════ END CONTENT ════════════ -->
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-copy">© Kassenwart Pro</div>
+    <div class="footer-links">
+      <a href="../impressum.html">Impressum</a>
+      <a href="../transparenz.html">Transparenz</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
