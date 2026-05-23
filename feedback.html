@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Feedback · Kassenwart Pro</title>
+<style>
+:root {
+  --bg:      #e4ebe6;
+  --card:    #ffffff;
+  --primary: #4a7c68;
+  --prim2:   #3a6355;
+  --text:    #1a2a24;
+  --muted:   #6b8278;
+  --border:  #cdd8d2;
+  --red:     #c0392b;
+  --gold:    #f5a623;
+  --tier1bg: #eef3f0;
+  --tier2bg: #e8f0eb;
+  --tier3bg: #e0ebe4;
+  --shadow:  0 4px 24px rgba(0,0,0,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1080px; margin: auto; padding: 0 24px; }
+nav { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-size: 2.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+.nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+.nav-links a { font-size: 0.88rem; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.nav-links a:hover { color: var(--primary); }
+footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-copy { font-size: 0.82rem; color: var(--muted); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--primary); }
+
+.fb-wrap { max-width: 760px; margin: 30px auto 60px; }
+.fb-card { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 32px; }
+.fb-card h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+.fb-intro { font-size: 0.92rem; color: var(--muted); margin-bottom: 24px; line-height: 1.6; }
+.fb-version { display: inline-block; background: #eef3f0; border-radius: 6px; padding: 2px 10px; font-size: 0.78rem; color: var(--prim2); font-weight: 600; margin-left: 6px; }
+.fb-howto { background: #f6f9f7; border-left: 4px solid var(--primary); border-radius: 6px; padding: 12px 16px; font-size: 0.86rem; color: var(--text); margin-bottom: 22px; line-height: 1.55; }
+
+/* Tier-Gruppen */
+.tier-group { margin-bottom: 26px; }
+.tier-title { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--prim2); margin-bottom: 12px; padding: 8px 14px; border-radius: 6px; }
+.tier-title.t1 { background: var(--tier1bg); }
+.tier-title.t2 { background: var(--tier2bg); }
+.tier-title.t3 { background: var(--tier3bg); }
+.tier-title .tier-desc { display: block; font-size: 0.74rem; font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--muted); margin-top: 2px; }
+
+/* Sektor-Akkordeon */
+.sector { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; transition: border-color 0.15s; }
+.sector.open { border-color: var(--primary); }
+.sector-head { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 12px 16px; cursor: pointer; user-select: none; background: white; transition: background 0.12s; }
+.sector-head:hover { background: #f9fbfa; }
+.sector-name { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+.sector-name small { display: block; font-size: 0.76rem; font-weight: 400; color: var(--muted); margin-top: 2px; }
+.sector-skip { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); cursor: pointer; }
+.sector-skip input { cursor: pointer; }
+.sector-toggle { font-size: 1rem; color: var(--muted); transition: transform 0.2s; }
+.sector.open .sector-toggle { transform: rotate(180deg); color: var(--primary); }
+.sector-body { display: none; padding: 4px 16px 16px; background: #fafcfb; }
+.sector.open .sector-body { display: block; }
+.sector.skipped { opacity: 0.5; }
+.sector.skipped .sector-body { display: none; }
+
+.fb-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px dashed #e3eae6; }
+.fb-row:last-of-type { border-bottom: none; }
+.fb-label { font-size: 0.88rem; color: var(--text); }
+
+.stars { display: inline-flex; gap: 3px; }
+.star { width: 28px; height: 28px; background: transparent; border: none; cursor: pointer; padding: 0; color: #d5ded9; font-size: 22px; line-height: 1; transition: color 0.12s, transform 0.12s; }
+.star:hover { transform: scale(1.12); }
+.star.filled { color: var(--gold); }
+.star:focus { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
+
+.sector-textarea { width: 100%; margin-top: 10px; padding: 9px 12px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 0.88rem; background: white; color: var(--text); resize: vertical; min-height: 70px; }
+.sector-textarea:focus { outline: none; border-color: var(--primary); }
+.sector-textarea-label { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 8px; }
+
+/* Allgemeines */
+.general-field { margin-top: 12px; }
+.general-field label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+.general-field label small { font-weight: 400; color: var(--muted); }
+.general-field textarea, .general-field input[type=email] {
+  width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 8px;
+  font-family: inherit; font-size: 0.92rem; background: #f7faf8; color: var(--text); resize: vertical;
+}
+.general-field textarea { min-height: 100px; }
+.general-field textarea:focus, .general-field input[type=email]:focus { outline: none; border-color: var(--primary); background: white; }
+
+.fb-actions { margin-top: 28px; display: flex; justify-content: flex-end; gap: 12px; }
+.btn { display: inline-block; padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.15s; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--prim2); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-link { background: transparent; color: var(--muted); }
+.btn-link:hover { color: var(--primary); }
+
+.fb-note { font-size: 0.78rem; color: var(--muted); margin-top: 18px; line-height: 1.55; }
+.fb-counter { font-size: 0.8rem; color: var(--muted); text-align: right; margin-top: 8px; }
+
+.status-spinner { display: inline-block; width: 18px; height: 18px; border: 3px solid #ddd; border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.result-success { background: #e8f5e9; border: 1px solid var(--primary); border-radius: 10px; padding: 24px; text-align: center; }
+.result-success h2 { color: var(--primary); margin-bottom: 8px; font-size: 1.2rem; }
+.result-success p { font-size: 0.92rem; color: var(--text); margin: 0 0 6px; line-height: 1.6; }
+.result-success a { display: inline-block; margin-top: 16px; color: var(--primary); font-weight: 600; }
+
+.result-error { background: #fdecea; border: 1px solid var(--red); border-radius: 10px; padding: 18px; margin-top: 16px; }
+.result-error h3 { color: var(--red); margin-bottom: 4px; font-size: 0.95rem; }
+.result-error p { font-size: 0.86rem; color: var(--text); margin: 0; line-height: 1.55; }
+
+.view { display: none; }
+.view.active { display: block; }
+
+@media (max-width: 600px) {
+  .fb-wrap { margin: 18px auto 40px; }
+  .fb-card { padding: 22px 18px; }
+  .sector-head { grid-template-columns: 1fr auto; }
+  .sector-skip { grid-column: 1 / -1; }
+  .fb-row { grid-template-columns: 1fr; gap: 4px; }
+  .nav-links { gap: 14px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <nav>
+    <a href="index.html" class="nav-logo">Kassenwart Pro</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="transparenz.html">Transparenz</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+  </nav>
+
+  <div class="fb-wrap">
+
+    <!-- Formular -->
+    <div id="viewForm" class="view active">
+      <div class="fb-card">
+        <h1>Feedback &amp; Verbesserungsvorschläge<span id="versionBadge" class="fb-version" style="display:none;"></span></h1>
+        <p class="fb-intro">
+          Vielen Dank, dass Sie sich kurz Zeit nehmen. Wir entwickeln gerne nach Kundenwünschen,
+          um dieses Tool so zugeschnitten und effizient wie möglich zu gestalten —
+          Ihre Rückmeldung fließt direkt in die nächste Version ein.
+        </p>
+        <div class="fb-howto">
+          <strong>So funktioniert es:</strong>
+          Klappen Sie nur die Bereiche auf, zu denen Sie etwas sagen möchten. Nichts ist Pflicht.
+          Wenn Sie einen Bereich noch gar nicht benutzt haben, hilft das Häkchen <em>„habe ich nicht benutzt"</em> —
+          dann erscheint die Auswertung in Ihrer Tier-Übersicht klarer.
+        </p>
+
+        <!-- Sektoren werden hier per JS gerendert -->
+        <div id="sectorsRoot"></div>
+
+        <!-- Allgemeines -->
+        <div class="tier-group" style="margin-top: 28px;">
+          <div class="tier-title" style="background: #f5f5f5;">Allgemeines</div>
+          <div class="general-field">
+            <label>Generelle Anmerkung <small>(was nicht in eine der obigen Sektionen passt)</small></label>
+            <textarea id="generalSuggestion" maxlength="4000" placeholder="z.B. „Insgesamt sehr klar aufgebaut, ich vermisse aber …"></textarea>
+            <div class="fb-counter"><span id="generalCounter">0</span> / 4000</div>
+          </div>
+          <div class="general-field">
+            <label>E-Mail für Rückfragen <small>(optional — nur falls eine Nachfrage sinnvoll ist)</small></label>
+            <input type="email" id="email" placeholder="ihre@adresse.de" maxlength="200">
+          </div>
+        </div>
+
+        <div id="errBox" class="result-error" style="display:none;"><h3>Konnte nicht abgesendet werden</h3><p id="errMsg"></p></div>
+
+        <div class="fb-actions">
+          <a href="https://kassenwartpro.de" class="btn btn-link">Abbrechen</a>
+          <button id="btnSubmit" class="btn btn-primary" onclick="submitFeedback()">Feedback senden</button>
+        </div>
+
+        <p class="fb-note">
+          Hinweis: Die Eingaben werden lokal in einer Tabelle gespeichert und ausschließlich zur Produktverbesserung verwendet.
+          Die App-Version wird zur Einordnung mitgesendet. Eine E-Mail wird nur erfasst, wenn Sie eine eintragen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Senden -->
+    <div id="viewSending" class="view">
+      <div class="fb-card" style="text-align:center;">
+        <div class="status-spinner"></div>
+        <p style="margin-top:12px;color:var(--muted);">Feedback wird gesendet …</p>
+      </div>
+    </div>
+
+    <!-- Erfolg -->
+    <div id="viewSuccess" class="view">
+      <div class="result-success">
+        <h2>Vielen Dank!</h2>
+        <p>Ihr Feedback ist angekommen. Jede Rückmeldung wird gelesen — auch wenn keine Antwort folgt.</p>
+        <a href="https://kassenwartpro.de">Zurück zur Startseite</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <p class="footer-copy">Kassenwart Pro &copy; 2026 &middot; Simon Bellviure Bigas &middot; Leun</p>
+      <div class="footer-links">
+        <a href="index.html">Startseite</a>
+        <a href="transparenz.html">Transparenz</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="impressum.html#datenschutz">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ====================================================================
+// Konfiguration
+// ====================================================================
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw4kyOmmX-CrnbZxPo5_yD87KFP5a-NFdcWIhoi0zvMfQ6AgQy8MqlZh4OVIWABTyUHeA/exec";
+
+// ====================================================================
+// SEKTOREN — Quelle der Wahrheit fürs Frontend.
+// Wichtig: KEYS sind stabil (werden ans Backend gesendet und als
+// Spaltenname im Sheet verwendet). Änderungen hier müssen mit dem
+// SECTORS-Array in Code.gs synchron bleiben.
+// ====================================================================
+var TIERS = [
+  {
+    id: 't1', label: 'Haushaltsbuch',
+    desc: 'Budget, Buchungen, Kategorien, Sparen.',
+    sectors: [
+      { key: 'hh_uebersicht',  name: 'Übersicht & Kacheln',
+        hint: 'Sparquote, Notgroschen, Budget-Stand, Rücklagen-Kacheln.' },
+      { key: 'hh_buchungen',   name: 'Buchungen erfassen',
+        hint: 'Hinzufügen, Tabelle, Filter, Edit, Löschen.' },
+      { key: 'hh_kategorien',  name: 'Kategorien & Budgets',
+        hint: 'Kategorien anlegen, Budgetziel setzen, Rollover.' },
+      { key: 'hh_fixkosten',   name: 'Regelmäßige Buchungen',
+        hint: 'Vorlagen für Miete, Strom, Gehalt — Monatsanfang-Übernahme.' },
+      { key: 'hh_ruecklagen',  name: 'Rücklagen / Sparziele',
+        hint: 'Unterpositionen, Sparrate, Soll-Stand-Berechnung.' },
+      { key: 'hh_auswertung',  name: 'Auswertung & Diagramme',
+        hint: 'Charts, Investitionsplan, Detail-Ansichten der Kacheln.' }
+    ]
+  },
+  {
+    id: 't2', label: 'Depot',
+    desc: 'Portfolio, Live-Kurse, Sparpläne, Steuer-Übersicht.',
+    sectors: [
+      { key: 'dep_uebersicht', name: 'Depot-Übersicht',
+        hint: 'Donut, KPI-Karten, Positions-Tabelle, Wertentwicklung.' },
+      { key: 'dep_ordern',     name: 'Kauf / Verkauf / Dividenden',
+        hint: 'Position kaufen, FIFO-Verkauf, Dividende mit Steuer-Echo.' },
+      { key: 'dep_sparplaene', name: 'Sparpläne',
+        hint: 'Sparplan anlegen, Raten ausführen, Pause/Skip.' },
+      { key: 'dep_csv',        name: 'CSV-Import-Wizard',
+        hint: 'Broker-CSV einlesen, Mapping, Symbol-Auflösung, Vorschau.' },
+      { key: 'dep_export',     name: 'Steuer-Export (Excel-Mappe)',
+        hint: 'Datenexport-Reiter, Jahres-/Zeitraum-Auswahl, XLSX-Download.' },
+      { key: 'dep_bruecke',    name: 'Brücke Haushaltsbuch ↔ Depot',
+        hint: 'Überträge zwischen HH und Depot, Sparrate als Brücken-Fixkosten.' },
+      { key: 'dep_init',       name: 'Initialisierung / Einrichtung',
+        hint: 'Bestehende Positionen als Startbestand anlegen.' },
+      { key: 'dep_charts',     name: 'Depot-Charts',
+        hint: 'Wertzuwachs-Chart, Prognose-Rechner, Dividenden-Kalender.' }
+    ]
+  }
+  // Tier 3 wird hier ergänzt, sobald live (Watchlist, Indikatoren, Alarme).
+];
+
+// ====================================================================
+// Version aus Query-Param
+// ====================================================================
+var params  = new URLSearchParams(window.location.search);
+var version = params.get('v') || '';
+if (version) {
+  var badge = document.getElementById('versionBadge');
+  badge.textContent = 'v' + version;
+  badge.style.display = 'inline-block';
+}
+
+// ====================================================================
+// State pro Sektor
+// ====================================================================
+var sectorState = {};  // { key: { gef:0..5, int:0..5, sugg:'', skip:false } }
+
+// ====================================================================
+// Rendering
+// ====================================================================
+var sectorsRoot = document.getElementById('sectorsRoot');
+
+TIERS.forEach(function(tier){
+  var group = document.createElement('div');
+  group.className = 'tier-group';
+
+  var title = document.createElement('div');
+  title.className = 'tier-title ' + tier.id;
+  title.innerHTML = tier.label + '<span class="tier-desc">' + tier.desc + '</span>';
+  group.appendChild(title);
+
+  tier.sectors.forEach(function(sec){
+    sectorState[sec.key] = { gef: 0, int: 0, sugg: '', skip: false };
+    group.appendChild(buildSector(sec));
+  });
+
+  sectorsRoot.appendChild(group);
+});
+
+function buildSector(sec) {
+  var wrap = document.createElement('div');
+  wrap.className = 'sector';
+  wrap.dataset.key = sec.key;
+
+  // Header
+  var head = document.createElement('div');
+  head.className = 'sector-head';
+  head.innerHTML =
+    '<div class="sector-name">' + escHtml(sec.name) +
+      (sec.hint ? '<small>' + escHtml(sec.hint) + '</small>' : '') +
+    '</div>' +
+    '<label class="sector-skip">' +
+      '<input type="checkbox" class="skip-cb"> habe ich nicht benutzt' +
+    '</label>' +
+    '<span class="sector-toggle">▼</span>';
+
+  // Toggle bei Klick auf Header (ausser auf das Skip-Label/Checkbox)
+  head.addEventListener('click', function(e){
+    if (e.target.closest('.sector-skip')) return;
+    if (wrap.classList.contains('skipped')) return;
+    wrap.classList.toggle('open');
+  });
+  wrap.appendChild(head);
+
+  // Skip-Checkbox-Logik
+  var skipCb = head.querySelector('.skip-cb');
+  skipCb.addEventListener('change', function(){
+    sectorState[sec.key].skip = skipCb.checked;
+    if (skipCb.checked) {
+      wrap.classList.remove('open');
+      wrap.classList.add('skipped');
+      // Reset Werte, damit nichts abgesendet wird
+      sectorState[sec.key].gef = 0;
+      sectorState[sec.key].int = 0;
+      sectorState[sec.key].sugg = '';
+      // Star-Anzeige zurücksetzen
+      wrap.querySelectorAll('.star').forEach(function(s){ s.classList.remove('filled'); });
+      var ta = wrap.querySelector('.sector-textarea');
+      if (ta) ta.value = '';
+    } else {
+      wrap.classList.remove('skipped');
+    }
+  });
+
+  // Body
+  var body = document.createElement('div');
+  body.className = 'sector-body';
+
+  body.appendChild(buildStarRow(sec.key, 'gef', 'Gefällt es Ihnen?'));
+  body.appendChild(buildStarRow(sec.key, 'int', 'Ist es intuitiv bedienbar?'));
+
+  // Vorschlag
+  var sLabel = document.createElement('div');
+  sLabel.className = 'sector-textarea-label';
+  sLabel.textContent = 'Verbesserungsvorschlag (optional)';
+  body.appendChild(sLabel);
+
+  var ta = document.createElement('textarea');
+  ta.className = 'sector-textarea';
+  ta.maxLength = 2000;
+  ta.placeholder = 'Was würden Sie sich hier konkret wünschen?';
+  ta.addEventListener('input', function(){
+    sectorState[sec.key].sugg = ta.value;
+  });
+  body.appendChild(ta);
+
+  wrap.appendChild(body);
+  return wrap;
+}
+
+function buildStarRow(key, aspect, label) {
+  var row = document.createElement('div');
+  row.className = 'fb-row';
+
+  var lbl = document.createElement('div');
+  lbl.className = 'fb-label';
+  lbl.textContent = label;
+  row.appendChild(lbl);
+
+  var stars = document.createElement('div');
+  stars.className = 'stars';
+  for (var i = 1; i <= 5; i++) {
+    (function(v){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'star';
+      btn.textContent = '★';
+      btn.setAttribute('aria-label', v + ' von 5 Sternen');
+      btn.addEventListener('click', function(){
+        sectorState[key][aspect] = v;
+        Array.from(stars.children).forEach(function(s, idx){
+          s.classList.toggle('filled', idx < v);
+        });
+      });
+      stars.appendChild(btn);
+    })(i);
+  }
+  row.appendChild(stars);
+  return row;
+}
+
+// ====================================================================
+// Counter
+// ====================================================================
+var genTa  = document.getElementById('generalSuggestion');
+var genCnt = document.getElementById('generalCounter');
+genTa.addEventListener('input', function(){
+  genCnt.textContent = genTa.value.length;
+});
+
+// ====================================================================
+// Senden
+// ====================================================================
+function showView(id) {
+  document.querySelectorAll('.view').forEach(function(v){ v.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function submitFeedback() {
+  // Etwas absendet werden, sonst kein Submit
+  var hasContent = false;
+  Object.keys(sectorState).forEach(function(k){
+    var s = sectorState[k];
+    if (s.skip || s.gef || s.int || (s.sugg && s.sugg.trim())) hasContent = true;
+  });
+  var generalSugg = genTa.value.trim();
+  if (generalSugg) hasContent = true;
+
+  if (!hasContent) {
+    var err = document.getElementById('errBox');
+    document.getElementById('errMsg').textContent =
+      'Bitte mindestens einen Bereich bewerten, einen Vorschlag eintragen oder „habe ich nicht benutzt" markieren.';
+    err.style.display = 'block';
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    return;
+  }
+
+  if (generalSugg.length > 4000) {
+    document.getElementById('errMsg').textContent =
+      'Die generelle Anmerkung ist zu lang (max. 4000 Zeichen).';
+    document.getElementById('errBox').style.display = 'block';
+    return;
+  }
+
+  var btn = document.getElementById('btnSubmit');
+  btn.disabled = true;
+  showView('viewSending');
+
+  var payload = new URLSearchParams();
+  payload.append('version',  version);
+  payload.append('general',  generalSugg);
+  payload.append('email',    document.getElementById('email').value.trim());
+  payload.append('user_agent', navigator.userAgent.slice(0, 200));
+
+  // Sektor-Werte als sektor_<key>__<aspekt> ans Backend; nur Felder
+  // mit Inhalt, leere überspringen wir, damit das Sheet schlank bleibt.
+  Object.keys(sectorState).forEach(function(k){
+    var s = sectorState[k];
+    if (s.skip)               payload.append('skip_' + k, '1');
+    if (s.gef)                payload.append('gef_'  + k, String(s.gef));
+    if (s.int)                payload.append('int_'  + k, String(s.int));
+    if (s.sugg && s.sugg.trim()) payload.append('sugg_' + k, s.sugg.trim().slice(0, 2000));
+  });
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode:   'no-cors',
+    body:   payload
+  }).then(function(){
+    showView('viewSuccess');
+  }).catch(function(){
+    btn.disabled = false;
+    showView('viewForm');
+    document.getElementById('errMsg').textContent =
+      'Netzwerkfehler. Bitte später erneut versuchen oder eine Mail an info@kassenwartpro.de schreiben.';
+    document.getElementById('errBox').style.display = 'block';
+  });
+}
+
+function escHtml(s) {
+  return String(s || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+</script>
+
+</body>
+</html>
