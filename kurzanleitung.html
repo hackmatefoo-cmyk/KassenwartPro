@@ -23,7 +23,6 @@
 body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 .container { max-width: 1080px; margin: auto; padding: 0 24px; }
 
-/* Navigation + Footer */
 nav { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
 .nav-logo { font-size: 2.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
 .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
@@ -37,17 +36,31 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; }
 .footer-links a:hover { color: var(--primary); }
 
-/* Hauptlayout */
 .qs-wrap { max-width: 820px; margin: 48px auto 72px; }
 .qs-intro { text-align: center; margin-bottom: 32px; }
 .qs-intro h1 { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
 .qs-intro .lead { font-size: 1rem; color: var(--muted); max-width: 580px; margin: 0 auto; }
 
+/* Abschnitts-Überschrift (Kapitel-Trenner) */
+.qs-chapter {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 28px 4px 12px;
+  padding-left: 8px;
+  border-left: 3px solid var(--primary);
+}
+
 /* Inhaltsverzeichnis */
-.qs-toc { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 28px; margin-bottom: 28px; box-shadow: var(--shadow); }
+.qs-toc { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 28px; margin-bottom: 28px; box-shadow: var(--shadow); break-inside: avoid; page-break-inside: avoid; }
 .qs-toc h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 12px; font-weight: 600; }
-.qs-toc ol { padding-left: 22px; columns: 2; column-gap: 32px; }
-.qs-toc li { font-size: 0.92rem; margin-bottom: 6px; break-inside: avoid; }
+.qs-toc-group { margin-bottom: 14px; break-inside: avoid; page-break-inside: avoid; }
+.qs-toc-group:last-child { margin-bottom: 0; }
+.qs-toc-group h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); margin-bottom: 6px; font-weight: 700; }
+.qs-toc-group ol { padding-left: 22px; }
+.qs-toc-group li { font-size: 0.92rem; margin-bottom: 4px; }
 .qs-toc a { color: var(--text); text-decoration: none; }
 .qs-toc a:hover { color: var(--primary); text-decoration: underline; }
 
@@ -81,13 +94,11 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 .qs-card strong { color: var(--text); }
 .qs-card code { background: #f0f3f1; padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
 
-/* Hinweis-Boxen */
 .qs-box { border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 0.92rem; line-height: 1.6; break-inside: avoid; page-break-inside: avoid; }
 .qs-box.tip  { background: var(--tint);     border-left: 4px solid var(--primary); }
 .qs-box.warn { background: var(--tintWarn); border-left: 4px solid var(--accent);  }
 .qs-box strong { display: block; margin-bottom: 4px; }
 
-/* Tabelle (Sprachregel-Glossar, Tastatur-Kürzel etc.) */
 .qs-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.92rem; break-inside: avoid; page-break-inside: avoid; }
 .qs-table th, .qs-table td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
 .qs-table th { background: var(--tint); color: var(--text); font-weight: 600; }
@@ -99,14 +110,15 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
   .container { padding: 0 12mm; max-width: none; }
   nav, footer, hr.divider { display: none; }
   .qs-wrap { margin: 0; max-width: none; }
-  .qs-intro { margin-bottom: 18mm; page-break-after: avoid; }
+  .qs-intro { margin-bottom: 14mm; page-break-after: avoid; }
   .qs-intro h1 { font-size: 22pt; }
   .qs-intro .lead { font-size: 11pt; }
+  .qs-chapter { margin: 10mm 0 4mm; page-break-after: avoid; font-size: 9pt; }
   .qs-toc, .qs-card {
     box-shadow: none;
     border: 1px solid #ccc;
-    padding: 14mm 14mm 16mm;
-    margin-bottom: 8mm;
+    padding: 12mm 14mm 14mm;
+    margin-bottom: 6mm;
     break-inside: avoid;
     page-break-inside: avoid;
   }
@@ -115,14 +127,11 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
   .qs-card p, .qs-card li, .qs-table td, .qs-table th, .qs-box { font-size: 10pt; }
   .qs-box, .qs-table { break-inside: avoid; page-break-inside: avoid; }
   a { color: var(--text); text-decoration: none; }
-  /* Sektionen wo immer möglich auf neuer Seite starten lassen,
-     wenn sie sonst geschnitten würden. break-inside reicht meist. */
 }
 
 @media (max-width: 780px) {
   .qs-wrap { margin: 28px auto 48px; }
   .qs-card { padding: 22px 22px; }
-  .qs-toc ol { columns: 1; }
   .qs-intro h1 { font-size: 1.55rem; }
 }
 </style>
@@ -153,30 +162,60 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     <!-- ════════════ Inhaltsverzeichnis ════════════ -->
     <div class="qs-toc">
       <h2>Inhalt</h2>
-      <ol>
-        <li><a href="#s1">Installation und Aktivierung</a></li>
-        <li><a href="#s2">Aufbau der App</a></li>
-        <li><a href="#s3">Haushaltsbuch — Buchungen</a></li>
-        <li><a href="#s4">Kategorien und Buchungsregeln</a></li>
-        <li><a href="#s5">Fixkosten-Vorlagen</a></li>
-        <li><a href="#s6">Rücklagen</a></li>
-        <li><a href="#s7">Auswertung im Haushaltsbuch</a></li>
-        <li><a href="#s8">Depot — Initialisierung</a></li>
-        <li><a href="#s9">Depot — Buchungen</a></li>
-        <li><a href="#s10">Sparpläne</a></li>
-        <li><a href="#s11">Live-Kurse</a></li>
-        <li><a href="#s12">Notizen pro Position</a></li>
-        <li><a href="#s13">Allokation und Wertzuwachs</a></li>
-        <li><a href="#s14">CSV-Import (Depot)</a></li>
-        <li><a href="#s15">Brücke Haushaltsbuch ↔ Depot</a></li>
-        <li><a href="#s16">Steuer-Export (XLSX)</a></li>
-        <li><a href="#s17">Datensicherung</a></li>
-        <li><a href="#s18">Updates einspielen</a></li>
-        <li><a href="#s19">Feedback und Support</a></li>
-      </ol>
+
+      <div class="qs-toc-group">
+        <h3>Erste Schritte</h3>
+        <ol>
+          <li><a href="#s1">Installation und Aktivierung</a></li>
+          <li><a href="#s2">Aufbau der App</a></li>
+        </ol>
+      </div>
+
+      <div class="qs-toc-group">
+        <h3>Haushaltsbuch</h3>
+        <ol start="3">
+          <li><a href="#s3">Einrichtung und Einstellungen</a></li>
+          <li><a href="#s4">Kategorien</a></li>
+          <li><a href="#s5">Buchungsregeln (Gedankenstütze)</a></li>
+          <li><a href="#s6">Regelmäßige Buchungen</a></li>
+          <li><a href="#s7">Rücklagen-Töpfe</a></li>
+          <li><a href="#s8">Buchungen erfassen</a></li>
+          <li><a href="#s9">Auswertung und Kacheln</a></li>
+        </ol>
+      </div>
+
+      <div class="qs-toc-group">
+        <h3>Depot</h3>
+        <ol start="10">
+          <li><a href="#s10">Initialisierung</a></li>
+          <li><a href="#s11">Verwaltung und Datenexport</a></li>
+          <li><a href="#s12">Hauptansicht</a></li>
+          <li><a href="#s13">Buchungen</a></li>
+          <li><a href="#s14">Sparpläne</a></li>
+          <li><a href="#s15">Live-Kurse</a></li>
+          <li><a href="#s16">Notizen pro Position</a></li>
+          <li><a href="#s17">Wertzuwachs und Prognose</a></li>
+          <li><a href="#s18">CSV-Import</a></li>
+          <li><a href="#s19">Steuer-Export (XLSX)</a></li>
+        </ol>
+      </div>
+
+      <div class="qs-toc-group">
+        <h3>Verbindung und Pflege</h3>
+        <ol start="20">
+          <li><a href="#s20">Brücke Haushaltsbuch ↔ Depot</a></li>
+          <li><a href="#s21">Datensicherung</a></li>
+          <li><a href="#s22">Updates einspielen</a></li>
+          <li><a href="#s23">Feedback und Support</a></li>
+        </ol>
+      </div>
     </div>
 
-    <!-- ════════════ 1. Installation ════════════ -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- ERSTE SCHRITTE                                            -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="qs-chapter">Erste Schritte</div>
+
     <section class="qs-card" id="s1">
       <h2><span class="qs-num">01</span>Installation und Aktivierung</h2>
       <p>Nach dem Kauf kommt eine E-Mail mit einem Download-Link für <code>KassenwartPro.exe</code> und einem persönlichen Lizenzschlüssel. Die Datei wird einmal ausgeführt — der Installer fragt nach einem Zielordner und legt dort die Programmdatei sowie die Datenablage an.</p>
@@ -187,20 +226,57 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       </div>
     </section>
 
-    <!-- ════════════ 2. Aufbau ════════════ -->
     <section class="qs-card" id="s2">
       <h2><span class="qs-num">02</span>Aufbau der App</h2>
       <p>Kassenwart Pro öffnet sich beim Start im Standardbrowser unter einer lokalen Adresse. Oben in der Kopfzeile gibt es zwei Hauptbereiche:</p>
       <ul>
-        <li><strong>Haushaltsbuch</strong> — Einnahmen, Ausgaben, Fixkosten, Rücklagen, Auswertung.</li>
-        <li><strong>Depot</strong> — Positionen, Sparpläne, Live-Kurse, Orderhistorie, Steuerübersicht.</li>
+        <li><strong>Haushaltsbuch</strong> — Einnahmen, Ausgaben, regelmäßige Buchungen, Rücklagen, Auswertung.</li>
+        <li><strong>Depot</strong> — Positionen, Sparpläne, Kursdaten, Orderhistorie, Steuerübersicht.</li>
       </ul>
       <p>Zwischen den beiden Bereichen wird über die Buttons in der Kopfzeile gewechselt. Daneben liegen die Einstellungen (Zahnrad-Symbol) und der Beenden-Button.</p>
     </section>
 
-    <!-- ════════════ 3. HH Buchungen ════════════ -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- HAUSHALTSBUCH                                             -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="qs-chapter">Haushaltsbuch</div>
+
     <section class="qs-card" id="s3">
-      <h2><span class="qs-num">03</span>Haushaltsbuch — Buchungen</h2>
+      <h2><span class="qs-num">03</span>Einrichtung und Einstellungen</h2>
+      <p>Vor der ersten Buchung empfiehlt sich ein kurzer Blick in die Einstellungen (Zahnrad-Symbol oben). Dort werden Kategorien angelegt oder angepasst, regelmäßige Buchungen vorbereitet und Rücklagen-Töpfe definiert. Pflicht ist nichts davon — Kassenwart Pro kommt mit sinnvollen Standardkategorien und lässt sich auch ohne Vorbereitung sofort nutzen.</p>
+      <p>Die folgenden vier Abschnitte gehen die einzelnen Einstellungs-Reiter durch.</p>
+    </section>
+
+    <section class="qs-card" id="s4">
+      <h2><span class="qs-num">04</span>Kategorien</h2>
+      <p>Kategorien werden im Reiter „Kategorien" der Einstellungen verwaltet. Pro Kategorie wird festgelegt, ob es sich um eine Einnahme oder Ausgabe handelt, und optional eine Farbe für die Auswertungs-Diagramme.</p>
+      <p>Einige Kategorien sind systemseitig vorgegeben (etwa „Rücklagen-Zahlung" und „Depot-Übertrag") — sie sind notwendig, damit die Sparquote und die Brücke zum Depot sauber funktionieren.</p>
+    </section>
+
+    <section class="qs-card" id="s5">
+      <h2><span class="qs-num">05</span>Buchungsregeln (Gedankenstütze)</h2>
+      <p>Buchungsregeln sind in Kassenwart Pro bewusst schlicht gehalten — sie sind weniger ein Automatik-Tool, mehr eine persönliche Gedankenstütze. Wer bei wiederkehrenden Buchungen unsicher ist, in welche Kategorie ein bestimmter Posten gehört (z. B. „Wohin mit dem Reifenwechsel?"), legt sich einmal eine Notiz dazu an. Beim nächsten Mal lässt sich nachschauen und konsistent buchen.</p>
+      <p>Eine Regel besteht aus einem Stichwort und einer zugeordneten Kategorie. Wer das nicht braucht, lässt den Reiter einfach leer.</p>
+    </section>
+
+    <section class="qs-card" id="s6">
+      <h2><span class="qs-num">06</span>Regelmäßige Buchungen</h2>
+      <p>Wiederkehrende Beträge — Miete, Versicherungen, Streaming-Abos, aber auch Sparbeträge oder variable Kosten wie ein typischer Wocheneinkauf — werden als Vorlage hinterlegt. Jede Vorlage hat eine Bezeichnung, einen Betrag, eine Kategorie und ein Fälligkeitsdatum (Tag im Monat).</p>
+      <p>Im Buchungs-Modal werden alle fälligen Vorlagen eines Monats in einem Rutsch übernommen. Pro Zeile gibt es einen Skip-Button, falls eine Vorlage in einem bestimmten Monat ausnahmsweise nicht gebucht werden soll.</p>
+      <div class="qs-box tip">
+        <strong>Depot-Sparpläne als regelmäßige Buchung</strong>
+        Eine Vorlage mit der Kategorie „Depot-Übertrag" überträgt beim Buchen automatisch Geld vom Haushaltskonto auf das Depot-Verrechnungskonto (Brücke). Siehe Abschnitt 20.
+      </div>
+    </section>
+
+    <section class="qs-card" id="s7">
+      <h2><span class="qs-num">07</span>Rücklagen-Töpfe</h2>
+      <p>Rücklagen sind virtuelle Töpfe innerhalb des Haushaltsbuchs — z. B. „Notgroschen", „Urlaub 2027", „Auto-Reparatur". Sie werden in den Einstellungen angelegt und mit einem Zielbetrag versehen.</p>
+      <p>Eine Buchung in die Kategorie „Rücklagen-Zahlung" mindert den Kassenbestand, erhöht aber den ausgewiesenen Rücklagentopf. Die Sparquote im Haushaltsbuch-Header behandelt Rücklagen wie Sparen, nicht wie eine Ausgabe.</p>
+    </section>
+
+    <section class="qs-card" id="s8">
+      <h2><span class="qs-num">08</span>Buchungen erfassen</h2>
       <p>Eine neue Buchung wird über den Plus-Button am oberen Rand der Tabelle angelegt. Erforderlich sind Datum, Betrag, Kategorie und eine kurze Beschreibung. Einnahmen werden positiv, Ausgaben negativ erfasst — das Vorzeichen ergibt sich aus der gewählten Kategorie.</p>
       <p>Jede Buchung lässt sich nachträglich bearbeiten (Stift-Symbol) oder löschen (Mülleimer-Symbol). Die laufenden Summen in der Kopfzeile aktualisieren sich automatisch.</p>
       <div class="qs-box tip">
@@ -209,39 +285,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       </div>
     </section>
 
-    <!-- ════════════ 4. Kategorien + Regeln ════════════ -->
-    <section class="qs-card" id="s4">
-      <h2><span class="qs-num">04</span>Kategorien und Buchungsregeln</h2>
-      <p>Kategorien werden in den Einstellungen verwaltet (Reiter „Kategorien"). Pro Kategorie wird festgelegt, ob es sich um eine Einnahme oder Ausgabe handelt, und optional eine Farbe für die Diagramme.</p>
-      <h3>Buchungsregeln</h3>
-      <p>Buchungsregeln matchen anhand des Beschreibungstexts und schlagen automatisch eine passende Kategorie vor — z. B. alle Buchungen mit „REWE" landen in „Lebensmittel". Regeln werden im Buchungs-Dialog vorgeschlagen, die endgültige Zuordnung bleibt manuell.</p>
-      <div class="qs-box tip">
-        <strong>Anlegen</strong>
-        Eine Regel lässt sich direkt aus einer bestehenden Buchung erzeugen: im Edit-Dialog „Als Regel speichern" wählen.
-      </div>
-    </section>
-
-    <!-- ════════════ 5. Fixkosten ════════════ -->
-    <section class="qs-card" id="s5">
-      <h2><span class="qs-num">05</span>Fixkosten-Vorlagen</h2>
-      <p>Wiederkehrende Buchungen (Miete, Versicherungen, Streaming-Abos) werden als Fixkosten-Vorlage angelegt. Jede Vorlage hat eine Bezeichnung, einen Betrag, eine Kategorie und ein Fälligkeitsdatum (Tag im Monat).</p>
-      <p>Über das Fixkosten-Modal werden alle fälligen Vorlagen eines Monats in einem Rutsch gebucht. Pro Zeile gibt es einen Skip-Button, falls eine Vorlage in einem bestimmten Monat ausnahmsweise nicht gebucht werden soll.</p>
-      <div class="qs-box tip">
-        <strong>Depot-Sparpläne als Fixkosten</strong>
-        Eine Fixkosten-Vorlage mit der Kategorie „Depot-Übertrag" überträgt beim Buchen automatisch Geld vom Haushaltskonto auf das Depot-Verrechnungskonto (Brücke). Siehe Abschnitt 15.
-      </div>
-    </section>
-
-    <!-- ════════════ 6. Rücklagen ════════════ -->
-    <section class="qs-card" id="s6">
-      <h2><span class="qs-num">06</span>Rücklagen</h2>
-      <p>Rücklagen sind virtuelle Töpfe innerhalb des Haushaltsbuchs — z. B. „Notgroschen", „Urlaub 2027", „Auto-Reparatur". Sie werden in den Einstellungen angelegt und mit einem Zielbetrag versehen.</p>
-      <p>Eine Buchung in die Kategorie „Rücklagen-Zahlung" mindert den Kassenbestand, erhöht aber den ausgewiesenen Rücklagentopf. Die Sparquote im Haushaltsbuch-Header behandelt Rücklagen wie Sparen, nicht wie eine Ausgabe.</p>
-    </section>
-
-    <!-- ════════════ 7. Auswertung ════════════ -->
-    <section class="qs-card" id="s7">
-      <h2><span class="qs-num">07</span>Auswertung im Haushaltsbuch</h2>
+    <section class="qs-card" id="s9">
+      <h2><span class="qs-num">09</span>Auswertung und Kacheln</h2>
       <p>Die Kachelreihe oberhalb der Buchungstabelle zeigt die wichtigsten Kennzahlen auf einen Blick:</p>
       <ul>
         <li><strong>Budget</strong> — Soll-/Ist-Vergleich pro Kategoriegruppe, getrennt nach variablen Kosten, Fixkosten und Einnahmen.</li>
@@ -251,13 +296,17 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       <p>Ein Klick auf die ⤢-Schaltfläche an einer Kachel öffnet eine vergrößerte Detailansicht mit zusätzlichen Aufschlüsselungen.</p>
     </section>
 
-    <!-- ════════════ 8. Depot Init ════════════ -->
-    <section class="qs-card" id="s8">
-      <h2><span class="qs-num">08</span>Depot — Initialisierung</h2>
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- DEPOT                                                     -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="qs-chapter">Depot</div>
+
+    <section class="qs-card" id="s10">
+      <h2><span class="qs-num">10</span>Initialisierung</h2>
       <p>Damit das Depot ein realistisches Bild zeigt, wird beim ersten Aufruf der aktuelle Bestand einmalig eingetragen. Über das Zahnrad-Symbol auf der Depot-Seite öffnet sich das Einstellungs-Modal mit dem Reiter <strong>Initialisierung</strong>.</p>
       <ol>
         <li>Kontostand des Verrechnungskontos eintragen (Bargeld, das im Depot liegt).</li>
-        <li>Pro Wertpapier eine Position anlegen: Wertpapier-Suche (Yahoo Finance), Stückzahl, Einstandskurs, Kaufdatum.</li>
+        <li>Pro Wertpapier eine Position anlegen: Wertpapier-Suche, Stückzahl, Einstandskurs, Kaufdatum.</li>
         <li>Die Übersicht zeigt den eingetragenen Stand. Korrekturen sind beliebig oft möglich, solange das Depot noch nicht „abgeschlossen" ist.</li>
         <li>Mit <strong>„Schließen und Sperren"</strong> wird der Initialisierungszustand eingefroren.</li>
       </ol>
@@ -267,15 +316,35 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       </div>
     </section>
 
-    <!-- ════════════ 9. Depot Buchungen ════════════ -->
-    <section class="qs-card" id="s9">
-      <h2><span class="qs-num">09</span>Depot — Buchungen</h2>
+    <section class="qs-card" id="s11">
+      <h2><span class="qs-num">11</span>Verwaltung und Datenexport</h2>
+      <p>Im Depot-Einstellungs-Modal stehen drei Reiter zur Verfügung:</p>
+      <ul>
+        <li><strong>Initialisierung</strong> — Erstbefüllung (siehe vorherigen Abschnitt) und CSV-Import-Wizard.</li>
+        <li><strong>Verwaltung</strong> — bestehende Positionen pflegen (Symbol prüfen, Position komplett löschen, Depot zurücksetzen). Hier lässt sich auch die Initialisierung wieder entsperren.</li>
+        <li><strong>Datenexport</strong> — Export aller Depot-Bewegungen als Excel-Mappe (siehe Abschnitt 19).</li>
+      </ul>
+    </section>
+
+    <section class="qs-card" id="s12">
+      <h2><span class="qs-num">12</span>Hauptansicht</h2>
+      <p>Die Depot-Hauptansicht teilt sich in drei Bereiche:</p>
+      <ul>
+        <li><strong>Kachelreihe oben</strong> — Depotwert (mit Tageschange), Gesamt-G/V, Verrechnungskonto, Dividenden des laufenden Jahres. Ein Klick auf die ⋯-Schaltfläche pro Kachel zeigt zusätzliche Details.</li>
+        <li><strong>Linke Spalte</strong> — Allokations-Donut der Positionen mit Cash-Anteil.</li>
+        <li><strong>Rechte Spalte</strong> — scrollbare Positionsliste mit Marktwert und Tageschange in Prozent.</li>
+      </ul>
+      <p>Unterhalb der Hauptansicht liegen die Reiter <strong>Sparpläne</strong> und <strong>Orderhistorie</strong>.</p>
+    </section>
+
+    <section class="qs-card" id="s13">
+      <h2><span class="qs-num">13</span>Buchungen</h2>
       <p>Über die Buttons in der Depot-Toolbar werden Buchungen angelegt:</p>
       <ul>
         <li><strong>Kauf</strong> — Datum, Anzahl, Kurs, Gebühren. Eine neue Position wird ggf. inline angelegt.</li>
         <li><strong>Verkauf</strong> — FIFO-Verbrauch der ältesten Lots. Bei Teilverkäufen verbleibende Lots bleiben mit ihrem ursprünglichen Einstand erhalten.</li>
         <li><strong>Dividende</strong> — Brutto- und tatsächlich erhaltener Betrag. Die Differenz wird als einbehaltene Steuer (eingetragen) ausgewiesen.</li>
-        <li><strong>Übertrag</strong> — Geld ins Depot ein- oder auszahlen. Optional als „Brücke" mit dem Haushaltsbuch verknüpfen (siehe Abschnitt 15).</li>
+        <li><strong>Übertrag</strong> — Geld ins Depot ein- oder auszahlen. Optional als „Brücke" mit dem Haushaltsbuch verknüpfen (siehe Abschnitt 20).</li>
       </ul>
       <div class="qs-box warn">
         <strong>Sprachregel</strong>
@@ -283,30 +352,22 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       </div>
     </section>
 
-    <!-- ════════════ 10. Sparpläne ════════════ -->
-    <section class="qs-card" id="s10">
-      <h2><span class="qs-num">10</span>Sparpläne</h2>
+    <section class="qs-card" id="s14">
+      <h2><span class="qs-num">14</span>Sparpläne</h2>
       <p>Ein Sparplan ist eine wiederkehrende Kauforder zu einer festen Rate und einem festen Intervall (wöchentlich, 14-tägig, monatlich, quartalsweise, halbjährlich, jährlich). Sparpläne werden im Reiter „Sparpläne" angelegt.</p>
       <p>Sobald eine Rate fällig ist, erscheint im Sparplan-Reiter ein gelber Banner mit der Anzahl offener Raten. Über den Button <strong>„Raten buchen"</strong> öffnet sich eine Liste aller fälligen Raten — der Kurs wird aus dem Cache vorgeschlagen, das Datum auf den Soll-Termin gesetzt.</p>
       <h3>Skip einer Rate</h3>
       <p>Pro Rate gibt es einen ×-Button, der die Rate überspringt — sie wird nicht gebucht und taucht künftig nicht mehr in den fälligen Raten auf. Auch Lücken in der Mitte einer Sparplan-Folge sind so möglich.</p>
     </section>
 
-    <!-- ════════════ 11. Live-Kurse ════════════ -->
-    <section class="qs-card" id="s11">
-      <h2><span class="qs-num">11</span>Live-Kurse</h2>
-      <p>Beim Start lädt die App im Hintergrund aktuelle Kurse für alle Positionen (Yahoo Finance). Marktwert, unrealisierte Gewinne und der prozentuale Tageschange erscheinen automatisch in der Hauptansicht.</p>
-      <ul>
-        <li><strong>Aktien, ETFs, Indizes</strong> — direkt über Yahoo.</li>
-        <li><strong>Krypto</strong> — Yahoo-Symbole wie <code>BTC-EUR</code>.</li>
-        <li><strong>Edelmetalle</strong> — über die interne Symbole <code>metal:XAU</code> bis <code>metal:XPD</code>; Einheit pro Position wählbar (Gramm / Unzen).</li>
-      </ul>
-      <p>Wenn ein Symbol keinen Kurs liefert, erscheint ein rotes Ausrufezeichen in der Tabelle. Über „Symbol verifizieren" in der Verwaltung lässt sich das passende Yahoo-Symbol einstellen.</p>
+    <section class="qs-card" id="s15">
+      <h2><span class="qs-num">15</span>Live-Kurse</h2>
+      <p>Beim Start lädt die App im Hintergrund aktuelle Kurse für alle Positionen. Marktwert, unrealisierte Gewinne und der prozentuale Tageschange erscheinen automatisch in der Hauptansicht. Über den Button „Aktualisieren" oben rechts in der Positionsliste lässt sich jederzeit ein manueller Refresh auslösen.</p>
+      <p>Unterstützt werden Aktien, ETFs, Indizes, Krypto und Edelmetalle. Bei Edelmetallen ist die Einheit pro Position wählbar (Gramm oder Unzen). Liefert ein Symbol keinen Kurs, erscheint in der Tabelle ein rotes Ausrufezeichen — über „Symbol verifizieren" in der Verwaltung lässt sich das passende Marktsymbol einstellen.</p>
     </section>
 
-    <!-- ════════════ 12. Notizen ════════════ -->
-    <section class="qs-card" id="s12">
-      <h2><span class="qs-num">12</span>Notizen pro Position</h2>
+    <section class="qs-card" id="s16">
+      <h2><span class="qs-num">16</span>Notizen pro Position</h2>
       <p>Jede Position hat eine Detailansicht mit fünf strukturierten Notizfeldern:</p>
       <ul>
         <li><strong>These</strong> — Warum gekauft?</li>
@@ -318,24 +379,21 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       <p>Hat eine Position gefüllte Notizen, erscheint in der Hauptansicht neben dem Ticker ein kleines i-Symbol. Klick darauf öffnet die Detailansicht direkt.</p>
     </section>
 
-    <!-- ════════════ 13. Allokation + Wertzuwachs ════════════ -->
-    <section class="qs-card" id="s13">
-      <h2><span class="qs-num">13</span>Allokation und Wertzuwachs</h2>
-      <p>Die Hauptansicht des Depots zeigt links einen Allokations-Donut (Top-Positionen plus Cash), rechts die scrollbare Positionsliste mit Marktwert und Tageschange.</p>
+    <section class="qs-card" id="s17">
+      <h2><span class="qs-num">17</span>Wertzuwachs und Prognose</h2>
       <h3>Wertzuwachs-Chart</h3>
-      <p>Über die Slider-Bar oberhalb der Positionsliste lässt sich auf den Wertzuwachs-Chart umschalten — eine Linie zeigt die historische Entwicklung des gesamten Depotwerts (täglich gespeicherte Snapshots). Zeitraum-Buttons: 1M / 3M / 6M / 1J / YTD / 5J / MAX.</p>
+      <p>Über die Slider-Bar oberhalb der Positionsliste lässt sich auf den Wertzuwachs-Chart umschalten — eine Linie zeigt die historische Entwicklung des gesamten Depotwerts (täglich gespeicherte Snapshots). Zeitraum-Buttons: 1M / 3M / 6M / 1J / YTD / 5J / MAX. Beim Überstreichen erscheint ein Crosshair mit Datum und Depotwert.</p>
       <h3>Prognose-Rechner</h3>
       <p>Auf einer weiteren Slider-Seite liegt der Prognose-Rechner: Sparrate, erwartete Rendite und Laufzeit eintragen, die App zeichnet die erwartete Entwicklung als Chart mit Vergleichslinie „Eingezahlt".</p>
     </section>
 
-    <!-- ════════════ 14. CSV-Import ════════════ -->
-    <section class="qs-card" id="s14">
-      <h2><span class="qs-num">14</span>CSV-Import (Depot)</h2>
+    <section class="qs-card" id="s18">
+      <h2><span class="qs-num">18</span>CSV-Import</h2>
       <p>Für die Übernahme der Order-Historie aus einem Broker-Export gibt es einen geführten CSV-Import-Wizard im Depot-Einstellungs-Modal (Reiter „Initialisierung" → „CSV importieren").</p>
       <ol>
         <li><strong>Datei hochladen</strong> — die App erkennt automatisch Encoding, Trennzeichen, Dezimal- und Datumsformat.</li>
         <li><strong>Mapping</strong> — Spalten der CSV den App-Feldern zuordnen (Datum, Typ, Anzahl, Kurs, ISIN/WKN/Ticker, Gebühren, Steuer, Notiz). Profile lassen sich pro Broker speichern.</li>
-        <li><strong>Symbole auflösen</strong> — ISINs und WKNs werden über OpenFIGI und Yahoo Finance auf die richtigen Tickersymbole abgebildet.</li>
+        <li><strong>Symbole auflösen</strong> — ISINs und WKNs werden automatisch auf die richtigen Tickersymbole abgebildet.</li>
         <li><strong>Trockenlauf</strong> — Zusammenfassung der zu buchenden Transaktionen, Warnungen bei Duplikaten oder negativem Verrechnungskonto. Einzelne Zeilen können hier per Klick ausgeschlossen werden.</li>
         <li><strong>Importieren</strong> — Buchungen werden atomar geschrieben (entweder alle oder keine).</li>
       </ol>
@@ -345,22 +403,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       </div>
     </section>
 
-    <!-- ════════════ 15. Brücke ════════════ -->
-    <section class="qs-card" id="s15">
-      <h2><span class="qs-num">15</span>Brücke Haushaltsbuch ↔ Depot</h2>
-      <p>Geldbewegungen zwischen Girokonto und Depot lassen sich verknüpft buchen — eine Buchung erzeugt automatisch das Gegenstück auf der anderen Seite. Atomar: entweder beide Buchungen oder keine.</p>
-      <ul>
-        <li>Im Haushaltsbuch über den Button <strong>„⇄ Übertrag Depot"</strong> oder im Depot über das Transfer-Modal mit aktivierter Checkbox „Verknüpft mit Haushaltsbuch".</li>
-        <li>Die Brücke beeinflusst die Sparquote nicht — Geld, das ins Depot wandert, gilt als Sparen, nicht als Ausgabe.</li>
-        <li>Wird eine verknüpfte Buchung auf einer Seite gelöscht, fällt die andere Seite mit.</li>
-      </ul>
-      <h3>Sparplan über die Brücke</h3>
-      <p>Eine Fixkosten-Vorlage mit Kategorie „Depot-Übertrag" und Richtung „ins Depot" überträgt beim Buchen automatisch die Sparplan-Rate auf das Verrechnungskonto. Anschließend kann der eigentliche Wertpapier-Kauf im Depot über den Sparplan-Reiter ausgelöst werden.</p>
-    </section>
-
-    <!-- ════════════ 16. Steuer-Export ════════════ -->
-    <section class="qs-card" id="s16">
-      <h2><span class="qs-num">16</span>Steuer-Export (XLSX)</h2>
+    <section class="qs-card" id="s19">
+      <h2><span class="qs-num">19</span>Steuer-Export (XLSX)</h2>
       <p>Im Depot-Einstellungs-Modal (Reiter „Datenexport") lassen sich alle Depot-Bewegungen eines Jahres oder Zeitraums als Excel-Mappe exportieren.</p>
       <p>Die Mappe enthält fünf Blätter:</p>
       <ul>
@@ -376,9 +420,25 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       </div>
     </section>
 
-    <!-- ════════════ 17. Datensicherung ════════════ -->
-    <section class="qs-card" id="s17">
-      <h2><span class="qs-num">17</span>Datensicherung</h2>
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- VERBINDUNG UND PFLEGE                                     -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="qs-chapter">Verbindung und Pflege</div>
+
+    <section class="qs-card" id="s20">
+      <h2><span class="qs-num">20</span>Brücke Haushaltsbuch ↔ Depot</h2>
+      <p>Geldbewegungen zwischen Girokonto und Depot lassen sich verknüpft buchen — eine Buchung erzeugt automatisch das Gegenstück auf der anderen Seite. Atomar: entweder beide Buchungen oder keine.</p>
+      <ul>
+        <li>Im Haushaltsbuch über den Button <strong>„⇄ Übertrag Depot"</strong> oder im Depot über das Transfer-Modal mit aktivierter Checkbox „Verknüpft mit Haushaltsbuch".</li>
+        <li>Die Brücke beeinflusst die Sparquote nicht — Geld, das ins Depot wandert, gilt als Sparen, nicht als Ausgabe.</li>
+        <li>Wird eine verknüpfte Buchung auf einer Seite gelöscht, fällt die andere Seite mit.</li>
+      </ul>
+      <h3>Sparplan über die Brücke</h3>
+      <p>Eine regelmäßige Buchung mit Kategorie „Depot-Übertrag" und Richtung „ins Depot" überträgt beim Buchen automatisch die Sparplan-Rate auf das Verrechnungskonto. Anschließend kann der eigentliche Wertpapier-Kauf im Depot über den Sparplan-Reiter ausgelöst werden.</p>
+    </section>
+
+    <section class="qs-card" id="s21">
+      <h2><span class="qs-num">21</span>Datensicherung</h2>
       <p>Alle Daten liegen in <code>.dat</code>-Dateien neben der Programmdatei im Installations-Ordner. Eine Sicherung besteht aus einer einfachen Kopie dieser Dateien.</p>
       <table class="qs-table">
         <thead>
@@ -386,7 +446,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
         </thead>
         <tbody>
           <tr><td><code>data.dat</code></td><td>Buchungen im Haushaltsbuch</td></tr>
-          <tr><td><code>config.dat</code></td><td>Einstellungen, Kategorien, Fixkosten, Buchungsregeln</td></tr>
+          <tr><td><code>config.dat</code></td><td>Einstellungen, Kategorien, regelmäßige Buchungen, Buchungsregeln</td></tr>
           <tr><td><code>portfolio.dat</code></td><td>Depot-Positionen, Transaktionen, Sparpläne</td></tr>
           <tr><td><code>history.dat</code></td><td>Tagessnapshots für den Wertzuwachs-Chart</td></tr>
           <tr><td><code>import_profiles.dat</code></td><td>Gespeicherte CSV-Import-Profile pro Broker</td></tr>
@@ -395,9 +455,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       <p>Empfehlung: einmal pro Monat den Ordner auf einen USB-Stick oder in einen lokalen Cloud-Sync-Ordner kopieren. Eine Wiederherstellung erfolgt durch Zurückkopieren der Dateien an dieselbe Stelle.</p>
     </section>
 
-    <!-- ════════════ 18. Updates ════════════ -->
-    <section class="qs-card" id="s18">
-      <h2><span class="qs-num">18</span>Updates einspielen</h2>
+    <section class="qs-card" id="s22">
+      <h2><span class="qs-num">22</span>Updates einspielen</h2>
       <p>Neue Versionen erscheinen als <code>KassenwartPro.exe</code> auf der Kassenwart-Pro-Seite. Es gibt zwei Wege zum Update:</p>
       <h3>Einfaches Überschreiben</h3>
       <ol>
@@ -414,14 +473,16 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       <p>In beiden Fällen bleiben die <code>.dat</code>-Dateien unangetastet — alle Buchungen, Einstellungen und Depot-Daten bleiben erhalten.</p>
     </section>
 
-    <!-- ════════════ 19. Feedback ════════════ -->
-    <section class="qs-card" id="s19">
-      <h2><span class="qs-num">19</span>Feedback und Support</h2>
+    <section class="qs-card" id="s23">
+      <h2><span class="qs-num">23</span>Feedback und Support</h2>
+      <h3>Support</h3>
+      <p>Bei Fragen, Problemen oder Anregungen ist der Support jederzeit erreichbar unter <a href="mailto:info@kassenwartpro.de" style="color:var(--primary);">info@kassenwartpro.de</a>.</p>
+      <h3>Feedback gestaltet die App mit</h3>
       <p>Beim Beenden der App öffnet sich eine Seite mit einem Link zum Feedback-Portal. Dort lassen sich pro Programmbereich (Haushaltsbuch / Depot) Bewertungen abgeben und Verbesserungsvorschläge einreichen — alles freiwillig, alle Felder sind optional.</p>
-      <p>Direkter Kontakt bei Fragen oder Problemen: <a href="mailto:info@kassenwartpro.de" style="color:var(--primary);">info@kassenwartpro.de</a>.</p>
+      <p>Jeder Vorschlag fließt in die Weiterentwicklung ein. Updates zum gekauften Funktionsumfang sind dauerhaft kostenlos — wer heute Kassenwart Pro nutzt, bekommt zukünftige Verbesserungen am gleichen Funktionsumfang ohne Aufpreis. Damit wird das Feedback der Nutzer der wichtigste Hebel für die Richtung der App.</p>
       <div class="qs-box tip">
-        <strong>Erstattung</strong>
-        Innerhalb von 15 Tagen ab Kauf ist eine Rückerstattung möglich. Der Link liegt in der ursprünglichen Kauf-E-Mail.
+        <strong>Hinweis beim Beenden</strong>
+        Sobald eine neue Version oder eine Mitteilung vorliegt, erscheint auf der Beenden-Seite zusätzlich ein passender Button — etwa „Update auf vX verfügbar" oder „Neuigkeiten ansehen".
       </div>
     </section>
 
