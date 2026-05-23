@@ -106,10 +106,13 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
 .status-spinner { display: inline-block; width: 18px; height: 18px; border: 3px solid #ddd; border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-.result-success { background: #e8f5e9; border: 1px solid var(--primary); border-radius: 10px; padding: 24px; text-align: center; }
-.result-success h2 { color: var(--primary); margin-bottom: 8px; font-size: 1.2rem; }
-.result-success p { font-size: 0.92rem; color: var(--text); margin: 0 0 6px; line-height: 1.6; }
-.result-success a { display: inline-block; margin-top: 16px; color: var(--primary); font-weight: 600; }
+.result-success { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 56px 36px; text-align: center; box-shadow: var(--shadow); }
+.result-success .checkmark { width: 80px; height: 80px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 44px; margin: 0 auto 22px; }
+.result-success h2 { color: var(--primary); margin-bottom: 14px; font-size: 1.6rem; }
+.result-success p { font-size: 1rem; color: var(--text); margin: 0 auto 10px; line-height: 1.6; max-width: 460px; }
+.result-success p.muted { font-size: 0.88rem; color: var(--muted); }
+.result-success .home-btn { display: inline-block; margin-top: 26px; background: var(--primary); color: white; padding: 12px 28px; border-radius: 10px; font-size: 0.92rem; font-weight: 600; text-decoration: none; transition: background 0.15s; }
+.result-success .home-btn:hover { background: var(--prim2); }
 
 .result-error { background: #fdecea; border: 1px solid var(--red); border-radius: 10px; padding: 18px; margin-top: 16px; }
 .result-error h3 { color: var(--red); margin-bottom: 4px; font-size: 0.95rem; }
@@ -200,9 +203,11 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
     <!-- Erfolg -->
     <div id="viewSuccess" class="view">
       <div class="result-success">
+        <div class="checkmark">&#10003;</div>
         <h2>Vielen Dank!</h2>
-        <p>Ihr Feedback ist angekommen. Jede Rückmeldung wird gelesen — auch wenn keine Antwort folgt.</p>
-        <a href="https://kassenwartpro.de">Zurück zur Startseite</a>
+        <p>Ihr Feedback ist angekommen und wird gelesen.</p>
+        <p class="muted">Jede Rückmeldung fließt in die nächste Version von Kassenwart Pro ein — auch wenn keine direkte Antwort folgt.</p>
+        <a href="https://kassenwartpro.de" class="home-btn">Zurück zur Startseite</a>
       </div>
     </div>
 
