@@ -38,7 +38,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 
 .qs-wrap { max-width: 820px; margin: 48px auto 72px; }
 .qs-intro { text-align: center; margin-bottom: 32px; }
-.qs-intro h1 { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+.qs-intro .qs-logo { width: 132px; height: 132px; margin: 0 auto 22px; display: block; border-radius: 28px; box-shadow: 0 8px 24px rgba(74,124,104,0.18); }
+.qs-intro h1 { font-size: 2.3rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; letter-spacing: -0.01em; }
 .qs-intro .lead { font-size: 1rem; color: var(--muted); max-width: 580px; margin: 0 auto; }
 
 /* Abschnitts-Überschrift (Kapitel-Trenner) */
@@ -113,7 +114,12 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
   .qs-intro { margin-bottom: 14mm; page-break-after: avoid; }
   .qs-intro h1 { font-size: 22pt; }
   .qs-intro .lead { font-size: 11pt; }
-  .qs-chapter { margin: 10mm 0 4mm; page-break-after: avoid; font-size: 9pt; }
+  .qs-chapter { margin: 10mm 0 4mm; page-break-after: avoid; page-break-before: always; font-size: 9pt; }
+  .qs-toc-part1 { page-break-after: always; }
+  .qs-toc-part2 { page-break-after: always; }
+  .qs-intro .qs-logo { width: 28mm; height: 28mm; margin: 0 auto 8mm; box-shadow: none; }
+  .qs-intro { margin-bottom: 10mm; }
+  .qs-intro h1 { font-size: 26pt; }
   .qs-toc, .qs-card {
     box-shadow: none;
     border: 1px solid #ccc;
@@ -155,12 +161,13 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
   <div class="qs-wrap">
 
     <div class="qs-intro">
+      <img src="favicon-192.png" alt="Kassenwart Pro" class="qs-logo">
       <h1>Kurzanleitung</h1>
       <p class="lead">Ein kompakter Überblick über alle Funktionen von Kassenwart Pro — Haushaltsbuch und Depot in einer App.</p>
     </div>
 
-    <!-- ════════════ Inhaltsverzeichnis ════════════ -->
-    <div class="qs-toc">
+    <!-- ════════════ Inhaltsverzeichnis — Teil 1 (Seite 1) ════════════ -->
+    <div class="qs-toc qs-toc-part1">
       <h2>Inhalt</h2>
 
       <div class="qs-toc-group">
@@ -183,6 +190,11 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
           <li><a href="#s9">Auswertung und Kacheln</a></li>
         </ol>
       </div>
+    </div>
+
+    <!-- ════════════ Inhaltsverzeichnis — Teil 2 (Seite 2) ════════════ -->
+    <div class="qs-toc qs-toc-part2">
+      <h2>Inhalt (Fortsetzung)</h2>
 
       <div class="qs-toc-group">
         <h3>Depot</h3>
