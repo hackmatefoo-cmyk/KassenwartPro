@@ -6,9 +6,9 @@
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kassenwart Pro – Transparenz & Sicherheit. SHA256-Prüfsumme, Datei-Integrität verifizieren, Windows SmartScreen Hinweis.">
+<meta name="description" content="KassenwartPro – Transparenz & Sicherheit. SHA256-Prüfsumme, Datei-Integrität verifizieren, Windows SmartScreen Hinweis.">
 <meta name="robots" content="index, follow">
-<title>Transparenz & Sicherheit · Kassenwart Pro</title>
+<title>Transparenz & Sicherheit · KassenwartPro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -44,22 +44,16 @@ nav {
   justify-content: space-between;
 }
 .nav-logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: var(--primary);
   text-decoration: none;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
-.nav-logo span {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  font-size: 0.75rem;
-  color: var(--muted);
-  display: block;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: -2px;
-}
+.nav-logo-img { width: 32px; height: 32px; border-radius: 7px; flex-shrink: 0; }
 .nav-links {
   display: flex;
   gap: 28px;
@@ -287,10 +281,10 @@ footer a:hover { text-decoration: underline; }
 
   <!-- NAV -->
   <nav>
-    <a href="index.html" class="nav-logo">Kassenwart Pro<span>Haushaltsbuch für den PC</span></a>
+    <a href="index.html" class="nav-logo"><img src="favicon-192.png" alt="" class="nav-logo-img">KassenwartPro</a>
     <ul class="nav-links">
       <li><a href="index.html">Startseite</a></li>
-      <li><a href="transparenz.html" style="color:var(--primary);">Transparenz</a></li>
+      <li><a href="transparenz.html" class="active" style="color:var(--primary);">Transparenz</a></li>
       <li><a href="impressum.html">Impressum</a></li>
     </ul>
   </nav>
@@ -298,7 +292,7 @@ footer a:hover { text-decoration: underline; }
   <!-- PAGE HEADER -->
   <div class="page-header">
     <h1>Transparenz & Sicherheit</h1>
-    <p>Kassenwart Pro ist quelloffen verteilt und prüfbar. Hier kann die Integrität der heruntergeladenen Datei überprüft und eine Windows-Sicherheitswarnung eingeordnet werden.</p>
+    <p>KassenwartPro ist quelloffen verteilt und prüfbar. Hier kann die Integrität der heruntergeladenen Datei überprüft und eine Windows-Sicherheitswarnung eingeordnet werden.</p>
   </div>
 
   <!-- ═══════════════════════════════════════════ -->
@@ -355,7 +349,7 @@ footer a:hover { text-decoration: underline; }
   <div class="section-card" id="smartscreen">
     <h2><span class="icon">🛡️</span> Windows SmartScreen — Warnung einordnen</h2>
     <p>
-      Beim ersten Start von Kassenwart Pro kann Windows eine Sicherheitswarnung anzeigen: <em>„Der Computer wurde durch Windows geschützt"</em> oder <em>„Windows Defender SmartScreen hat eine unbekannte App blockiert."</em>
+      Beim ersten Start von KassenwartPro kann Windows eine Sicherheitswarnung anzeigen: <em>„Der Computer wurde durch Windows geschützt"</em> oder <em>„Windows Defender SmartScreen hat eine unbekannte App blockiert."</em>
     </p>
 
     <div class="smartscreen-note">
@@ -390,7 +384,7 @@ footer a:hover { text-decoration: underline; }
 
     <p style="font-weight:600; color:var(--text); margin-top:24px; margin-bottom:12px;">Dabei helfen, die Warnung dauerhaft zu entfernen:</p>
     <p>
-      Je mehr Nutzer die Datei bei Microsoft als sicher melden, desto schneller verschwindet die SmartScreen-Warnung für alle. Eine solche Meldung dauert weniger als eine Minute und hilft, Kassenwart Pro als vertrauenswürdig einzustufen.
+      Je mehr Nutzer die Datei bei Microsoft als sicher melden, desto schneller verschwindet die SmartScreen-Warnung für alle. Eine solche Meldung dauert weniger als eine Minute und hilft, KassenwartPro als vertrauenswürdig einzustufen.
     </p>
 
     <div class="steps" style="margin-top:16px;">
@@ -435,7 +429,7 @@ footer a:hover { text-decoration: underline; }
   <div class="section-card">
     <h2><span class="icon">📄</span> Kurzanleitung (PDF)</h2>
     <p>
-      Die Kurzanleitung beschreibt Installation, Einrichtung und Bedienung von Kassenwart Pro — kompakt auf wenigen Seiten.
+      Die Kurzanleitung beschreibt Installation, Einrichtung und Bedienung von KassenwartPro — kompakt auf wenigen Seiten.
     </p>
     <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro/raw/main/KassenwartPro_Kurzanleitung.pdf" style="color:#4a7c68;font-weight:bold;">PDF öffnen</a></td>'
       → Kurzanleitung herunterladen (PDF)
@@ -447,7 +441,7 @@ footer a:hover { text-decoration: underline; }
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    © 2026 Kassenwart Pro &nbsp;·&nbsp; <a href="index.html">Startseite</a> &nbsp;·&nbsp; <a href="transparenz.html">Transparenz</a> &nbsp;·&nbsp; <a href="impressum.html">Impressum</a>
+    © 2026 KassenwartPro &nbsp;·&nbsp; <a href="index.html">Startseite</a> &nbsp;·&nbsp; <a href="transparenz.html">Transparenz</a> &nbsp;·&nbsp; <a href="impressum.html">Impressum</a>
   </div>
 </footer>
 

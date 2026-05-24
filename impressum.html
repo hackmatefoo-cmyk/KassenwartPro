@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impressum &amp; Datenschutz · Kassenwart Pro</title>
+<title>Impressum &amp; Datenschutz · KassenwartPro</title>
 <style>
 :root {
   --bg:      #e4ebe6;
@@ -22,7 +22,11 @@
 body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
 .container { max-width: 720px; margin: auto; padding: 0 24px; }
 nav { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; max-width: 1080px; margin: auto; padding-left: 24px; padding-right: 24px; }
-.nav-logo { font-size: 2.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+.nav-logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 10px; }
+.nav-logo-img { width: 32px; height: 32px; border-radius: 7px; flex-shrink: 0; }
+.nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+.nav-links a { font-size: 0.88rem; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.nav-links a:hover { color: var(--primary); }
 hr.divider { border: none; border-top: 1px solid var(--border); }
 .content { padding: 48px 0 72px; }
 .content h1 { font-size: 2rem; font-weight: 700; margin-bottom: 32px; letter-spacing: -0.02em; }
@@ -42,7 +46,12 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">Kassenwart Pro</a>
+  <a href="index.html" class="nav-logo"><img src="favicon-192.png" alt="" class="nav-logo-img">KassenwartPro</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Startseite</a></li>
+    <li><a href="transparenz.html">Transparenz</a></li>
+    <li><a href="impressum.html" class="active">Impressum</a></li>
+  </ul>
 </nav>
 
 <hr class="divider">
@@ -104,7 +113,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 
     <p><strong>Zahlungsabwicklung</strong></p>
     <p>
-      Der Kauf von Kassenwart Pro wird über Stripe abgewickelt. Bei der Bezahlung werden die eingegebenen Zahlungsdaten direkt von Stripe verarbeitet. Weitere Informationen: <a href="https://stripe.com/de/privacy" target="_blank" rel="noopener">Stripe Datenschutzrichtlinie</a>.
+      Der Kauf von KassenwartPro wird über Stripe abgewickelt. Bei der Bezahlung werden die eingegebenen Zahlungsdaten direkt von Stripe verarbeitet. Weitere Informationen: <a href="https://stripe.com/de/privacy" target="_blank" rel="noopener">Stripe Datenschutzrichtlinie</a>.
     </p>
 
     <p><strong>Lizenzversand per E-Mail</strong></p>
@@ -114,7 +123,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 
     <p><strong>Desktop-Software</strong></p>
     <p>
-      Kassenwart Pro ist eine lokal installierte Desktop-Anwendung. Alle Finanzdaten werden ausschließlich auf dem Rechner des Nutzers gespeichert. Die Software baut keine Internetverbindung auf und überträgt keine Daten.
+      KassenwartPro ist eine lokal installierte Desktop-Anwendung. Alle Finanzdaten werden ausschließlich auf dem Rechner des Nutzers gespeichert. Die Software baut keine Internetverbindung auf und überträgt keine Daten.
     </p>
 
     <p><strong>Rechte der betroffenen Person</strong></p>
@@ -127,7 +136,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 
 <footer>
   <div class="footer-inner">
-    <p class="footer-copy">Kassenwart Pro &copy; 2026 · Simon Bellviure Bigas · Leun</p>
+    <p class="footer-copy">KassenwartPro &copy; 2026 · Simon Bellviure Bigas · Leun</p>
     <div class="footer-links">
       <a href="/">Startseite</a>
       <a href="https://github.com/hackmateXfoo-cmyk/KassenwartPro" target="_blank">GitHub</a>

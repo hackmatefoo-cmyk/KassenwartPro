@@ -148,7 +148,8 @@
 body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 .container { max-width: 1080px; margin: auto; padding: 0 24px; }
 nav { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.02em; }
+.nav-logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 10px; }
+.nav-logo-img { width: 32px; height: 32px; border-radius: 7px; flex-shrink: 0; }
 .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
 .nav-links a { font-size: 0.88rem; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.15s; }
 .nav-links a:hover { color: var(--primary); }
@@ -339,7 +340,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 <div class="container">
 
 <nav>
-  <a href="index.html" class="nav-logo">KassenwartPro</a>
+  <a href="index.html" class="nav-logo"><img src="favicon-192.png" alt="" class="nav-logo-img">KassenwartPro</a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Startseite</a></li>
     <li><a href="transparenz.html">Transparenz</a></li>
@@ -423,6 +424,8 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <li>Sparpläne mit automatischer Nachbuchung</li>
         <li>Spar-Brücke: ein Klick verbucht Übertrag in beiden Bereichen</li>
         <li>Prognose-Rechner für den langfristigen Vermögensaufbau</li>
+        <li>CSV-Import deiner Broker-Abrechnungen — durch manuelle Spaltenzuordnung mit jedem Broker kompatibel</li>
+        <li>Jahres-Export als Excel-Mappe — Verkäufe, Dividenden, Bestand auf einen Blick (auch für die Steuererklärung)</li>
       </ul>
       <div class="prod-foot">
         <div class="prod-price">
