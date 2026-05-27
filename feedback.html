@@ -118,6 +118,33 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
 .result-error h3 { color: var(--red); margin-bottom: 4px; font-size: 0.95rem; }
 .result-error p { font-size: 0.86rem; color: var(--text); margin: 0; line-height: 1.55; }
 
+/* Schnellfeedback-Karte */
+.fb-quick { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 26px 32px; margin-bottom: 18px; }
+.fb-quick h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; color: var(--prim2); }
+.fb-quick .fb-intro { font-size: 0.9rem; color: var(--muted); margin-bottom: 14px; line-height: 1.55; }
+.fb-quick textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.92rem; background: #f7faf8; color: var(--text); resize: vertical; min-height: 90px; }
+.fb-quick textarea:focus { outline: none; border-color: var(--primary); background: white; }
+.fb-quick input[type=email] { width: 100%; margin-top: 10px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.9rem; background: #f7faf8; color: var(--text); }
+.fb-quick input[type=email]:focus { outline: none; border-color: var(--primary); background: white; }
+.fb-quick .fb-quick-actions { margin-top: 14px; display: flex; justify-content: flex-end; }
+.fb-quick .fb-counter { margin-top: 6px; }
+
+/* Konstruktivitaets-Hinweis */
+.fb-constructive { background: #fff8e6; border-left: 4px solid var(--gold); border-radius: 6px; padding: 11px 16px; font-size: 0.85rem; color: var(--text); margin: 12px 0 4px; line-height: 1.55; }
+.fb-constructive strong { color: var(--prim2); }
+
+/* Vollbogen-Akkordeon (native <details>) */
+.fb-full-toggle { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; }
+.fb-full-toggle > summary { cursor: pointer; padding: 22px 32px; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; transition: background 0.12s; }
+.fb-full-toggle > summary::-webkit-details-marker { display: none; }
+.fb-full-toggle > summary:hover { background: #f9fbfa; }
+.fb-full-toggle > summary .summary-text { font-size: 1.05rem; font-weight: 700; color: var(--prim2); }
+.fb-full-toggle > summary .summary-sub { font-size: 0.85rem; font-weight: 400; color: var(--muted); margin-top: 3px; display: block; }
+.fb-full-toggle > summary .summary-icon { font-size: 1.4rem; color: var(--muted); transition: transform 0.2s; }
+.fb-full-toggle[open] > summary .summary-icon { transform: rotate(180deg); color: var(--primary); }
+.fb-full-toggle[open] > summary { border-bottom: 1px solid var(--border); }
+.fb-full-body { padding: 22px 32px 32px; }
+
 .view { display: none; }
 .view.active { display: block; }
 
@@ -147,49 +174,90 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
 
     <!-- Formular -->
     <div id="viewForm" class="view active">
-      <div class="fb-card">
-        <h1>Feedback &amp; Verbesserungsvorschläge<span id="versionBadge" class="fb-version" style="display:none;"></span></h1>
+
+      <!-- SCHNELLFEEDBACK (One-Timer) -->
+      <div class="fb-quick">
+        <h2>Etwas fällt Ihnen gerade auf?<span id="versionBadge" class="fb-version" style="display:none;"></span></h2>
         <p class="fb-intro">
-          Vielen Dank, dass Sie sich kurz Zeit nehmen. Wir entwickeln gerne nach Kundenwünschen,
-          um dieses Tool so zugeschnitten und effizient wie möglich zu gestalten —
-          Ihre Rückmeldung fließt direkt in die nächste Version ein.
+          Schreiben Sie es direkt rein — keine Anmeldung, keine Pflichtfelder.
+          Eine Zeile reicht.
         </p>
-        <div class="fb-howto">
-          <strong>So funktioniert es:</strong>
-          Klappen Sie nur die Bereiche auf, zu denen Sie etwas sagen möchten. Nichts ist Pflicht.
-          Wenn Sie einen Bereich noch gar nicht benutzt haben, hilft das Häkchen <em>„habe ich nicht benutzt"</em> —
-          dann erscheint die Auswertung in Ihrer Tier-Übersicht klarer.
-        </p>
-
-        <!-- Sektoren werden hier per JS gerendert -->
-        <div id="sectorsRoot"></div>
-
-        <!-- Allgemeines -->
-        <div class="tier-group" style="margin-top: 28px;">
-          <div class="tier-title" style="background: #f5f5f5;">Allgemeines</div>
-          <div class="general-field">
-            <label>Generelle Anmerkung <small>(was nicht in eine der obigen Sektionen passt)</small></label>
-            <textarea id="generalSuggestion" maxlength="4000" placeholder="z.B. „Insgesamt sehr klar aufgebaut, ich vermisse aber …"></textarea>
-            <div class="fb-counter"><span id="generalCounter">0</span> / 4000</div>
-          </div>
-          <div class="general-field">
-            <label>E-Mail für Rückfragen <small>(optional — nur falls eine Nachfrage sinnvoll ist)</small></label>
-            <input type="email" id="email" placeholder="ihre@adresse.de" maxlength="200">
-          </div>
+        <div class="fb-constructive">
+          <strong>Tipp:</strong> Was uns am meisten hilft, ist nicht nur <em>was</em>
+          nicht passt, sondern <em>wie es sein sollte</em>. Auch Ideen für
+          Funktionen, die über den heutigen Funktionsumfang hinausgehen, sind
+          willkommen — wenn sie zum Produkt passen, kann daraus etwas werden.
         </div>
+        <textarea id="quickSuggestion" maxlength="4000"
+          placeholder="z.B. „Beim Buchen wünsche ich mir … statt …""></textarea>
+        <div class="fb-counter"><span id="quickCounter">0</span> / 4000</div>
+        <input type="email" id="quickEmail" placeholder="E-Mail für Rückfragen (optional)" maxlength="200">
 
-        <div id="errBox" class="result-error" style="display:none;"><h3>Konnte nicht abgesendet werden</h3><p id="errMsg"></p></div>
+        <div id="quickErrBox" class="result-error" style="display:none;"><h3>Konnte nicht abgesendet werden</h3><p id="quickErrMsg"></p></div>
 
-        <div class="fb-actions">
-          <a href="https://kassenwartpro.de" class="btn btn-link">Abbrechen</a>
-          <button id="btnSubmit" class="btn btn-primary" onclick="submitFeedback()">Feedback senden</button>
+        <div class="fb-quick-actions">
+          <button id="btnQuickSubmit" class="btn btn-primary" onclick="submitQuick()">Senden</button>
         </div>
-
-        <p class="fb-note">
-          Hinweis: Die Eingaben werden lokal in einer Tabelle gespeichert und ausschließlich zur Produktverbesserung verwendet.
-          Die App-Version wird zur Einordnung mitgesendet. Eine E-Mail wird nur erfasst, wenn Sie eine eintragen.
-        </p>
       </div>
+
+      <!-- VOLLBOGEN (eingeklappt) -->
+      <details class="fb-full-toggle">
+        <summary>
+          <div>
+            <div class="summary-text">Vollständiges Feedback geben &nbsp;<span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(empfohlen)</span></div>
+            <span class="summary-sub">Mehr Aufwand, aber viel präziser — wir können gezielter verbessern, wenn wir wissen, welcher Bereich konkret gemeint ist.</span>
+          </div>
+          <span class="summary-icon">▼</span>
+        </summary>
+        <div class="fb-full-body">
+          <p class="fb-intro" style="margin-bottom:18px;">
+            Vielen Dank, dass Sie sich die Zeit nehmen. Ihre Rückmeldung fließt
+            direkt in die nächste Version ein.
+          </p>
+          <div class="fb-howto">
+            <strong>So funktioniert es:</strong>
+            Klappen Sie nur die Bereiche auf, zu denen Sie etwas sagen möchten. Nichts ist Pflicht.
+            Wenn Sie einen Bereich noch gar nicht benutzt haben, hilft das Häkchen <em>„habe ich nicht benutzt"</em> —
+            dann erscheint die Auswertung in Ihrer Tier-Übersicht klarer.
+          </div>
+          <div class="fb-constructive">
+            <strong>Bitte konstruktiv:</strong> nicht nur <em>was</em> nicht passt,
+            sondern <em>wie es sein sollte</em>. Auch Ideen für Funktionen, die
+            über den heutigen Funktionsumfang hinausgehen, sind willkommen — wenn
+            sie zum Produkt passen, kann daraus etwas werden.
+          </div>
+
+          <!-- Sektoren werden hier per JS gerendert -->
+          <div id="sectorsRoot"></div>
+
+          <!-- Allgemeines -->
+          <div class="tier-group" style="margin-top: 28px;">
+            <div class="tier-title" style="background: #f5f5f5;">Allgemeines</div>
+            <div class="general-field">
+              <label>Generelle Anmerkung <small>(was nicht in eine der obigen Sektionen passt)</small></label>
+              <textarea id="generalSuggestion" maxlength="4000" placeholder="z.B. „Insgesamt sehr klar aufgebaut, ich vermisse aber …""></textarea>
+              <div class="fb-counter"><span id="generalCounter">0</span> / 4000</div>
+            </div>
+            <div class="general-field">
+              <label>E-Mail für Rückfragen <small>(optional — nur falls eine Nachfrage sinnvoll ist)</small></label>
+              <input type="email" id="email" placeholder="ihre@adresse.de" maxlength="200">
+            </div>
+          </div>
+
+          <div id="errBox" class="result-error" style="display:none;"><h3>Konnte nicht abgesendet werden</h3><p id="errMsg"></p></div>
+
+          <div class="fb-actions">
+            <a href="https://kassenwartpro.de" class="btn btn-link">Abbrechen</a>
+            <button id="btnSubmit" class="btn btn-primary" onclick="submitFeedback()">Vollständiges Feedback senden</button>
+          </div>
+
+          <p class="fb-note">
+            Hinweis: Die Eingaben werden lokal in einer Tabelle gespeichert und ausschließlich zur Produktverbesserung verwendet.
+            Die App-Version wird zur Einordnung mitgesendet. Eine E-Mail wird nur erfasst, wenn Sie eine eintragen.
+          </p>
+        </div>
+      </details>
+
     </div>
 
     <!-- Senden -->
@@ -432,6 +500,59 @@ var genCnt = document.getElementById('generalCounter');
 genTa.addEventListener('input', function(){
   genCnt.textContent = genTa.value.length;
 });
+
+var quickTa  = document.getElementById('quickSuggestion');
+var quickCnt = document.getElementById('quickCounter');
+quickTa.addEventListener('input', function(){
+  quickCnt.textContent = quickTa.value.length;
+});
+
+// ====================================================================
+// Schnellfeedback senden — minimaler Payload, nutzt selben Endpoint
+// (general-Feld + email). Backend muss nichts neu lernen.
+// ====================================================================
+function submitQuick() {
+  var txt = quickTa.value.trim();
+  var errBox = document.getElementById('quickErrBox');
+  var errMsg = document.getElementById('quickErrMsg');
+  errBox.style.display = 'none';
+
+  if (!txt) {
+    errMsg.textContent = 'Bitte mindestens einen Satz schreiben — wir lesen jede Zeile.';
+    errBox.style.display = 'block';
+    return;
+  }
+  if (txt.length > 4000) {
+    errMsg.textContent = 'Text ist zu lang (max. 4000 Zeichen).';
+    errBox.style.display = 'block';
+    return;
+  }
+
+  var btn = document.getElementById('btnQuickSubmit');
+  btn.disabled = true;
+  showView('viewSending');
+
+  var payload = new URLSearchParams();
+  payload.append('version',    version);
+  payload.append('general',    txt);
+  payload.append('email',      document.getElementById('quickEmail').value.trim());
+  payload.append('user_agent', navigator.userAgent.slice(0, 200));
+  payload.append('quick',      '1');  // Backend kann optional auswerten, ignoriert es sonst
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode:   'no-cors',
+    body:   payload
+  }).then(function(){
+    showView('viewSuccess');
+  }).catch(function(){
+    btn.disabled = false;
+    showView('viewForm');
+    errMsg.textContent =
+      'Netzwerkfehler. Bitte später erneut versuchen oder eine Mail an info@kassenwartpro.de schreiben.';
+    errBox.style.display = 'block';
+  });
+}
 
 // ====================================================================
 // Senden
