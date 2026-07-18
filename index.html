@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ SEO: Title (transaktional, beide Produkte, Keyword vorn) ═══ -->
+<title>KassenwartPro – Haushaltsbuch & Depot-Tracker für Windows | Einmalkauf</title>
+
+<!-- ═══ SEO: Meta Description ═══ -->
+<meta name="description" content="KassenwartPro – Haushaltsbuch und Depot-Tracker in einer App. Lokal auf dem PC, kein Abo, kein Bankzugang. Spar-Brücke vom Haushalt direkt ins Depot. Ab 15 € einmalig — Einführungspreis.">
+
+<!-- ═══ SEO: Canonical ═══ -->
+<link rel="canonical" href="https://kassenwartpro.de/">
+
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="light">
+
+<!-- ═══ SEO: Open Graph ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kassenwartpro.de/">
+<meta property="og:title" content="KassenwartPro – Haushaltsbuch & Depot-Tracker für Windows | Einmalkauf">
+<meta property="og:description" content="Haushaltsbuch und Depot-Tracker in einer App. Lokal, kein Abo, kein Bankzugang. Spar-Brücke vom Haushalt direkt ins Depot. Ab 15 € einmalig — Einführungspreis.">
+<meta property="og:image" content="https://kassenwartpro.de/Screenshot - kassenwartpro.pythonanywhere.com.png">
+<link rel="preload" as="image" href="Screenshot%20-%20Haushaltsbuch.png" fetchpriority="high">
+<link rel="preload" as="image" href="Screenshot%20Busdget%201.png">
+<link rel="preload" as="image" href="Screenshot%20Busdget%202.png">
+<link rel="preload" as="image" href="Screenshoot%20-%20Depot%201.png">
+<link rel="preload" as="image" href="Screenshot%20Depot%202.png">
+<link rel="preload" as="image" href="Screenshot%20Depot%203.png">
+<meta property="og:locale" content="de_DE">
+
+<!-- ═══ SEO: Schema Markup (JSON-LD) — beide Produkte ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "KassenwartPro Depot",
+  "operatingSystem": "Windows 10, Windows 11",
+  "applicationCategory": "FinanceApplication",
+  "applicationSubCategory": "Personal Finance",
+  "url": "https://kassenwartpro.de/",
+  "downloadUrl": "https://github.com/hackmatefoo-cmyk/KassenwartPro/releases/latest",
+  "image": "https://kassenwartpro.de/Screenshot%20-%20kassenwartpro.pythonanywhere.com.png",
+  "screenshot": "https://kassenwartpro.de/Screenshot%20-%20kassenwartpro.pythonanywhere.com.png",
+  "softwareVersion": "1.1",
+  "inLanguage": "de-DE",
+  "description": "Haushaltsbuch und Depot-Tracker in einer Windows-App. Einnahmen, Ausgaben, Rücklagen, Live-Kurse, FIFO-Gewinnberechnung, Spar-Brücke vom Haushalt ins Depot. Komplett lokal, kein Abo.",
+  "offers": {
+    "@type": "Offer",
+    "price": "15.00",
+    "priceCurrency": "EUR",
+    "priceValidUntil": "2026-12-31",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+
+<!-- ═══ SEO: FAQ Schema ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was unterscheidet KassenwartPro Depot von KassenwartPro Budget?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "KassenwartPro Budget ist das schlanke Haushaltsbuch mit Einnahmen, Ausgaben, Rücklagen und Fixkosten-Automatik. KassenwartPro Depot enthält alles davon plus Depot-Tracking mit Live-Kursen, FIFO-Gewinnberechnung, Sparpläne und die Spar-Brücke, die Überträge aus dem Haushalt direkt ins Depot verbucht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist die Spar-Brücke?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Spar-Brücke verbindet Haushaltsbuch und Depot mit einer einzigen Buchung. Wer am Monatsende einen Überschuss in den ETF-Sparplan überträgt, verbucht das einmal — die App spiegelt es atomar in beiden Bereichen. Konsumgeld und Investitionskapital bleiben sauber getrennt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Werden Finanzdaten in die Cloud hochgeladen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. KassenwartPro läuft vollständig lokal auf dem PC. Alle Daten bleiben auf dem eigenen Rechner — kein Cloud-Sync, kein Server, kein Konto. Live-Kurse werden anonym über öffentliche Kurs-APIs abgerufen, ohne Zuordnung zum Depot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Muss ich ein Bankkonto verknüpfen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Es ist kein Bankzugang erforderlich. Buchungen werden manuell eingetragen — das schützt die Privatsphäre und macht das Programm unabhängig von Drittanbietern."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie funktioniert das Upgrade von Budget auf Depot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wer bereits KassenwartPro Budget besitzt, kann zum Differenzpreis auf Depot upgraden. Die Lizenz erkennt das automatisch — ein Update der App ist nicht nötig, der vorhandene Code schaltet das Depot frei, sobald der neue Lizenzschlüssel eingetragen ist. Bestehende Haushaltsdaten bleiben unverändert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Auf welchen Systemen läuft KassenwartPro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "KassenwartPro läuft auf Windows 10 und Windows 11. Eine Mac- oder Linux-Version ist aktuell nicht geplant."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- TrustBox script -->
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap');
+
+:root {
+  color-scheme: light;
+  --bg:      #eef2f5;
+  --card:    #ffffff;
+  --primary: #3c6e8f;
+  --prim2:   #2d5673;
+  --text:    #16242f;
+  --muted:   #5d7383;
+  --border:  #cfd9e0;
+  --shadow:  0 4px 24px rgba(0,0,0,0.08);
+  --accent:        #d4a574;   /* warmer Sand-Akzent (Zweitfarbe) */
+  --accent-strong: #b3845a;   /* dunkler fuer Hover / Text */
+  --accent-tint:   #f7ebdb;   /* sehr blass fuer Hover-Backgrounds */
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #eef2f5; --card: #ffffff; --primary: #3c6e8f; --prim2: #2d5673;
+    --text: #16242f; --muted: #5d7383; --border: #cfd9e0;
+  }
+  html, body { background: #eef2f5 !important; color: #16242f !important; }
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1080px; margin: auto; padding: 0 24px; }
+nav { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 10px; }
+.nav-logo-img { width: 32px; height: 32px; border-radius: 7px; flex-shrink: 0; }
+.nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+.nav-links a { font-size: 0.88rem; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.nav-links a:hover { color: var(--primary); }
+.nav-links a.active { color: var(--primary); }
+hr.divider { border: none; border-top: 1px solid var(--border); }
+
+/* HERO */
+.hero { padding: 56px 0 56px; display: grid; grid-template-columns: 1fr 460px; gap: 48px; align-items: center; }
+.hero-eyebrow { display: inline-block; background: white; border: 1px solid var(--accent); border-radius: 999px; padding: 5px 14px; font-size: 0.78rem; font-weight: 600; color: var(--primary); margin-bottom: 18px; }
+.hero h1 { font-family: 'DM Serif Display', serif; font-size: 2.9rem; font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 18px; }
+.hero-sub { font-size: 1rem; color: var(--muted); max-width: 460px; margin-bottom: 28px; line-height: 1.7; }
+.hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 34px; }
+.hero-bullets li { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; font-weight: 500; }
+.hero-bullets li::before { content: '\2713'; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--primary); color: white; font-size: 0.68rem; font-weight: 700; flex-shrink: 0; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.btn-primary { display: inline-block; background: var(--primary); color: white; padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: background 0.15s; }
+.btn-primary:hover { background: var(--prim2); }
+.btn-ghost { display: inline-block; background: var(--accent-tint); color: var(--accent-strong); padding: 13px 28px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; border: 1.5px solid var(--accent); transition: background 0.15s, border-color 0.15s, color 0.15s; }
+.btn-ghost:hover { background: #efddc7; border-color: var(--accent-strong); color: var(--accent-strong); }
+
+/* HERO CARD */
+.hero-card { background: white; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px 24px 20px; text-align: center; }
+.hero-img-wrap { position: relative; display: block; width: 100%; margin-bottom: 16px; }
+.hero-card img { width: 100%; border-radius: 10px; border: 1px solid var(--border); display: block; }
+/* Hero-Screenshot-Slider (4s Auto-Crossfade) */
+.hero-slider { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 10px; border: 1px solid var(--border); overflow: hidden; background: #f3f7fa; }
+.hero-slider img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.7s ease-in-out; border: none; border-radius: 0; }
+.hero-slider img.active { opacity: 1; }
+.hero-stamp { position: absolute; bottom: -14px; right: -10px; background: var(--primary); color: white; border-radius: 12px; padding: 10px 14px; text-align: center; box-shadow: 0 4px 14px rgba(60,110,143,0.35); min-width: 90px; }
+.hero-stamp-price { font-size: 1.6rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+.hero-stamp-sub { font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.85; margin-top: 3px; line-height: 1.3; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 20px 0 14px; }
+.tag { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: 0.75rem; font-weight: 600; color: var(--muted); }
+.hero-demo-link { display: block; font-size: 0.85rem; color: var(--primary); font-weight: 600; text-decoration: none; border-top: 1px solid var(--border); padding-top: 14px; }
+.hero-demo-link:hover { opacity: 0.75; }
+
+/* STORY-SEKTION (zwischen den Zeilen, kein Teaching) */
+.story { padding: 56px 0; background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); margin-top: 12px; }
+.story-inner { max-width: 760px; margin: auto; padding: 0 40px; text-align: center; }
+.story-eyebrow { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 12px; }
+.story h2 { font-family: 'DM Serif Display', serif; font-size: 1.9rem; font-weight: 400; line-height: 1.25; margin-bottom: 18px; letter-spacing: -0.01em; }
+.story p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; max-width: 620px; margin: 0 auto 14px; }
+.story p:last-child { margin-bottom: 0; }
+.story strong { color: var(--text); font-weight: 600; }
+
+/* PRODUKT-KARTEN (zwei Varianten) */
+.products { padding: 72px 0 56px; }
+.products-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
+.prod-card { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 32px; display: flex; flex-direction: column; position: relative; }
+.prod-card.featured { border: 2px solid var(--primary); padding: 31px; }
+.prod-badge { position: absolute; top: -12px; left: 32px; background: var(--primary); color: white; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; padding: 5px 12px; border-radius: 999px; }
+.prod-eyebrow { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
+.prod-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.7rem; font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 8px; }
+.prod-card.featured h3 { font-size: 2rem; }
+.prod-tag { font-size: 0.85rem; color: var(--muted); margin-bottom: 18px; line-height: 1.55; }
+.prod-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+.prod-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; }
+.prod-list li::before { content: '\2713'; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: var(--primary); color: white; font-size: 0.62rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+.prod-list li.muted { color: var(--muted); }
+.prod-list li.muted::before { background: var(--border); color: var(--muted); content: '\2013'; font-size: 0.7rem; }
+.prod-foot { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.prod-price { display: flex; flex-direction: column; }
+.prod-price-num { font-size: 1.6rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+.prod-price-sub { font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-top: 4px; }
+
+/* UPGRADE-HINWEIS (klein, dezent, unter den Produktkarten) */
+.upgrade-hint { margin-top: 18px; background: white; border: 1px dashed var(--border); border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.upgrade-hint-text { font-size: 0.88rem; color: var(--muted); }
+.upgrade-hint-text strong { color: var(--text); font-weight: 600; }
+.upgrade-hint a { color: var(--primary); font-size: 0.86rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.upgrade-hint a:hover { text-decoration: underline; }
+/* Upgrade-Hint enthält jetzt einen echten Button — Schrift muss dauerhaft weiß bleiben */
+.upgrade-hint a.btn-primary,
+.upgrade-hint a.btn-primary:hover { color: #ffffff; text-decoration: none; }
+
+/* FEATURES (vier Säulen) */
+.features { padding: 56px 0; }
+.section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); text-align: center; margin-bottom: 10px; }
+.section-title { font-size: 1.9rem; font-weight: 700; text-align: center; letter-spacing: -0.02em; margin-bottom: 12px; }
+.section-sub { font-size: 0.95rem; color: var(--muted); text-align: center; max-width: 580px; margin: 0 auto 44px; line-height: 1.7; }
+.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.feature-card { background: white; border-radius: 14px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 28px; }
+.feature-icon { font-size: 1.4rem; display: block; margin-bottom: 12px; }
+.feature-card h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+.feature-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+
+/* COMPARE (Vergleichs-Slider) */
+.compare { padding: 0 0 72px; }
+.compare-inner { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 40px 40px 32px; }
+.compare-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.compare-header h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+.compare-sub { font-size: 0.86rem; color: var(--muted); margin-bottom: 24px; }
+.compare-arrows { display: flex; gap: 8px; }
+.compare-arrow { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg); color: var(--text); font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s, color 0.15s, border-color 0.15s; user-select: none; }
+.compare-arrow:hover { background: var(--primary); color: white; border-color: var(--primary); }
+.compare-table { width: 100%; border-collapse: collapse; }
+.compare-table thead th { padding: 10px 16px 14px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); text-align: center; border-bottom: 2px solid var(--border); }
+.compare-table thead th.col-feature { text-align: left; width: 44%; }
+.compare-table thead th.col-kp { color: var(--primary); background: #eef5fa; border-radius: 8px 8px 0 0; width: 28%; }
+.compare-table thead th.col-comp { width: 28%; }
+.compare-table tbody tr { border-bottom: 1px solid #f0f4f2; }
+.compare-table tbody tr:last-child { border-bottom: none; }
+.compare-table tbody td { padding: 13px 16px; font-size: 0.88rem; text-align: center; vertical-align: middle; }
+.compare-table tbody td.col-feature { text-align: left; font-weight: 500; color: var(--text); }
+.compare-table tbody td.col-feature span { display: block; font-size: 0.76rem; font-weight: 400; color: var(--muted); margin-top: 1px; }
+.compare-table tbody td.col-kp { background: #eef5fa; font-weight: 600; }
+.c-yes { color: var(--primary); font-weight: 700; font-size: 1rem; }
+.c-no { color: #c44; font-weight: 700; font-size: 1rem; }
+.c-warn { color: #c8923f; font-weight: 600; font-size: 0.84rem; }
+.c-price-kp { color: var(--primary); font-weight: 700; }
+.c-price-comp { color: var(--muted); font-weight: 500; }
+.compare-seo { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); }
+.compare-seo p { font-size: 0.86rem; color: var(--muted); line-height: 1.75; max-width: 860px; }
+.compare-seo strong { color: var(--text); }
+
+/* TRUST-STRIP */
+.trust-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 32px 0; }
+.trust-strip a { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; transition: border-color 0.15s, box-shadow 0.15s; }
+.trust-strip a:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+.trust-icon { font-size: 1.3rem; margin-bottom: 8px; }
+.trust-label { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.trust-sub { font-size: 0.76rem; color: var(--muted); line-height: 1.4; }
+
+/* HOW (3 Schritte) */
+.how { padding: 0 0 72px; }
+.how-inner { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 40px; }
+.how-inner h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; text-align: center; margin-bottom: 32px; }
+.how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.how-steps > div { text-align: center; padding: 0 8px; }
+.step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: white; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+.how-steps h4 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+.how-steps p { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+
+/* FAQ */
+.faq { padding: 0 0 72px; }
+.faq-inner { max-width: 760px; margin: auto; }
+.faq-inner h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; text-align: center; margin-bottom: 28px; }
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.faq-question { width: 100%; padding: 18px 22px; background: none; border: none; font: inherit; cursor: pointer; display: flex; align-items: center; justify-content: space-between; text-align: left; gap: 16px; transition: background 0.15s; }
+.faq-question:hover { background: #f3f7fa; }
+.faq-question-text { font-size: 0.94rem; font-weight: 600; color: var(--text); }
+.faq-chevron { font-size: 0.8rem; color: var(--muted); transition: transform 0.2s; flex-shrink: 0; }
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.25s ease; }
+.faq-answer p { padding: 0 22px 18px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+/* FOOTER */
+footer { background: white; border-top: 1px solid var(--border); padding: 32px 0; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.footer-copy { font-size: 0.84rem; color: var(--muted); }
+.footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+.footer-links a { font-size: 0.84rem; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--primary); }
+
+/* MOBILE-RESPONSIVE */
+@media (max-width: 880px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding: 40px 0; }
+  .hero h1 { font-size: 2.3rem; }
+  .products-grid { grid-template-columns: 1fr; }
+  .prod-badge { left: 24px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: 1fr; gap: 32px; }
+  .trust-strip { grid-template-columns: 1fr; }
+  .compare-inner, .how-inner, .story-inner { padding-left: 22px; padding-right: 22px; }
+  .compare { padding: 0 0 48px; }
+  .compare-inner { padding: 24px 16px; }
+  .compare-table { display: none; }
+  .compare-mobile { display: flex; flex-direction: column; gap: 8px; }
+  .compare-arrow { width: 48px; height: 48px; font-size: 1.2rem; }
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 0.84rem; }
+  .section-title, .compare-header h2, .how-inner h2, .faq-inner h2 { font-size: 1.35rem; }
+}
+.compare-mobile { display: none; }
+.cmp-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.cmp-card-header { display: grid; grid-template-columns: 1fr 1fr; background: #f3f7fa; border-bottom: 1px solid var(--border); }
+.cmp-card-col { padding: 12px 14px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); text-align: center; }
+.cmp-card-col.kp-col { color: var(--primary); background: #eef7f1; }
+.cmp-card-row { display: grid; grid-template-columns: 1fr 1fr; }
+.cmp-card-cell { padding: 10px 14px; font-size: 0.86rem; text-align: center; border-top: 1px solid #eef2ef; }
+.cmp-card-cell.kp-val { background: #f7fbf9; font-weight: 600; }
+
+/* ═════════════════════════════════════════════════════════════════
+   EINFÜHRUNGSPREIS — angebotsindex.html
+   Header: schräger Coral-Sticker mit Streich-Preis + −48%-Chip.
+   Depot-Karte: diagonales Ribbon oben links, roter Rahmen, Coral-CTA.
+   ═════════════════════════════════════════════════════════════════ */
+:root {
+  --pin:       #c14a3c;   /* Aktions-Ton — warmes Terrakotta */
+  --pin-deep:  #9d3a30;
+  --pin-tint:  #fbe9e5;
+}
+
+/* ─── Hero-Stempel: schräg über den Screenshot geklebt ─── */
+.sale-stamp-A {
+  position: absolute; bottom: -18px; right: -12px;
+  background: linear-gradient(145deg, var(--pin) 0%, var(--pin-deep) 100%);
+  color: white; border-radius: 14px; padding: 12px 15px 13px;
+  box-shadow: 0 6px 20px rgba(193,74,60,0.4);
+  min-width: 132px; text-align: left;
+  transform: rotate(-3deg);
+}
+.sale-stamp-A::before {
+  content: "Einführung"; display: block;
+  font-size: 0.6rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  opacity: 0.9; margin-bottom: 3px;
+}
+.sale-stamp-A .new-price {
+  font-size: 1.75rem; font-weight: 800; line-height: 1;
+  letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+}
+.sale-stamp-A .old-price {
+  font-size: 0.76rem; font-weight: 600; opacity: 0.85;
+  margin-top: 4px; text-decoration: line-through; text-decoration-thickness: 1.2px;
+  font-variant-numeric: tabular-nums;
+}
+.sale-stamp-A .off-chip {
+  position: absolute; top: -11px; right: -11px;
+  background: white; color: var(--pin-deep);
+  font-size: 0.72rem; font-weight: 800;
+  padding: 4px 9px; border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Diagonales Ribbon oben links auf der Depot-Karte ─── */
+/* border-top-left-radius matcht die Kartenrundung, damit die Karte
+   selbst overflow:visible bleiben darf (sonst schneidet sie das
+   Empfehlungs-Badge oben ab). */
+.sale-ribbon {
+  position: absolute; top: 0; left: 0;
+  width: 140px; height: 140px;
+  overflow: hidden; pointer-events: none; z-index: 3;
+  border-top-left-radius: 14px;
+}
+.sale-ribbon::before {
+  content: "− 48 % · EINFÜHRUNG";
+  display: block; position: absolute;
+  width: 210px; padding: 7px 0;
+  text-align: center;
+  background: linear-gradient(90deg, var(--pin), var(--pin-deep));
+  color: white;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em;
+  top: 30px; left: -55px;
+  transform: rotate(-45deg);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Preis-Block mit Streich + Neupreis ─── */
+.sale-price { display: flex; flex-direction: column; }
+.sale-price .row { display: flex; align-items: baseline; gap: 10px; }
+.sale-price .old {
+  font-size: 1.05rem; font-weight: 600; color: var(--muted);
+  text-decoration: line-through; text-decoration-thickness: 1.5px;
+  font-variant-numeric: tabular-nums;
+}
+.sale-price .new {
+  font-size: 1.7rem; font-weight: 800; color: var(--pin);
+  line-height: 1; letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.sale-price .sub {
+  font-size: 0.74rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--pin-deep); margin-top: 5px;
+}
+
+/* ─── CTAs in Aktionsfarbe ─── */
+.sale-cta { background: var(--pin); }
+.sale-cta:hover { background: var(--pin-deep); }
+
+/* ─── Depot-Karte: roter Rahmen + zentriertes Coral-Badge ─── */
+/* Das Badge muss horizontal mittig sitzen, damit es nicht mit der
+   diagonalen Ecken-Banderole oben links kollidiert. */
+.prod-card.featured { border-color: var(--pin); }
+.prod-card.featured .prod-badge {
+  background: var(--pin);
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="favicon-192.png" alt="" class="nav-logo-img">KassenwartPro</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Startseite</a></li>
+    <li><a href="transparenz.html">Transparenz</a></li>
+    <li><a href="impressum.html">Impressum</a></li>
+  </ul>
+</nav>
+
+<hr class="divider">
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <span class="hero-eyebrow">Für Windows · Lokal · Einmalkauf</span>
+    <h1>Wo das Geld bleibt — und wo es wächst.</h1>
+    <p class="hero-sub">KassenwartPro ist Haushaltsbuch und Depot-Tracker in einer App. Kein Bankzugang, keine Cloud, kein Abo. Einmal kaufen, dauerhaft auf dem eigenen PC.</p>
+    <ul class="hero-bullets">
+      <li>Einnahmen, Ausgaben und Rücklagen im Griff</li>
+      <li>ETFs, Aktien und Edelmetalle mit Live-Kursen</li>
+      <li>Spar-Brücke: monatliche Sparrate automatisch ins Depot</li>
+    </ul>
+    <div class="hero-actions">
+      <a href="https://buy.stripe.com/5kQ00kcQ5gYH00Lgu76Ri07" class="btn-primary sale-cta" rel="noopener">Jetzt sichern · <span style="text-decoration:line-through;opacity:0.6;font-weight:600;margin-right:4px;">29&nbsp;€</span>15&nbsp;€</a>
+      <a href="https://kassenwartpro.pythonanywhere.com/" class="btn-ghost" target="_blank" rel="noopener" title="Eingefrorene Live-Preise — die Demo läuft auf einem kostenlosen Server, deshalb sind die Kurse fest hinterlegt.">Demo öffnen</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-img-wrap">
+      <div class="hero-slider" id="heroSlider" aria-label="KassenwartPro Bildschirme im Wechsel">
+        <img class="active" src="Screenshot%20-%20Haushaltsbuch.png" alt="KassenwartPro Haushaltsbuch" loading="eager" fetchpriority="high" decoding="sync">
+        <img src="Screenshot%20Busdget%201.png" alt="KassenwartPro Budget – Übersicht" loading="eager">
+        <img src="Screenshot%20Busdget%202.png" alt="KassenwartPro Budget – Detail" loading="eager">
+        <img src="Screenshoot%20-%20Depot%201.png" alt="KassenwartPro Depot – Übersicht" loading="eager">
+        <img src="Screenshot%20Depot%202.png" alt="KassenwartPro Depot – Positionen" loading="eager">
+        <img src="Screenshot%20Depot%203.png" alt="KassenwartPro Depot – Auswertung" loading="eager">
+      </div>
+      <!-- Einführungspreis-Stempel: schräg, Coral, mit Streich + −48%-Chip -->
+      <div class="sale-stamp-A" aria-hidden="true">
+        <div class="off-chip">−48 %</div>
+        <div class="new-price">15 €</div>
+        <div class="old-price">statt 29 €</div>
+      </div>
+    </div>
+    <div class="hero-tags">
+      <span class="tag">Windows</span>
+      <span class="tag">Offline</span>
+      <span class="tag">Kein Abo</span>
+      <span class="tag">Deutsch</span>
+    </div>
+    <a href="https://kassenwartpro.pythonanywhere.com/" class="hero-demo-link" target="_blank" rel="noopener" title="Eingefrorene Live-Preise — die Demo läuft auf einem kostenlosen Server, deshalb sind die Kurse fest hinterlegt.">→ Live-Demo ausprobieren <span style="opacity:0.6; font-size:0.75rem;">(eingefrorene Kurse)</span></a>
+  </div>
+</section>
+
+<!-- STORY (zwischen den Zeilen) -->
+<section class="story">
+  <div class="story-inner">
+    <div class="story-eyebrow">Warum überhaupt</div>
+    <h2>Schaffen, sparen, vorsorgen — neu gedacht.</h2>
+    <p>Die Einkommen steigen langsam, die Preise schneller. Auf dem Sparbuch verliert das Geld an Wert. Und auch der Blick auf die spätere Rente fällt zurzeit nicht sonderlich hoffnungsvoll aus.</p>
+    <p>Dafür braucht es <strong>keine ausgefeilte Finanzplanung</strong> — sondern <strong>einen Überblick, eine ehrliche Reserve und einen monatlichen Beitrag in einen ETF</strong>. Genau das macht KassenwartPro sichtbar. Solide, lokal, ohne Schnickschnack.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PRODUKTE -->
+<section class="products" id="produkte">
+  <div class="section-label">Zwei Varianten</div>
+  <h2 class="section-title">Welche Variante passt?</h2>
+  <p class="section-sub">Beide laufen lokal auf dem PC. Beide sind Einmalkäufe. Der Unterschied: Wer auch sein Depot tracken will, nimmt die Depot-Variante.</p>
+
+  <div class="products-grid">
+
+    <!-- DEPOT (Featured) mit Einführungspreis-Ribbon -->
+    <div class="prod-card featured">
+      <div class="sale-ribbon" aria-hidden="true"></div>
+
+      <span class="prod-badge">Einführungspreis</span>
+      <div class="prod-eyebrow">Haushaltsbuch + Depot</div>
+      <h3>KassenwartPro Depot</h3>
+      <p class="prod-tag">Alles aus Budget — plus Depot-Tracking, Live-Kurse, Sparpläne und die Spar-Brücke vom Haushalt direkt ins Investment.</p>
+      <ul class="prod-list">
+        <li>Komplettes Haushaltsbuch mit Rücklagen und Fixkosten-Automatik</li>
+        <li>Depot mit ETFs, Aktien, Krypto und Edelmetallen</li>
+        <li>Live-Kurse und FIFO-Gewinnberechnung</li>
+        <li>Sparpläne mit automatischer Nachbuchung</li>
+        <li>Spar-Brücke: ein Klick verbucht Übertrag in beiden Bereichen</li>
+        <li>Prognose-Rechner für den langfristigen Vermögensaufbau</li>
+        <li>CSV-Import deiner Broker-Abrechnungen — durch manuelle Spaltenzuordnung mit jedem Broker kompatibel</li>
+        <li>Jahres-Export als Excel-Mappe — Verkäufe, Dividenden, Bestand auf einen Blick (auch für die Steuererklärung)</li>
+      </ul>
+      <div class="prod-foot">
+        <div class="sale-price">
+          <div class="row">
+            <span class="old">29 €</span>
+            <span class="new">15 €</span>
+          </div>
+          <span class="sub">Sie sparen 14 € · einmalig · für immer</span>
+        </div>
+        <a href="https://buy.stripe.com/5kQ00kcQ5gYH00Lgu76Ri07" class="btn-primary sale-cta" rel="noopener">Kaufen · 15 €</a>
+      </div>
+    </div>
+
+    <!-- BUDGET (Nebenangebot) -->
+    <div class="prod-card">
+      <div class="prod-eyebrow">Nur Haushaltsbuch</div>
+      <h3>KassenwartPro Budget</h3>
+      <p class="prod-tag">Das schlanke Haushaltsbuch ohne Depot-Funktionen — für alle, die erst einmal nur ihren Haushalt im Griff haben wollen.</p>
+      <ul class="prod-list">
+        <li>Einnahmen, Ausgaben, Rücklagen und Budgets</li>
+        <li>Fixkosten-Automatik für wiederkehrende Buchungen</li>
+        <li>Sparziele mit Fortschrittsanzeige</li>
+        <li>Komplett offline, kein Account</li>
+        <li class="muted">Kein Depot-Tracking</li>
+        <li class="muted">Keine Live-Kurse</li>
+      </ul>
+      <div class="prod-foot">
+        <div class="prod-price">
+          <span class="prod-price-num">15 €</span>
+          <span class="prod-price-sub">einmalig · für immer</span>
+        </div>
+        <a href="https://buy.stripe.com/00w3cw6rHeQz4h14Lp6Ri08" class="btn-ghost" rel="noopener">Jetzt kaufen</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!--
+    Upgrade-Hinweis Budget → Depot: In der Einführungsphase deaktiviert.
+    Depot ist während der Aktion bereits zum Sonderpreis von 15 € verfügbar —
+    ein separater Upgrade-Pfad für 10 € macht in dieser Zeit keinen Sinn.
+    Bei Aktionsende wieder aktivieren (unverändert wie in index.html).
+
+  <div class="upgrade-hint">
+    <div class="upgrade-hint-text">
+      <strong>Schon Budget im Einsatz?</strong> Das Depot-Modul lässt sich später per Lizenz-Upgrade freischalten — kein Datenverlust, kein neuer Download.
+    </div>
+    <a href="https://buy.stripe.com/eVqbJ2bM15fZ28T0v96Ri05" class="btn-primary" rel="noopener" style="padding:10px 20px; font-size:0.88rem;">10 € Upgrade</a>
+  </div>
+  -->
+</section>
+
+<hr class="divider">
+
+<!-- 4 SÄULEN -->
+<section class="features">
+  <div class="section-label">Was drin ist</div>
+  <h2 class="section-title">Acht Säulen, kein Ballast.</h2>
+  <p class="section-sub">Konzentration auf das, was wirklich hilft — Privatsphäre, klare Logik, ehrliche Zahlen, faire Automatik und ein Mensch hinter der App.</p>
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <span class="feature-icon">📋</span>
+      <h3>Automatik mit Handbremse</h3>
+      <p>Sparpläne und Rücklagen stehen am Stichtag zur Buchung bereit. Läuft alles nach Plan: ein Klick — fertig. Bei Besonderheiten lassen sich einzelne Raten direkt anpassen oder aussetzen, ohne den Plan zu ändern oder Korrekturbuchungen nachzuziehen.</p>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">🛡️</span>
+      <h3>Keine bösen Überraschungen</h3>
+      <p>Die App rechnet automatisch monatliche Rücklagen für Versicherungen und Jahresrechnungen aus. Im Januar liegt das Geld bereit — ohne im Dezember erschrocken aufzuschauen.</p>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">🌉</span>
+      <h3>Die Spar-Brücke</h3>
+      <p>Der geplante monatliche Sparbetrag wandert mit einer Buchung vom Haushaltsbuch direkt ins Depot. Atomar verbucht auf beiden Seiten — kein doppeltes Eintippen, keine Tippfehler, klare Trennung zwischen Konsumgeld und Investitionskapital.</p>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">📈</span>
+      <h3>Live-Kurse & FIFO-Gewinne</h3>
+      <p>ETFs, Aktien, Krypto, Edelmetalle — alles in einer Übersicht. Gewinne werden nach dem in Deutschland geltenden FIFO-Prinzip berechnet, also so, wie das Finanzamt es sieht.</p>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">🔒</span>
+      <h3>Privatsphäre ab Werk</h3>
+      <p>Alle Daten bleiben auf dem eigenen Rechner. Kein Cloud-Sync, kein Account, kein Tracking. Live-Kurse werden anonym über öffentliche Schnittstellen geladen — ohne Bezug zum Depot.</p>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">🔄</span>
+      <h3>Lebenslange kostenlose Updates</h3>
+      <p>Wer einmal eine Lizenz gekauft hat, erhält alle künftigen Verbesserungen und Erweiterungen seines Tarifs dauerhaft kostenlos. Keine Jahresgebühr, kein Wartungsvertrag, keine künstlich abgeschnittenen Versionen — der gekaufte Stand wächst einfach mit.</p>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">↩️</span>
+      <h3>30 Tage Geld-zurück-Garantie</h3>
+      <p>Wer nach dem Kauf merkt, dass die App nicht zum eigenen Alltag passt, bekommt den Kaufpreis innerhalb von 30 Tagen vollständig zurück. Eine kurze Mail genügt — keine Begründung, kein Formular, kein Kleingedrucktes.</p>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">✉️</span>
+      <h3>Direkt vom Entwickler</h3>
+      <p>Kein Konzern, kein Investor, kein Help-Desk in Übersee. Anfragen landen beim Menschen, der den Code geschrieben hat. Und falls die Entwicklung pausiert: die App läuft lokal weiter, niemand kann den Stecker ziehen.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- VERGLEICH (Slider — erweitert auf Depot-Konkurrenten) -->
+<section class="compare" style="padding-top:72px;">
+  <div class="compare-inner">
+    <div class="compare-header">
+      <h2>KassenwartPro im Vergleich.</h2>
+      <div class="compare-arrows">
+        <button class="compare-arrow" id="btnPrev" title="Zurück">←</button>
+        <button class="compare-arrow" id="btnNext" title="Weiter">→</button>
+      </div>
+    </div>
+    <p class="compare-sub">Wechseln zwischen den bekannten Alternativen — Haushaltsbuch und Depot-Tracker auf dem deutschen Markt.</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="col-feature"></th>
+          <th class="col-kp">KassenwartPro Depot</th>
+          <th class="col-comp" id="compHead">WISO Haushaltsbuch</th>
+        </tr>
+      </thead>
+      <tbody id="compareBody"></tbody>
+    </table>
+    <div class="compare-mobile" id="compareMobile"></div>
+
+    <div class="compare-seo">
+      <p><strong>KassenwartPro</strong> ist eine schlanke Alternative zu <strong>WISO Haushaltsbuch</strong>, <strong>Finanzguru</strong>, <strong>YNAB</strong>, <strong>Portfolio Performance</strong> und <strong>Parqet</strong>. Die meisten dieser Programme bieten entweder nur ein Haushaltsbuch oder nur ein Depot-Tracking — selten beides in einer Hand und fast nie als echter Einmalkauf ohne Cloud-Pflicht. Wer ein <strong>Haushaltsbuch und einen Depot-Tracker offline für Windows</strong> sucht, ohne Bankzugang, ohne Abo und ohne Datenabfluss in fremde Server, findet in KassenwartPro eine direkte <strong>WISO Alternative</strong>, <strong>Parqet Alternative</strong> und <strong>Portfolio Performance Alternative</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- TRUST-STRIP -->
+<section class="trust-strip">
+  <a href="transparenz.html">
+    <span class="trust-icon">🔒</span>
+    <span class="trust-label">SHA256-geprüft</span>
+    <span class="trust-sub">Datei-Integrität verifizieren</span>
+  </a>
+  <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro/raw/main/KassenwartPro_Kurzanleitung.pdf" target="_blank" rel="noopener">
+    <span class="trust-icon">📄</span>
+    <span class="trust-label">Kurzanleitung</span>
+    <span class="trust-sub">Installation & Bedienung (PDF)</span>
+  </a>
+  <a href="transparenz.html#smartscreen">
+    <span class="trust-icon">🛡️</span>
+    <span class="trust-label">SmartScreen-Info</span>
+    <span class="trust-sub">Windows-Warnung einordnen</span>
+  </a>
+</section>
+
+<hr class="divider">
+
+<!-- DREI SCHRITTE -->
+<section class="how" style="padding-top:72px;">
+  <div class="how-inner">
+    <h2>In drei Schritten startklar.</h2>
+    <div class="how-steps">
+      <div>
+        <div class="step-num">1</div>
+        <h4>Kaufen &amp; herunterladen</h4>
+        <p>Nach dem Kauf kommt sofort eine E-Mail mit Lizenzcode und Download-Link. Keine Wartezeit, kein Account, keine App-Store-Abhängigkeit.</p>
+      </div>
+      <div>
+        <div class="step-num">2</div>
+        <h4>Lizenzcode eingeben</h4>
+        <p>Programm starten, Code eingeben — fertig. Läuft komplett lokal auf dem PC und funktioniert dauerhaft auch ohne Internetverbindung.</p>
+      </div>
+      <div>
+        <div class="step-num">3</div>
+        <h4>Loslegen</h4>
+        <p>Kategorien anpassen, erste Buchungen eintragen, Überblick haben. Die meisten Anwender sind in unter fünf Minuten eingerichtet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FAQ -->
+<section class="faq" style="padding-top:72px;">
+  <div class="faq-inner">
+    <h2>Häufige Fragen.</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Was unterscheidet KassenwartPro Depot von KassenwartPro Budget?</span>
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Budget ist das schlanke Haushaltsbuch — Einnahmen, Ausgaben, Rücklagen, Fixkosten-Automatik. Depot enthält alles davon plus Depot-Tracking mit Live-Kursen, FIFO-Gewinnberechnung, Sparpläne und die Spar-Brücke, die Überträge zwischen Haushalt und Depot atomar verbucht.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Was ist die Spar-Brücke?</span>
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Die Spar-Brücke verbindet Haushaltsbuch und Depot mit einer einzigen Buchung. Wer am Monatsende einen Überschuss in den ETF-Sparplan überträgt, verbucht das einmal — die App spiegelt es atomar auf beiden Seiten. Konsumgeld und Investitionskapital bleiben sauber getrennt, das verfügbare Budget wird nicht durch Depotwerte verfälscht.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Werden meine Finanzdaten in die Cloud hochgeladen?</span>
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Nein. KassenwartPro läuft vollständig lokal auf dem PC. Alle Daten bleiben auf dem eigenen Rechner — kein Cloud-Sync, kein Server, kein Konto. Live-Kurse werden anonym über öffentliche Kurs-APIs abgerufen, ohne Zuordnung zum Depot.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Muss ich ein Bankkonto verknüpfen?</span>
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Nein. Es ist kein Bankzugang erforderlich. Buchungen werden manuell eingetragen — das schützt die Privatsphäre und macht das Programm unabhängig von Drittanbietern.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Wie funktioniert das Upgrade von Budget auf Depot?</span>
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Wer bereits Budget besitzt, kann zum Differenzpreis auf Depot upgraden. Die Lizenz erkennt das automatisch — ein Update der App ist nicht nötig, der vorhandene Code schaltet das Depot frei, sobald der neue Lizenzschlüssel eingetragen ist. Bestehende Haushaltsdaten bleiben unverändert.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Auf welchen Systemen läuft KassenwartPro?</span>
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>KassenwartPro läuft auf Windows 10 und Windows 11. Eine Mac- oder Linux-Version ist aktuell nicht geplant.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text">Wie bekomme ich das Programm nach dem Kauf?</span>
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Nach dem Kauf wird sofort eine E-Mail mit Lizenzcode und Download-Link verschickt. Programm herunterladen, starten, Lizenzcode eingeben — fertig. Kein Account, keine Wartezeit.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABSCHLUSS-CTA -->
+<section style="padding: 0 0 72px;">
+  <div style="background:var(--primary); border-radius:16px; padding:40px 48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;">
+    <div>
+      <p style="font-size:1.2rem; font-weight:700; color:white; margin-bottom:6px;">Einmal kaufen. Für immer nutzen.</p>
+      <p style="font-size:0.88rem; color:rgba(255,255,255,0.85); line-height:1.6;">Kein Abo, kein Bankzugang, keine Cloud. Solide, lokal, dauerhaft auf dem eigenen PC.</p>
+    </div>
+    <a href="#produkte" style="display:inline-block; background:white; color:var(--primary); padding:13px 28px; border-radius:10px; font-size:0.95rem; font-weight:700; text-decoration:none; white-space:nowrap;">Varianten ansehen</a>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <p class="footer-copy">KassenwartPro © 2026 · Simon Bellviure Bigas · Leun</p>
+      <div class="footer-links">
+        <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank" rel="noopener">GitHub</a>
+        <a href="transparenz.html">Transparenz</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="https://g.page/r/Cf0bm_07f1DjEAE/review" target="_blank" rel="noopener">Bewertung</a>
+        <a href="impressum.html#datenschutz">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══ Vergleichs-Slider — erweitert auf Depot-Konkurrenten ═══
+var competitors=[
+  {name:"WISO Haushaltsbuch",rows:[
+    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">29 € einmalig</span>',comp:'<span class="c-price-comp">~30 €/Jahr</span>'},
+    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf nötig",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ Jahreslizenz</span>'},
+    {feature:"Haushalt + Depot kombiniert",hint:"alles in einer App",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ getrennt</span>'},
+    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ Online-Pflicht</span>'},
+    {feature:"Kein Bankzugang nötig",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-yes">✓</span>'},
+    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-yes">✓</span>'},
+    {feature:"Spar-Brücke",hint:"Übertrag Haushalt → Depot mit einem Klick",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Kein Feature-Overkill",hint:"nur was wirklich genutzt wird",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'}
+  ]},
+  {name:"Portfolio Performance",rows:[
+    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">29 € einmalig</span>',comp:'<span class="c-price-comp">kostenlos (Open Source)</span>'},
+    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf nötig",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-yes">✓</span>'},
+    {feature:"Haushalt + Depot kombiniert",hint:"alles in einer App",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ nur Depot</span>'},
+    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-yes">✓</span>'},
+    {feature:"Einfacher Einstieg",hint:"ohne langes Studium",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ steile Lernkurve</span>'},
+    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-yes">✓</span>'},
+    {feature:"Spar-Brücke",hint:"Übertrag Haushalt → Depot mit einem Klick",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Deutscher Support",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ Community</span>'}
+  ]},
+  {name:"Parqet",rows:[
+    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">29 € einmalig</span>',comp:'<span class="c-price-comp">Free / 89 €/Jahr (Pro)</span>'},
+    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf nötig",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ Abo</span>'},
+    {feature:"Haushalt + Depot kombiniert",hint:"alles in einer App",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ nur Depot</span>'},
+    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ Cloud</span>'},
+    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ Cloud</span>'},
+    {feature:"Kein Bankzugang nötig",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ optional</span>'},
+    {feature:"Spar-Brücke",hint:"Übertrag Haushalt → Depot mit einem Klick",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Werbefrei",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ in der Free-Version</span>'}
+  ]},
+  {name:"Finanzguru",rows:[
+    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">29 € einmalig</span>',comp:'<span class="c-price-comp">kostenlos / 2,99 €/Mo.</span>'},
+    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf nötig",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Haushalt + Depot kombiniert",hint:"alles in einer App",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ rudimentär</span>'},
+    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Kein Bankzugang nötig",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-warn">⚠ Pflicht</span>'},
+    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ Cloud</span>'},
+    {feature:"Spar-Brücke",hint:"Übertrag Haushalt → Depot mit einem Klick",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Werbefrei",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'}
+  ]},
+  {name:"YNAB",rows:[
+    {feature:"Preis",hint:"",kp:'<span class="c-price-kp">29 € einmalig</span>',comp:'<span class="c-price-comp">~109 USD/Jahr</span>'},
+    {feature:"Echtes Einmalkauf",hint:"kein erneuter Kauf nötig",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Haushalt + Depot kombiniert",hint:"alles in einer App",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ nur Haushalt</span>'},
+    {feature:"100 % offline",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Deutsch",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ nur Englisch</span>'},
+    {feature:"Daten lokal auf dem PC",hint:"",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗ Cloud/USA</span>'},
+    {feature:"Spar-Brücke",hint:"Übertrag Haushalt → Depot mit einem Klick",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'},
+    {feature:"Kein Feature-Overkill",hint:"nur was wirklich genutzt wird",kp:'<span class="c-yes">✓</span>',comp:'<span class="c-no">✗</span>'}
+  ]}
+];
+var idx=0;
+function renderSlider(){
+  var c=competitors[idx];
+  document.getElementById('compHead').textContent=c.name;
+  document.getElementById('compareBody').innerHTML=c.rows.map(function(r){
+    return '<tr><td class="col-feature">'+r.feature+(r.hint?'<span>'+r.hint+'</span>':'')+'</td><td class="col-kp">'+r.kp+'</td><td class="col-comp">'+r.comp+'</td></tr>';
+  }).join('');
+  document.getElementById('compareMobile').innerHTML=
+    '<div class="cmp-card">'
+    +'<div class="cmp-card-header"><div class="cmp-card-col kp-col">KassenwartPro Depot</div><div class="cmp-card-col">'+c.name+'</div></div>'
+    +c.rows.map(function(r){
+      return '<div class="cmp-feature-label" style="display:grid;grid-column:1/-1;padding:8px 14px 2px;font-size:0.72rem;font-weight:600;color:var(--muted);background:white;border-bottom:1px solid #e8eeea;">'+r.feature+(r.hint?' <em style="font-weight:400">· '+r.hint+'</em>':'')+'</div>'
+        +'<div class="cmp-card-row"><div class="cmp-card-cell kp-val">'+r.kp+'</div><div class="cmp-card-cell">'+r.comp+'</div></div>';
+    }).join('')
+    +'</div>';
+}
+renderSlider();
+
+document.addEventListener('DOMContentLoaded', function() {
+  ['click','touchend'].forEach(function(ev){
+    document.getElementById('btnNext').addEventListener(ev,function(e){e.preventDefault();idx=(idx+1)%competitors.length;renderSlider();},{passive:false});
+    document.getElementById('btnPrev').addEventListener(ev,function(e){e.preventDefault();idx=(idx-1+competitors.length)%competitors.length;renderSlider();},{passive:false});
+  });
+});
+
+// Hero-Screenshot-Slider: 4-Sekunden-Auto-Crossfade, kein Stop, kein Hover-Pause.
+(function(){
+  var slider = document.getElementById('heroSlider');
+  if (!slider) return;
+  var imgs = slider.querySelectorAll('img');
+  if (imgs.length < 2) return;
+  var i = 0;
+  setInterval(function(){
+    imgs[i].classList.remove('active');
+    i = (i + 1) % imgs.length;
+    imgs[i].classList.add('active');
+  }, 4000);
+})();
+
+// FAQ Accordion
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-item');
+  var answer = item.querySelector('.faq-answer');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el) {
+    el.classList.remove('open');
+    el.querySelector('.faq-answer').style.maxHeight = '0';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+</script>
+
+</body>
+</html>
