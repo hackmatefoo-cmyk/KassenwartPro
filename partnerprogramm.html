@@ -325,7 +325,8 @@ document.getElementById('signupForm').addEventListener('submit', function (e) {
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { say('err', 'Bitte eine gültige E-Mail-Adresse eintragen.'); return; }
   if (!document.getElementById('pConsent').checked) { say('err', 'Bitte den Teilnahmebedingungen und der Datenschutzerklärung zustimmen.'); return; }
   if (!PARTNER.endpoint) { say('err', 'Die Anmeldung ist noch nicht freigeschaltet. Bitte in Kürze erneut versuchen.'); return; }
-  var btn = document.getElementById('pSend'); btn.disabled = true;
+  var btn = document.getElementById('pSend'); btn.disabled = true; btn.classList.add('busy'); btn.textContent = 'Wird gesendet';
+  say('ok', 'Anmeldung wird gesendet …');
   var body = new URLSearchParams();
   body.append('action', 'partner_signup');
   body.append('email', email);
@@ -335,8 +336,8 @@ document.getElementById('signupForm').addEventListener('submit', function (e) {
   body.append('iban', document.getElementById('pIban').value.trim());
   body.append('website', document.getElementById('pWebsite').value);
   fetch(PARTNER.endpoint, { method: 'POST', mode: 'no-cors', body: body })
-    .then(function () { say('ok', 'Danke! Zur Bestätigung wurde eine E-Mail geschickt – nach dem Klick auf den Link darin kommt der persönliche Partner-Link.'); })
-    .catch(function () { btn.disabled = false; say('err', 'Netzwerkfehler. Bitte später erneut versuchen oder eine E-Mail an info@kassenwartpro.de schreiben.'); });
+    .then(function () { btn.classList.remove('busy'); btn.textContent = 'Gesendet'; say('ok', 'Danke! Zur Bestätigung wurde eine E-Mail geschickt – nach dem Klick auf den Link darin kommt der persönliche Partner-Link.'); })
+    .catch(function () { btn.disabled = false; btn.classList.remove('busy'); btn.textContent = 'Anmelden'; say('err', 'Netzwerkfehler. Bitte später erneut versuchen oder eine E-Mail an info@kassenwartpro.de schreiben.'); });
 });
 </script>
 </body>
