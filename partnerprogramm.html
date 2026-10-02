@@ -336,7 +336,7 @@ document.getElementById('signupForm').addEventListener('submit', function (e) {
   body.append('iban', document.getElementById('pIban').value.trim());
   body.append('website', document.getElementById('pWebsite').value);
   fetch(PARTNER.endpoint, { method: 'POST', mode: 'no-cors', body: body })
-    .then(function () { btn.classList.remove('busy'); btn.textContent = 'Gesendet'; say('ok', 'Danke! Zur Bestätigung wurde eine E-Mail geschickt – nach dem Klick auf den Link darin kommt der persönliche Partner-Link.'); })
+    .then(function () { btn.classList.remove('busy'); btn.textContent = 'Gesendet'; document.getElementById('signupForm').reset(); say('ok', 'Danke! Zur Bestätigung wurde eine E-Mail geschickt – nach dem Klick auf den Link darin kommt der persönliche Partner-Link.'); })
     .catch(function () { btn.disabled = false; btn.classList.remove('busy'); btn.textContent = 'Anmelden'; say('err', 'Netzwerkfehler. Bitte später erneut versuchen oder eine E-Mail an info@kassenwartpro.de schreiben.'); });
 });
 </script>

@@ -197,7 +197,7 @@
     <h1 class="h-serif">Ein Programm statt drei&nbsp;Abos.</h1>
     <p class="hero-sub">Haushaltsbuch, Depot-Tracker und Chartanalyse – verbunden in einem Windows-Programm. Ein Tool statt vier Fenster: kein neuer Account, kein Passwort, keine Werbung, kein Abo. Einmal kaufen und behalten.</p>
     <div class="hero-actions">
-      <a href="#preis" class="btn btn-primary" data-price-btn>Zum Einführungspreis</a>
+      <a href="#preis" class="btn btn-primary" data-price-btn>Zum Einführungspreis<small>↓ mehr</small></a>
       <a href="finfide.html" class="btn btn-ghost">FinFide entdecken</a>
     </div>
     <p class="hero-note">Für Windows 10 und 11 · 30 Tage Geld-zurück-Garantie · <b data-price-note>Einführungspreis für die ersten Käufer</b></p>
@@ -455,7 +455,7 @@ function renderPrice(sold, liveLink) {
   var buy = document.getElementById('buyBtn');
   buy.textContent = 'Jetzt kaufen · ' + cur.price + ' €';
   buy.href = (window.KPREF ? KPREF.buy(liveLink || cur.link) : (liveLink || cur.link));
-  document.querySelectorAll('[data-price-btn]').forEach(function (b) { b.textContent = 'Jetzt für ' + cur.price + ' € sichern'; });
+  document.querySelectorAll('[data-price-btn]').forEach(function (b) { b.innerHTML = (cur.price < REGULAR ? 'Noch für ' : 'Für ') + cur.price + ' € sichern<small>↓ mehr</small>'; });
 }
 renderPrice(PRICE.fallbackSold);
 if (PRICE.endpoint) {

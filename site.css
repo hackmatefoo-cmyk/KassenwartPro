@@ -55,6 +55,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 
 /* ── Buttons ── */
 .btn { display: inline-block; padding: 13px 26px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: filter .15s, background .15s; cursor: pointer; border: none; }
+.btn small { display: block; font-size: 0.72rem; font-weight: 500; opacity: .85; margin-top: 2px; letter-spacing: .02em; }
 .btn:disabled { opacity: .75; cursor: default; }
 .btn.busy::after { content: ''; display: inline-block; width: .9em; height: .9em; margin-left: .6em; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: ffspin .7s linear infinite; vertical-align: -2px; }
 @keyframes ffspin { to { transform: rotate(360deg); } }
