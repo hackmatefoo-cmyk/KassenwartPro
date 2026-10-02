@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Neuigkeiten · FinFide</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<!--
+  News-Seite (Spezifikation: Entwicklung/docs/homepage_ueberarbeitung.md, Abschnitt 1).
+  Nur über Links aus der App erreichbar: ohne ?src=app → Startseite. Nicht in Navigation/Sitemap/robots.txt.
+  Links der App:
+    news.html?src=app&v=<App-Version>&typ=update&neu=<neue Version>
+    news.html?src=app&v=<App-Version>&typ=umfrage
+  Pflege: neue Version oben in RELEASES eintragen; Umfrage-Text in SURVEY.
+-->
+<script>if (!/[?&]src=app\b/.test(location.search)) location.replace('index.html');</script>
+<script src="ref.js"></script>
+<link rel="stylesheet" href="site.css">
+<style>
+.news { max-width: 780px; margin: 44px auto 64px; }
+.news-card { padding: 40px 44px; margin-bottom: 20px; }
+.pill { display: inline-block; background: var(--metal); color: #fff; font-size: 0.74rem; font-weight: 700; padding: 4px 11px; border-radius: 999px; letter-spacing: .04em; }
+.pill.soft { background: var(--accent-tint); color: var(--primary); }
+.meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; font-size: 0.84rem; color: var(--muted); }
+.news h1 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 2.1rem; line-height: 1.2; margin-bottom: 8px; }
+.lead { color: var(--muted); font-size: 1.02rem; margin-bottom: 22px; }
+.news h2 { font-size: 1.1rem; color: var(--primary); margin: 24px 0 10px; }
+.news ul, .news ol { padding-left: 22px; }
+.news li { margin-bottom: 7px; font-size: 0.96rem; }
+.news li b { color: var(--text); }
+.news p { margin-bottom: 12px; font-size: 0.96rem; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0 6px; }
+.box { background: var(--bg2); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 0.88rem; color: var(--muted); margin-top: 18px; }
+.box.ok { border-left-color: #3f7a4f; }
+.hist summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
+.hist .ver { margin-top: 16px; }
+.hist .ver b { font-size: 0.98rem; }
+.hist .ver span { color: var(--muted); font-size: 0.84rem; margin-left: 8px; }
+@media (max-width: 700px) { .news-card { padding: 28px 22px; } .news h1 { font-size: 1.7rem; } }
+</style>
+</head>
+<body>
+
+<header class="site-head" id="siteHead"><div class="site-wrap">
+  <a class="site-brand" href="index.html">kassenwartpro<b>.de</b></a>
+  <button class="nav-toggle" onclick="document.getElementById('siteHead').classList.toggle('open')" aria-label="Menü">☰</button>
+  <ul class="site-nav">
+    <li><a href="index.html">Start</a></li>
+    <li class="has-sub"><a href="finfide.html">Produkte</a>
+      <ul class="sub"><li><a href="finfide.html"><img src="img/finfide_icon.png" alt=""><span>FinFide<small>Haushaltsbuch · Depot · Charts</small></span></a></li></ul></li>
+    <li><a href="kurzanleitung.html">Anleitung</a></li>
+    <li><a href="partnerprogramm.html">Partner werden</a></li>
+    <li><a href="transparenz.html">Transparenz</a></li>
+  </ul>
+</div></header>
+
+<main class="container"><div class="news" id="news"></div></main>
+
+<footer class="site-foot"><div class="site-wrap">
+  <p>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</p>
+  <nav>
+    <a href="impressum.html">Impressum</a>
+    <a href="impressum.html#datenschutz">Datenschutz</a>
+    <a href="erstattung.html">Erstattung</a>
+    <a href="transparenz.html">Transparenz</a>
+  </nav>
+</div></footer>
+
+<script>
+var DOWNLOAD = 'https://github.com/hackmatefoo-cmyk/KassenwartPro/releases/latest';
+
+// Neueste Version oben. Texte unpersönlich bzw. mit „Sie“.
+var RELEASES = [
+  { v: '1.8', date: 'Oktober 2026', title: 'Aus KassenwartPro wird FinFide',
+    lead: 'Neuer Name, neues Symbol – und die bisher größte Erweiterung für Depot und Charts.',
+    items: [
+      '<b>Mehrere Depots:</b> Neobroker, Direktbank, Krypto-Börse – jede Buchung gehört zu einem Depot, Ansicht einzeln oder zusammen.',
+      '<b>Watchlists nach Thema:</b> eigene Listen wie „Raumfahrt“, im Chart-Fenster umschaltbar, Scan über eine ganze Liste.',
+      '<b>Wertzuwachs neu:</b> Verlauf aus Buchungen und Kursen zurückgerechnet, persönliche Rendite p.&nbsp;a., je Depot.',
+      '<b>Dividenden:</b> Kennzahlen je Position (Rendite auf Einstand, Wachstum) und nachvollziehbare Rechnung im Kalender.',
+      '<b>Eigene Ansicht:</b> neue Farbschemas, eigenes Farbschema mit allen Farbpositionen, Hintergrundbild.',
+      '<b>Indikator-Setups:</b> Kombinationen speichern und per Klick wechseln; mehrere Chart-Fenster nebeneinander.'
+    ] },
+  { v: '1.7', date: 'September 2026', title: 'Hinweise direkt im Programm',
+    lead: 'Update- und Umfrage-Hinweise erscheinen beim Beenden.',
+    items: [
+      'Hinweis auf neue Versionen und Feedback-Runden auf der Beenden-Seite.',
+      'Analyse-Fenster mit Indikatoren, Zeichenwerkzeugen, Notizen und Orders.'
+    ] }
+];
+
+var SURVEY = {
+  title: 'Neue Update-Runde – Ihre Meinung ist gefragt',
+  lead: 'Welche Funktionen sollen als Nächstes kommen, was stört im Alltag? Jede Rückmeldung fließt in die nächste Version ein.',
+  until: ''   // z. B. '31.10.2026'
+};
+
+(function () {
+  var q = new URLSearchParams(location.search), typ = q.get('typ'), mine = q.get('v') || '', neu = q.get('neu') || RELEASES[0].v;
+  var box = document.getElementById('news'), html = '';
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function cmp(a, b) { a = a.split('.').map(Number); b = b.split('.').map(Number); for (var i = 0; i < 3; i++) { var d = (a[i] || 0) - (b[i] || 0); if (d) return d; } return 0; }
+
+  if (typ === 'umfrage') {
+    html += '<div class="card news-card"><div class="meta"><span class="pill">Umfrage</span>' + (SURVEY.until ? '<span>Teilnahme bis ' + esc(SURVEY.until) + '</span>' : '') + '</div>'
+      + '<h1>' + SURVEY.title + '</h1><p class="lead">' + SURVEY.lead + '</p>'
+      + '<p>Alle Felder sind freiwillig, eine Anmeldung ist nicht nötig. Auf Wunsch kann eine E-Mail-Adresse für Rückfragen angegeben werden.</p>'
+      + '<div class="cta"><a class="btn btn-primary" href="feedback.html?src=app&v=' + encodeURIComponent(mine) + '">Zur Umfrage</a></div></div>';
+  }
+
+  var rel = RELEASES.find(function (r) { return r.v === neu; }) || RELEASES[0];
+  var upToDate = mine && cmp(mine, rel.v) >= 0;
+  html += '<div class="card news-card"><div class="meta"><span class="pill' + (typ === 'umfrage' ? ' soft' : '') + '">Version ' + esc(rel.v) + '</span><span>' + rel.date + '</span></div>'
+    + '<h1>' + rel.title + '</h1><p class="lead">' + rel.lead + '</p>'
+    + '<h2>Neu in dieser Version</h2><ul>' + rel.items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>';
+  if (upToDate) {
+    html += '<div class="box ok">Ihre Version ' + esc(mine) + ' ist bereits aktuell – es ist nichts zu tun.</div>';
+  } else {
+    html += '<h2>So wird aktualisiert</h2><ol>'
+      + '<li>Neue Version herunterladen (Button unten).</li>'
+      + '<li>Heruntergeladene Datei starten und im Installer <b>„Aktualisierung“</b> wählen.</li>'
+      + '<li>Fertig – alle Daten, Einstellungen und die Lizenz bleiben erhalten.</li></ol>'
+      + '<div class="cta"><a class="btn btn-primary" href="' + DOWNLOAD + '" rel="noopener">Version ' + esc(rel.v) + ' herunterladen</a>'
+      + '<a class="btn btn-ghost" href="kurzanleitung.html">Anleitung</a></div>'
+      + (mine ? '<div class="box">Installiert: Version ' + esc(mine) + '. Datendateien werden beim Update nie verändert.</div>' : '');
+  }
+  html += '</div>';
+
+  var older = RELEASES.filter(function (r) { return r !== rel; });
+  if (older.length) {
+    html += '<div class="card news-card hist"><details><summary>Frühere Versionen</summary>'
+      + older.map(function (r) { return '<div class="ver"><b>Version ' + r.v + ' – ' + r.title + '</b><span>' + r.date + '</span><ul>'
+        + r.items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul></div>'; }).join('')
+      + '</details></div>';
+  }
+  box.innerHTML = html;
+})();
+</script>
+</body>
+</html>

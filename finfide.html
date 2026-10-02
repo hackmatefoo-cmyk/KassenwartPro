@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinFide – Funktionen im Detail | Haushaltsbuch, Depot, Charts</title>
+<meta name="description" content="Alle Funktionen von FinFide: Haushaltsbuch mit Budgets und Rücklagen, Depot-Tracker mit mehreren Depots, Dividenden und Rendite p. a., Chartanalyse mit Indikatoren, Watchlists und Scan. Lokal, Einmalkauf.">
+<link rel="canonical" href="https://kassenwartpro.de/finfide.html">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="FinFide – Funktionen im Detail">
+<meta property="og:image" content="https://kassenwartpro.de/img/slider/03_chart_trend.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Für wen ist FinFide gemacht?", "acceptedAnswer": {"@type": "Answer", "text": "Für Privatanleger mit langem Anlagehorizont, die Haushaltsbuch, Depot und Charts an einem Ort haben wollen. Nicht geeignet für Daytrading oder Scalping: Kurse kommen verzögert aus öffentlichen Quellen, keine Echtzeit-Daten."}},
+    {"@type": "Question", "name": "Berechnet FinFide Steuern?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Beträge wie einbehaltene Steuern werden aus der Brokerabrechnung eingetragen. FinFide zeigt diese Eingaben, fasst sie zusammen und exportiert sie – berechnet werden keine Steuern."}},
+    {"@type": "Question", "name": "Werden Finanzdaten in die Cloud hochgeladen?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. FinFide läuft lokal auf dem PC. Alle Daten bleiben auf dem eigenen Rechner – kein Konto, kein Cloud-Sync."}},
+    {"@type": "Question", "name": "Muss ein Bankkonto verknüpft werden?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Buchungen werden von Hand oder per CSV-Import aus dem Broker-Export erfasst."}},
+    {"@type": "Question", "name": "Auf welchen Systemen läuft FinFide?", "acceptedAnswer": {"@type": "Answer", "text": "Auf Windows 10 und Windows 11. Eine Mac- oder Linux-Version ist nicht geplant."}}
+  ]
+}
+</script>
+<script src="ref.js"></script>
+<link rel="stylesheet" href="site.css">
+<style>
+.p-hero { padding: 56px 0 24px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+.p-hero img { width: 104px; height: 104px; border-radius: 22px; box-shadow: 0 8px 26px rgba(138,90,31,.3); }
+.p-hero h1 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 2.8rem; line-height: 1.1; }
+.p-hero h1 i { color: var(--primary); }
+.p-hero p { color: var(--muted); font-size: 1.05rem; max-width: 660px; margin-top: 8px; }
+.jump { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 8px; }
+.jump a { padding: 7px 14px; border-radius: 999px; background: var(--card); border: 1px solid var(--border); text-decoration: none; font-size: 0.86rem; font-weight: 600; }
+.jump a:hover { background: var(--accent-tint); }
+
+.feat { display: grid; grid-template-columns: 1fr 1.15fr; gap: 44px; align-items: center; padding: 56px 0; border-bottom: 1px solid var(--border); scroll-margin-top: 70px; }
+.feat.rev .feat-img { order: -1; }
+.feat h2 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 2rem; margin-bottom: 10px; }
+.feat > div > p { color: var(--muted); margin-bottom: 18px; }
+.feat ul { list-style: none; display: grid; gap: 10px; }
+.feat li { padding-left: 26px; position: relative; font-size: 0.94rem; }
+.feat li::before { content: '✓'; position: absolute; left: 0; top: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--metal); color: #fff; font-size: 0.62rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 3px; }
+.feat li span { display: block; font-size: 0.84rem; color: var(--muted); }
+.feat-img { display: grid; gap: 12px; }
+.feat-img img { width: 100%; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); display: block; }
+.feat-img .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.note { margin-top: 16px; font-size: 0.8rem; color: var(--muted); background: var(--bg2); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 8px 8px 0; }
+
+.cmp { padding: 32px; overflow-x: auto; }
+.cmp table { width: 100%; border-collapse: collapse; min-width: 640px; }
+.cmp th, .cmp td { padding: 12px 14px; text-align: center; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+.cmp th { font-size: 0.76rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.cmp th.ff, .cmp td.ff { background: var(--accent-tint); color: var(--primary); font-weight: 700; }
+.cmp td:first-child, .cmp th:first-child { text-align: left; }
+.cmp td:first-child span { display: block; font-size: 0.78rem; color: var(--muted); }
+.cmp .y { color: #3f7a4f; font-weight: 700; }
+.cmp .n { color: #b0513d; font-weight: 700; }
+.cmp .w { color: #a8792b; font-size: 0.84rem; }
+.honest { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+.honest div { padding: 18px 20px; font-size: 0.88rem; color: var(--muted); }
+.honest b { display: block; color: var(--text); margin-bottom: 4px; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+.step { padding: 26px; }
+.step b { display: inline-flex; width: 34px; height: 34px; border-radius: 50%; background: var(--metal); color: #fff; align-items: center; justify-content: center; margin-bottom: 12px; }
+.step h3 { font-size: 1rem; margin-bottom: 6px; }
+.step p { font-size: 0.88rem; color: var(--muted); }
+
+.faq { max-width: 780px; margin: 36px auto 0; display: grid; gap: 10px; }
+.faq details { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0 20px; }
+.faq summary { cursor: pointer; padding: 16px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::after { content: '▾'; color: var(--muted); transition: transform .2s; }
+.faq details[open] summary::after { transform: rotate(180deg); }
+.faq p { padding: 0 0 16px; color: var(--muted); font-size: 0.92rem; }
+
+.buybar { margin: 56px 0 24px; padding: 30px 36px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.buybar h2 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.7rem; }
+.buybar p { color: var(--muted); font-size: 0.92rem; }
+
+@media (max-width: 900px) {
+  .p-hero { grid-template-columns: 1fr; }
+  .p-hero h1 { font-size: 2.1rem; }
+  .feat { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+  .feat.rev .feat-img { order: 0; }
+  .honest, .steps { grid-template-columns: 1fr; }
+  .cmp { padding: 16px; }
+}
+.vid-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+</style>
+</head>
+<body>
+
+<header class="site-head" id="siteHead"><div class="site-wrap">
+  <a class="site-brand" href="index.html">kassenwartpro<b>.de</b></a>
+  <button class="nav-toggle" onclick="document.getElementById('siteHead').classList.toggle('open')" aria-label="Menü">☰</button>
+  <ul class="site-nav">
+    <li><a href="index.html">Start</a></li>
+    <li class="has-sub"><a href="finfide.html" class="active">Produkte</a>
+      <ul class="sub"><li><a href="finfide.html"><img src="img/finfide_icon.png" alt=""><span>FinFide<small>Haushaltsbuch · Depot · Charts</small></span></a></li></ul></li>
+    <li><a href="kurzanleitung.html">Anleitung</a></li>
+    <li><a href="partnerprogramm.html">Partner werden</a></li>
+    <li><a href="transparenz.html">Transparenz</a></li>
+  </ul>
+</div></header>
+
+<main class="container">
+
+<div class="p-hero">
+  <img src="img/finfide_icon.png" alt="FinFide-Logo">
+  <div>
+    <span class="eyebrow">Produkte · FinFide</span>
+    <h1><i>FinFide</i> – Haushaltsbuch, Depot und Charts.</h1>
+    <p>Ein Windows-Programm für Privatanleger, das drei Werkzeuge verbindet – ohne neuen Account, ohne Passwort, ohne Abo. Die Daten bleiben dabei auf dem eigenen PC.</p>
+    <div class="jump">
+      <a href="#haushaltsbuch">Haushaltsbuch</a><a href="#depot">Depot</a><a href="#charts">Charts</a><a href="#ansicht">Ansicht</a><a href="#vergleich">Vergleich</a><a href="#faq">Fragen</a>
+    </div>
+    <div class="vid-row"><button class="vid-btn" data-video="V1_Ein_Monat_mit_FinFide" data-title="Vorstellung: Ein Monat mit FinFide">Vorstellung: Ein Monat mit FinFide <small>1:08</small></button></div>
+  </div>
+</div>
+
+<div class="feat" id="haushaltsbuch">
+  <div>
+    <span class="eyebrow">Baustein 1</span>
+    <h2>Haushaltsbuch</h2>
+    <p>Der Monat auf einen Blick: was reinkommt, was rausgeht, was übrig bleibt – und was davon ins Depot wandert.</p>
+    <div class="vid-row"><button class="vid-btn" data-video="A01_Haushaltsbuch_im_Ueberblick" data-title="Haushaltsbuch im Überblick">Haushaltsbuch im Überblick <small>0:31</small></button> <button class="vid-btn" data-video="A03_Budget_und_Ruecklagen" data-title="Budget und Rücklagen">Budget und Rücklagen <small>0:28</small></button></div>
+    <ul>
+      <li>Buchungen in Sekunden<span>Kategorie, Betrag, fertig – eigene Buchungsregeln als Gedächtnisstütze.</span></li>
+      <li>Budgets je Kategorie<span>Variable Ausgaben, Fixkosten und Einnahmen getrennt, Überschreitungen fallen sofort auf.</span></li>
+      <li>Fixkosten mit einem Klick<span>Wiederkehrende Posten stehen am Stichtag zur Buchung bereit.</span></li>
+      <li>Rücklagen für Jahresrechnungen<span>Versicherung, Kfz, Reparaturen – monatlich zurückgelegt, fällig bezahlt.</span></li>
+      <li>Auswertung<span>Soll/Ist-Haushaltsplan, Sparquote, Durchschnitt über 3, 6 oder 12 Monate.</span></li>
+    </ul>
+  </div>
+  <div class="feat-img">
+    <img src="img/slider/01_haushaltsbuch.jpg" alt="FinFide Haushaltsbuch Übersicht" loading="lazy">
+    <div class="pair"><img src="img/produkt/fixkosten.jpg" alt="Fixkosten und Budget je Kategorie" loading="lazy"><img src="img/slider/15_auswertung.jpg" alt="Auswertung Soll/Ist" loading="lazy"></div>
+  </div>
+</div>
+
+<div class="feat rev" id="depot">
+  <div>
+    <span class="eyebrow">Baustein 2</span>
+    <h2>Depot</h2>
+    <p>Alle Depots, alle Anlageklassen – mit ehrlichen Zahlen aus den eigenen Buchungen.</p>
+    <div class="vid-row"><button class="vid-btn" data-video="A04_Depot_im_Ueberblick" data-title="Depot im Überblick">Depot im Überblick <small>0:39</small></button> <button class="vid-btn" data-video="A12_Mehrere_Depots" data-title="Mehrere Depots">Mehrere Depots <small>0:42</small></button> <button class="vid-btn" data-video="A14_These_und_Thesen_Check" data-title="These und Thesen-Check">These und Thesen-Check <small>0:34</small></button></div>
+    <ul>
+      <li>Mehrere Depots<span>Neobroker, Direktbank, Krypto-Börse – einzeln oder zusammen ansehen.</span></li>
+      <li>Aktien, ETFs, Krypto, Edelmetalle<span>Aktuelle Kurse, Aufteilung nach Position, Klasse oder eigenem Thema.</span></li>
+      <li>Wertzuwachs mit persönlicher Rendite p.&nbsp;a.<span>Aus Buchungen und Kursverlauf zurückgerechnet – Einzahlungen werden berücksichtigt.</span></li>
+      <li>Sparpläne, Verrechnungskonto und Dividenden<span>Fällige Raten gesammelt bestätigen; Dividenden mit Prognose, Kalender und Kennzahlen je Position.</span></li>
+      <li>These je Wert mit Thesen-Check<span>Warum gekauft, was dagegen spricht, wann die These bricht – festgehalten. Ein verblassender Haken erinnert an die nächste Prüfung, der Thesen-Check liefert den fertigen Prompt für die eigene KI.</span></li>
+      <li>CSV-Import und Excel-Export<span>Broker-Exporte einlesen; Jahresübersicht mit Verkäufen und Dividenden als Excel-Mappe.</span></li>
+    </ul>
+    <p class="note">Steuerbeträge werden aus der Brokerabrechnung eingetragen. Manuell erfasste Beträge – FinFide berechnet keine Steuern und übernimmt keine Haftung für die Eingaben.</p>
+  </div>
+  <div class="feat-img">
+    <img src="img/slider/02_depot_uebersicht.jpg" alt="FinFide Depot-Übersicht" loading="lazy">
+    <div class="pair"><img src="img/produkt/wertzuwachs.jpg" alt="Wertzuwachs mit Rendite p. a." loading="lazy"><img src="img/slider/08_dividende.jpg" alt="Dividenden-Prognose und Kennzahlen" loading="lazy"></div>
+  </div>
+</div>
+
+<div class="feat" id="charts">
+  <div>
+    <span class="eyebrow">Baustein 3</span>
+    <h2>Charts</h2>
+    <p>Ein eigenes Analyse-Fenster – auch mehrere nebeneinander. Werkzeuge für eigene Entscheidungen, keine Empfehlungen.</p>
+    <div class="vid-row"><button class="vid-btn" data-video="A08_Charts_und_Indikatoren" data-title="Charts und Indikatoren">Charts und Indikatoren <small>0:49</small></button> <button class="vid-btn" data-video="A15_Watchlists_und_Scan" data-title="Watchlists nach Thema und Scan">Watchlists nach Thema und Scan <small>0:30</small></button></div>
+    <ul>
+      <li>Indikatoren ohne Limit<span>Gleitende Durchschnitte, RSI, MACD, Volumenprofil und mehr – als Setup speichern und per Klick wechseln.</span></li>
+      <li>Watchlists nach Thema<span>Eigene Listen wie „Raumfahrt“ oder „KI &amp; Chips“, Werte direkt vergleichen.</span></li>
+      <li>Scan auf Knopfdruck<span>Eigene Bedingungen über eine ganze Liste prüfen.</span></li>
+      <li>Zeichnen, Notizen, Orders<span>Trendlinien bleiben gespeichert, Anlagethese je Wert, Limit-Orders als Merkzettel.</span></li>
+      <li>Eigene Käufe im Chart<span>Einstiege und Verkäufe aus dem Depot direkt sichtbar.</span></li>
+    </ul>
+  </div>
+  <div class="feat-img">
+    <img src="img/slider/03_chart_trend.jpg" alt="Chart mit Trend-Setup und Volumenprofil" loading="lazy">
+    <div class="pair"><img src="img/produkt/watchlist_raumfahrt.jpg" alt="Watchlist Raumfahrt" loading="lazy"><img src="img/produkt/eigene_trades.jpg" alt="Eigene Käufe im Chart" loading="lazy"></div>
+  </div>
+</div>
+
+<div class="feat rev" id="ansicht">
+  <div>
+    <span class="eyebrow">Dazu</span>
+    <h2>Eigene Ansicht</h2>
+    <p>Aussehen nach eigenem Geschmack – für Haushaltsbuch, Depot und Charts getrennt.</p>
+    <div class="vid-row"><button class="vid-btn" data-video="A13_Eigene_Ansicht" data-title="Eigene Ansicht">Eigene Ansicht <small>0:17</small></button></div>
+    <ul>
+      <li>Sechs Farbschemas<span>FinFide, Grün, Dunkel, Sky, Matrix, Cyberpunk.</span></li>
+      <li>Eigenes Farbschema<span>Jede Farbposition frei wählbar, Oberfläche matt oder glänzend.</span></li>
+      <li>Hintergrundbild<span>Eigenes Bild mit einstellbarer Transparenz.</span></li>
+    </ul>
+  </div>
+  <div class="feat-img">
+    <img src="img/produkt/design_cyberpunk_bild.jpg" alt="Cyberpunk-Farbschema mit Hintergrundbild" loading="lazy">
+    <div class="pair"><img src="img/produkt/design_matrix.jpg" alt="Matrix-Farbschema im Chart" loading="lazy"><img src="img/produkt/design_auswahl.jpg" alt="Auswahl der Farbschemas" loading="lazy"></div>
+  </div>
+</div>
+
+<section id="vergleich" style="scroll-margin-top:70px">
+  <div class="center">
+    <span class="eyebrow">Ehrlicher Vergleich</span>
+    <h2 class="section-title">Nicht das Größte – das Passende.</h2>
+    <p class="section-sub">Spezialisierte Werkzeuge können in ihrer Disziplin mehr. FinFide bündelt, was Privatanleger im Alltag brauchen – in einem Programm, einmal gekauft.</p>
+  </div>
+  <div class="card cmp" style="margin-top:32px">
+    <table>
+      <thead><tr><th></th><th class="ff">FinFide</th><th>Depot-Tracker in der Cloud</th><th>Chart-Plattform</th><th>Haushaltsbuch-Software</th></tr></thead>
+      <tbody>
+        <tr><td>Bezahlmodell</td><td class="ff">Einmalkauf</td><td class="w">meist Abo</td><td class="w">Abo für mehr Indikatoren</td><td class="w">oft Jahreslizenz</td></tr>
+        <tr><td>Haushaltsbuch</td><td class="ff">✓</td><td class="n">✗</td><td class="n">✗</td><td class="y">✓</td></tr>
+        <tr><td>Depot mit mehreren Depots</td><td class="ff">✓</td><td class="y">✓</td><td class="n">✗</td><td class="w">teilweise</td></tr>
+        <tr><td>Charts mit Indikatoren<span>ohne Limit</span></td><td class="ff">✓</td><td class="n">✗</td><td class="w">im Abo</td><td class="n">✗</td></tr>
+        <tr><td>Daten lokal auf dem PC</td><td class="ff">✓</td><td class="n">✗ Cloud</td><td class="n">✗ Cloud</td><td class="y">meist</td></tr>
+        <tr><td>Ohne Anmeldung</td><td class="ff">✓</td><td class="n">✗</td><td class="n">✗</td><td class="w">teilweise</td></tr>
+        <tr><td>Sparrate Haushalt → Depot<span>mit einer Buchung</span></td><td class="ff">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="honest">
+    <div class="card"><b>Was Spezialisten besser können</b>Automatischer Abgleich mit der Bank, Echtzeit-Kurse, Community-Funktionen, Apps fürs Handy.</div>
+    <div class="card"><b>Was FinFide bewusst anders macht</b>Keine Bankverbindung, keine Cloud, keine Anmeldung – und kein Springen zwischen vier Programmen. Erfassung von Hand oder per CSV.</div>
+    <div class="card"><b>Grenzen, offen gesagt</b>Nur Windows. Kurse aus öffentlichen Quellen wie Yahoo Finance und CoinGecko. Dauerhaft nutzbar heißt nicht: für immer neue Funktionen.</div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="center"><span class="eyebrow">Start</span><h2 class="section-title">In drei Schritten startklar.</h2></div>
+  <div class="steps">
+    <div class="card step"><b>1</b><h3>Kaufen</h3><p>Nach dem Kauf kommt sofort eine E-Mail mit Lizenzschlüssel und Download-Link.</p></div>
+    <div class="card step"><b>2</b><h3>Installieren</h3><p>Programm starten, Ordner wählen, Lizenzschlüssel eingeben. Kein Konto nötig.</p></div>
+    <div class="card step"><b>3</b><h3>Loslegen</h3><p>Kategorien anpassen, Depot anlegen oder per CSV einlesen – die <a href="kurzanleitung.html">Anleitung</a> führt durch.</p></div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0; scroll-margin-top:70px">
+  <div class="center"><span class="eyebrow">Fragen</span><h2 class="section-title">Häufige Fragen.</h2></div>
+  <div class="faq">
+    <details><summary>Für wen ist FinFide gemacht?</summary>
+      <p>Für Privatanleger mit langem Anlagehorizont – ob gerade beim Einstieg ins Investieren oder schon mittendrin. Für alle, die Haushaltsbuch, Depot und Charts an einem Ort haben wollen, statt ständig zwischen Werkzeugen zu wechseln und immer wieder neue passende Tools zu suchen. Ein typischer Tag: einmal hineinschauen, Kurse aktualisieren, Haushalt buchen, wenn etwas anfällt, die Watchlist durchgehen, einen Scan über die eigenen Bedingungen laufen lassen und bei Bedarf die eigene These prüfen.</p>
+      <p><b>Wo FinFide nicht passt:</b> Für Daytrading, Scalping und alles, was auf Echtzeit-Kursen, Orderbuch oder Live-Daten beruht. Die Kurse kommen verzögert aus öffentlichen Quellen (Yahoo Finance) – wer im Minutentakt handelt, ist mit einem Trading-Werkzeug besser bedient.</p>
+    </details>
+    <details><summary>Berechnet FinFide Steuern?</summary><p>Nein. Einbehaltene Steuern und Gebühren werden aus der Brokerabrechnung eingetragen. FinFide zeigt diese Eingaben, fasst sie zusammen und exportiert sie. Manuell erfasste Beträge – FinFide berechnet keine Steuern und übernimmt keine Haftung für die Eingaben.</p></details>
+    <details><summary>Werden Finanzdaten in die Cloud hochgeladen?</summary><p>Nein. Alle Daten bleiben auf dem eigenen Rechner – kein Konto, kein Cloud-Sync, kein Server. Kurse werden anonym über öffentliche Schnittstellen abgerufen, ohne Bezug zum Depot.</p></details>
+    <details><summary>Muss ein Bankkonto verknüpft werden?</summary><p>Nein. Buchungen werden von Hand erfasst oder per CSV-Import aus dem Broker-Export eingelesen.</p></details>
+    <details><summary>Woher kommen die Kurse?</summary><p>Aus öffentlich zugänglichen Kursquellen im Internet. Ohne Internet zeigt FinFide die zuletzt geladenen Kurse; Haushaltsbuch und Buchungen funktionieren weiter.</p></details>
+    <details><summary>Wie funktionieren Updates?</summary><p>Neue Versionen werden im Programm angekündigt. Die neue Datei ersetzt die alte, alle Daten bleiben erhalten. Für Käufer ohne Aufpreis.</p></details>
+    <details><summary>Auf welchen Systemen läuft FinFide?</summary><p>Auf Windows 10 und Windows 11. Eine Mac- oder Linux-Version ist nicht geplant.</p></details>
+    <details><summary>Was, wenn das Programm nicht passt?</summary><p>Innerhalb von 30 Tagen gibt es den Kaufpreis zurück – eine kurze Mail genügt. Details unter <a href="erstattung.html">Erstattung</a>.</p></details>
+  </div>
+</section>
+
+<div class="card buybar">
+  <div><h2>FinFide – einmal kaufen, behalten.</h2><p>Aktueller Preis und verbleibende Lizenzen der Stufe auf der Startseite.</p></div>
+  <a class="btn btn-primary" href="index.html#preis">Zum aktuellen Preis</a>
+</div>
+
+</main>
+
+<footer class="site-foot"><div class="site-wrap">
+  <p>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</p>
+  <nav>
+    <a href="impressum.html">Impressum</a>
+    <a href="impressum.html#datenschutz">Datenschutz</a>
+    <a href="erstattung.html">Erstattung</a>
+    <a href="transparenz.html">Transparenz</a>
+    <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</div></footer>
+<script src="video.js" defer></script>
+</body>
+</html>

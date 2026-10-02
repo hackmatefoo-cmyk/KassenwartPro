@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontodaten für die Auszahlung · FinFide Partnerprogramm</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="ref.js"></script>
+<link rel="stylesheet" href="site.css">
+<style>
+.p-hero { padding: 56px 0 56px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.p-hero > * { min-width: 0; }
+.p-hero h1 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 3rem; line-height: 1.12; margin-bottom: 18px; }
+.p-hero h1 em { color: var(--primary); }
+.p-sub { font-size: 1.05rem; color: var(--muted); max-width: 520px; margin-bottom: 26px; line-height: 1.7; }
+.p-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.p-note { margin-top: 16px; font-size: 0.82rem; color: var(--muted); }
+.big-card { padding: 30px 32px; }
+.big-card .num { font-family: 'DM Serif Display', serif; font-size: 4.2rem; line-height: 1; color: var(--primary); }
+.big-card .num small { font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--muted); font-weight: 500; margin-left: 6px; }
+.big-card ul { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 9px; }
+.big-card li { padding-left: 24px; position: relative; font-size: 0.95rem; }
+.big-card li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 36px; }
+.step { padding: 24px; }
+.step b { display: inline-flex; width: 34px; height: 34px; border-radius: 50%; align-items: center; justify-content: center; background: var(--metal); color: #fff; font-weight: 700; margin-bottom: 12px; }
+.step h3 { font-size: 1.02rem; margin-bottom: 6px; }
+.step p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+.tier-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; margin-top: 36px; align-items: start; }
+.tier-wrap > * { min-width: 0; }
+table.tiers { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+table.tiers th, table.tiers td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+table.tiers th { font-size: 0.74rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+table.tiers td b { color: var(--primary); }
+table.tiers tr:last-child td { border-bottom: none; }
+.ex { padding: 24px 26px; }
+.ex h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.ex p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 8px; }
+.ex small { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 10px; }
+.who { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+.who .card { padding: 24px; }
+.who h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.who p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+.pack { display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: center; margin-top: 12px; }
+.pack > * { min-width: 0; }
+.pack ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 18px 0 24px; }
+.pack li { padding-left: 24px; position: relative; font-size: 0.95rem; }
+.pack li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+.thumbs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.thumbs img { width: 100%; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); display: block; }
+.rules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 36px; }
+.rules .card { padding: 22px 24px; }
+.rules h3 { font-size: 1rem; margin-bottom: 6px; }
+.rules p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+.signup { max-width: 640px; margin: 36px auto 0; padding: 30px 32px; }
+.signup label { display: block; font-size: 0.86rem; font-weight: 600; margin: 14px 0 4px; }
+.signup input[type=text], .signup input[type=email] { width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 9px; font: inherit; background: #fff; color: var(--text); }
+.signup input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.signup .chk { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: 0.88rem; margin: 14px 0 0; }
+.signup .chk input { margin-top: 4px; }
+.signup .hint { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+.signup .btn { margin-top: 20px; width: 100%; }
+.signup .msg { margin-top: 16px; padding: 12px 14px; border-radius: 9px; font-size: 0.9rem; display: none; }
+.signup .msg.ok { display: block; background: #e8f5e9; border: 1px solid #6aa36f; }
+.signup .msg.err { display: block; background: #fdecea; border: 1px solid #c0392b; }
+#licRow { display: none; }
+.faq { max-width: 820px; margin: 32px auto 0; }
+.faq details { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq p { margin-top: 10px; font-size: 0.93rem; color: var(--muted); line-height: 1.7; }
+.alt { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+@media (max-width: 900px) {
+  .p-hero, .tier-wrap, .pack { grid-template-columns: 1fr; }
+  .p-hero { gap: 28px; padding-top: 36px; }
+  .p-hero h1 { font-size: 2.2rem; }
+  .steps, .who, .rules { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-head" id="siteHead"><div class="site-wrap">
+  <a class="site-brand" href="index.html">kassenwartpro<b>.de</b></a>
+  <button class="nav-toggle" onclick="document.getElementById('siteHead').classList.toggle('open')" aria-label="Menü">☰</button>
+  <ul class="site-nav">
+    <li><a href="index.html">Start</a></li>
+    <li class="has-sub"><a href="finfide.html">Produkte</a>
+      <ul class="sub"><li><a href="finfide.html"><img src="img/finfide_icon.png" alt=""><span>FinFide<small>Haushaltsbuch · Depot · Charts</small></span></a></li></ul></li>
+    <li><a href="kurzanleitung.html">Anleitung</a></li>
+    <li><a href="partnerprogramm.html" class="active">Partner werden</a></li>
+    <li><a href="transparenz.html">Transparenz</a></li>
+  </ul>
+</div></header>
+
+<main>
+<section style="padding-top:36px">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Partnerprogramm</span>
+      <h2 class="section-title">Kontodaten für die Auszahlung.</h2>
+      <p class="section-sub">Die Angaben werden für die Überweisung und die Gutschrift verwendet.</p>
+    </div>
+    <form class="card signup" id="payForm" novalidate>
+      <div class="msg err" id="noToken" style="display:none">Dieser Link ist unvollständig. Bitte den Link aus der Abrechnungs-E-Mail verwenden.</div>
+      <label for="aOwner">Kontoinhaber *</label>
+      <input type="text" id="aOwner" autocomplete="name" maxlength="120" required>
+      <label for="aIban">IBAN *</label>
+      <input type="text" id="aIban" autocomplete="off" maxlength="40" placeholder="DE00 0000 0000 0000 0000 00" required>
+      <label for="aAddr">Anschrift (für die Gutschrift)</label>
+      <input type="text" id="aAddr" autocomplete="street-address" maxlength="200" placeholder="Straße, PLZ Ort">
+      <label for="aTax">Steuernummer oder USt-IdNr. (falls vorhanden)</label>
+      <input type="text" id="aTax" autocomplete="off" maxlength="40">
+      <label class="chk"><input type="checkbox" id="aConsent" required> <span>Ich stimme der Verarbeitung dieser Angaben zur Auszahlung zu. Hinweise stehen in der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>. *</span></label>
+      <button type="submit" class="btn btn-primary" id="aSend">Kontodaten speichern</button>
+      <div class="msg" id="aMsg" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot"><div class="site-wrap">
+  <p>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</p>
+  <nav>
+    <a href="impressum.html">Impressum</a>
+    <a href="impressum.html#datenschutz">Datenschutz</a>
+    <a href="partnerbedingungen.html">Teilnahmebedingungen</a>
+  </nav>
+</div></footer>
+
+<script>
+var PARTNER = { endpoint: 'https://script.google.com/macros/s/AKfycbxG4J9d0lccrSQr_xCRtx6u2s9eUS3J-zKUjzwlWN1IC9DZhVs2fpm20D0lhE8ZYrw2jw/exec' };
+var token = (new URLSearchParams(location.search).get('t') || '').toLowerCase();
+if (!/^[a-f0-9]{32}$/.test(token)) { document.getElementById('noToken').style.display = 'block'; }
+function say(cls, text) { var m = document.getElementById('aMsg'); m.className = 'msg ' + cls; m.textContent = text; }
+document.getElementById('payForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (!/^[a-f0-9]{32}$/.test(token)) { say('err', 'Der Link ist unvollständig. Bitte den Link aus der E-Mail verwenden.'); return; }
+  var owner = document.getElementById('aOwner').value.trim(), iban = document.getElementById('aIban').value.replace(/\s+/g, '').toUpperCase();
+  if (!owner || !/^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$/.test(iban)) { say('err', 'Bitte Kontoinhaber und eine gültige IBAN eintragen.'); return; }
+  if (!document.getElementById('aConsent').checked) { say('err', 'Bitte der Verarbeitung zustimmen.'); return; }
+  var btn = document.getElementById('aSend'); btn.disabled = true;
+  var body = new URLSearchParams();
+  body.append('action', 'partner_payout'); body.append('token', token); body.append('owner', owner); body.append('iban', iban);
+  body.append('address', document.getElementById('aAddr').value.trim()); body.append('tax', document.getElementById('aTax').value.trim());
+  fetch(PARTNER.endpoint, { method: 'POST', mode: 'no-cors', body: body })
+    .then(function () { say('ok', 'Danke! Die Kontodaten sind gespeichert. Eine Bestätigung kommt per E-Mail.'); })
+    .catch(function () { btn.disabled = false; say('err', 'Netzwerkfehler. Bitte später erneut versuchen oder eine E-Mail an info@kassenwartpro.de schreiben.'); });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+/* kassenwartpro.de — gemeinsames Design (FinFide „Edelmetall“), eingeführt 2026-09-30.
+   Alle Seiten binden diese Datei ein; seitenspezifisches CSS bleibt im jeweiligen <style>. */
+/* Schriften lokal (DM Sans, DM Serif Display – SIL Open Font License), kein Abruf bei Google */
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/DMSans-300-normal.ttf') format('truetype')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/DMSans-400-normal.ttf') format('truetype')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/DMSans-500-normal.ttf') format('truetype')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/DMSans-600-normal.ttf') format('truetype')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/DMSans-700-normal.ttf') format('truetype')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:800;font-display:swap;src:url('fonts/DMSans-800-normal.ttf') format('truetype')}
+@font-face{font-family:'DM Serif Display';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/DMSerifDisplay-400-italic.ttf') format('truetype')}
+@font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/DMSerifDisplay-400-normal.ttf') format('truetype')}
+
+:root {
+  color-scheme: light;
+  --bg:       #f5eedc;
+  --bg2:      #efe4c8;
+  --card:     #fffbf2;
+  --primary:  #8a5a1f;
+  --prim2:    #6d4514;
+  --accent:   #c99d4a;
+  --accent-tint: #f6e9c9;
+  --text:     #2a1f12;
+  --muted:    #76644a;
+  --border:   #e3d4b1;
+  --metal:    linear-gradient(135deg, #b0813a 0%, #8a5a1f 55%, #6d4514 100%);
+  --shadow:   0 4px 24px rgba(74, 48, 14, 0.09);
+  --radius:   16px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-y: scroll; scrollbar-gutter: stable; }
+body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: clip; }
+.container { max-width: 1320px; margin: auto; padding: 0 32px; }
+/* Header/Footer: fester Rahmen auf allen Seiten, unabhängig von seiteneigenen .container-Breiten */
+.site-wrap { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+a { color: var(--primary); }
+hr.divider { border: none; border-top: 1px solid var(--border); }
+
+/* ── Kopfzeile: links die Firmen-Adresse, rechts die Seiten ── */
+.site-head { position: sticky; top: 0; z-index: 50; background: rgba(245, 238, 220, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.site-head .site-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 58px; }
+.site-brand { font-weight: 300; font-size: 1rem; letter-spacing: 0.06em; color: var(--text); text-decoration: none; white-space: nowrap; }
+.site-brand b { font-weight: 600; color: var(--primary); }
+.site-nav { display: flex; align-items: center; gap: 4px; list-style: none; }
+.site-nav > li { position: relative; }
+.site-nav a { display: block; padding: 8px 12px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .15s, background .15s; }
+.site-nav a:hover { color: var(--primary); background: var(--accent-tint); }
+.site-nav a.active { color: var(--primary); box-shadow: inset 0 -2px 0 var(--accent); border-radius: 8px 8px 0 0; }
+.site-nav .has-sub > a::after { content: ' ▾'; font-size: 0.7em; }
+.site-nav .sub { display: none; position: absolute; top: 100%; left: 0; min-width: 230px; list-style: none; background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); padding: 6px; }
+.site-nav .has-sub:hover .sub, .site-nav .has-sub:focus-within .sub { display: block; }
+.sub a { display: flex; align-items: center; gap: 10px; color: var(--text); }
+.sub img { width: 28px; height: 28px; border-radius: 6px; }
+.sub small { display: block; font-size: 0.74rem; color: var(--muted); font-weight: 400; }
+.nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 1.1rem; color: var(--text); cursor: pointer; }
+
+/* ── Buttons ── */
+.btn { display: inline-block; padding: 13px 26px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: filter .15s, background .15s; cursor: pointer; border: none; }
+.btn-primary { background: var(--metal); color: #fff; box-shadow: 0 4px 14px rgba(138, 90, 31, 0.3); }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-ghost { background: var(--card); color: var(--primary); border: 1.5px solid var(--accent); }
+.btn-ghost:hover { background: var(--accent-tint); }
+
+/* ── Abschnitte ── */
+section { padding: 72px 0; }
+.eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--primary); margin-bottom: 12px; }
+.h-serif { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.15; }
+.section-title { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 2.2rem; line-height: 1.2; margin-bottom: 14px; }
+.section-sub { font-size: 1rem; color: var(--muted); max-width: 640px; line-height: 1.7; }
+.center { text-align: center; }
+.center .section-sub { margin: 0 auto; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+
+/* ── Fußzeile ── */
+footer.site-foot { background: var(--bg2); border-top: 1px solid var(--border); padding: 36px 0; margin-top: 24px; }
+.site-foot .site-wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.site-foot p { font-size: 0.84rem; color: var(--muted); }
+.site-foot nav { display: flex; gap: 18px; flex-wrap: wrap; padding: 0; }
+.site-foot a { font-size: 0.84rem; color: var(--muted); text-decoration: none; }
+.site-foot a:hover { color: var(--primary); }
+
+@media (max-width: 860px) {
+  .container, .site-wrap { padding: 0 20px; }
+  .nav-toggle { display: block; }
+  .site-nav { display: none; position: absolute; top: 58px; left: 0; right: 0; flex-direction: column; align-items: stretch; background: var(--card); border-bottom: 1px solid var(--border); padding: 8px 16px 14px; box-shadow: var(--shadow); }
+  .site-head.open .site-nav { display: flex; }
+  .site-nav .sub { display: block; position: static; box-shadow: none; border: none; padding: 0 0 0 12px; background: none; }
+  .site-nav .has-sub > a::after { content: ''; }
+  section { padding: 52px 0; }
+  .section-title { font-size: 1.7rem; }
+}
+
+/* ── Anleitungsvideos (video.js) ── */
+.vid-btn { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 10px; border-radius: 999px; border: 1px solid var(--accent); background: var(--card); color: var(--primary); font: inherit; font-size: 0.86rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: background .15s; }
+.vid-btn:hover { background: var(--accent-tint); }
+.vid-btn::before { content: '▶'; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: var(--metal); color: #fff; font-size: 0.6rem; padding-left: 2px; }
+.vid-btn small { font-weight: 400; color: var(--muted); }
+.vid-modal { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(28, 20, 10, 0.78); align-items: center; justify-content: center; padding: 24px; }
+.vid-modal.open { display: flex; }
+.vid-frame { position: relative; width: min(1100px, 100%); background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
+.vid-frame video { display: block; width: 100%; aspect-ratio: 16/9; background: #000; }
+.vid-title { color: #f5eedc; font-size: 0.9rem; padding: 10px 16px; background: #1c140a; }
+.vid-close { position: absolute; top: 8px; right: 8px; z-index: 2; width: 36px; height: 36px; border-radius: 50%; border: none; background: rgba(255, 251, 242, .92); color: var(--primary); font-size: 1.4rem; line-height: 1; cursor: pointer; }
+
+/* Druck/PDF: Website-Rahmen ausblenden */
+@media print { .site-head, .site-foot, .vid-modal, .nav-toggle { display: none !important; } body { background: #fff !important; } }
