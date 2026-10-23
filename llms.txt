@@ -1,0 +1,22 @@
+# FinFide
+
+> FinFide ist ein Windows-Programm für Privatanleger, das Haushaltsbuch, Depot-Tracker und Chartanalyse verbindet. Alle Daten bleiben lokal auf dem eigenen PC: keine Cloud, keine Anmeldung, keine Bankverbindung, kein Abo. Einmalkauf in Preisstufen (Einführungspreis ab 15 €, regulärer Preis 69 €), 30 Tage Geld-zurück-Garantie. Anbieter: KassenwartPro (Simon Bellviure Bigas, Leun, Deutschland). Sprache der Oberfläche: Deutsch. System: Windows 10 und 11.
+
+## Kurzfakten
+- Zielgruppe: Privatanleger mit langem Anlagehorizont; nicht für Daytrading (Kurse verzögert aus öffentlichen Quellen, keine Echtzeit).
+- Erfassung von Hand oder per CSV-Import; keine Bankanbindung. FinFide berechnet keine Steuern – Beträge aus Brokerabrechnungen werden manuell eingetragen.
+- Depots, Watchlists, Charts und Indikatoren: keine Begrenzung.
+- Updates für Käufer ohne Aufpreis; die gekaufte Version läuft dauerhaft.
+
+## Seiten
+- [Startseite, aktueller Preis](https://kassenwartpro.de/): Kernaussage, Preisstufen, Kauf
+- [Funktionen im Überblick](https://kassenwartpro.de/finfide.html)
+- [Haushaltsbuch](https://kassenwartpro.de/haushaltsbuch.html): Budgets, Fixkosten, Rücklagen, Sparquote
+- [Depot-Tracker](https://kassenwartpro.de/depot-tracker.html): mehrere Depots, Dividenden, Rendite p. a., These je Wert
+- [Chartanalyse](https://kassenwartpro.de/chartanalyse.html): Indikatoren ohne Limit, Watchlists nach Thema, Scan
+- [Lokal und offline](https://kassenwartpro.de/lokal-und-offline.html): Datenhaltung und Datenschutz
+- [Häufige Fragen](https://kassenwartpro.de/faq.html)
+- [Anleitung](https://kassenwartpro.de/kurzanleitung.html)
+- [Transparenz](https://kassenwartpro.de/transparenz.html): Prüfsumme, Windows-Hinweis
+- [Partnerprogramm](https://kassenwartpro.de/partnerprogramm.html)
+- [Impressum](https://kassenwartpro.de/impressum.html)

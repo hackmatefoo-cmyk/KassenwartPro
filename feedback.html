@@ -13,18 +13,18 @@
 <link rel="stylesheet" href="site.css">
 <style>
 :root {
-  --bg:      #f5eedc;
-  --card:    #fffbf2;
-  --primary: #8a5a1f;
-  --prim2:   #6d4514;
-  --text:    #2a1f12;
-  --muted:   #76644a;
-  --border:  #e3d4b1;
+  --bg:      #f3efe6;
+  --card:    #fbf9f4;
+  --primary: #7a5c3e;
+  --prim2:   #5f4630;
+  --text:    #2b2620;
+  --muted:   #7a7064;
+  --border:  #e3dccd;
   --red:     #c0392b;
   --gold:    #f5a623;
-  --tier1bg: #f3e8cc;
-  --tier2bg: #f3e8cc;
-  --tier3bg: #ecdfbf;
+  --tier1bg: #efe7d8;
+  --tier2bg: #efe7d8;
+  --tier3bg: #e8dfcd;
   --shadow:  0 4px 24px rgba(0,0,0,0.08);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -46,8 +46,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
 .fb-card { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 32px; }
 .fb-card h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
 .fb-intro { font-size: 0.92rem; color: var(--muted); margin-bottom: 24px; line-height: 1.6; }
-.fb-version { display: inline-block; background: #f3e8cc; border-radius: 6px; padding: 2px 10px; font-size: 0.78rem; color: var(--prim2); font-weight: 600; margin-left: 6px; }
-.fb-howto { background: #fbf5e6; border-left: 4px solid var(--primary); border-radius: 6px; padding: 12px 16px; font-size: 0.86rem; color: var(--text); margin-bottom: 22px; line-height: 1.55; }
+.fb-version { display: inline-block; background: #efe7d8; border-radius: 6px; padding: 2px 10px; font-size: 0.78rem; color: var(--prim2); font-weight: 600; margin-left: 6px; }
+.fb-howto { background: #faf6ee; border-left: 4px solid var(--primary); border-radius: 6px; padding: 12px 16px; font-size: 0.86rem; color: var(--text); margin-bottom: 22px; line-height: 1.55; }
 
 /* Tier-Gruppen */
 .tier-group { margin-bottom: 26px; }
@@ -61,24 +61,24 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
 .sector { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; transition: border-color 0.15s; }
 .sector.open { border-color: var(--primary); }
 .sector-head { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 12px 16px; cursor: pointer; user-select: none; background: white; transition: background 0.12s; }
-.sector-head:hover { background: #fbf5e6; }
+.sector-head:hover { background: #faf6ee; }
 .sector-name { font-size: 0.95rem; font-weight: 600; color: var(--text); }
 .sector-name small { display: block; font-size: 0.76rem; font-weight: 400; color: var(--muted); margin-top: 2px; }
 .sector-skip { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); cursor: pointer; }
 .sector-skip input { cursor: pointer; }
 .sector-toggle { font-size: 1rem; color: var(--muted); transition: transform 0.2s; }
 .sector.open .sector-toggle { transform: rotate(180deg); color: var(--primary); }
-.sector-body { display: none; padding: 4px 16px 16px; background: #fbf5e6; }
+.sector-body { display: none; padding: 4px 16px 16px; background: #faf6ee; }
 .sector.open .sector-body { display: block; }
 .sector.skipped { opacity: 0.5; }
 .sector.skipped .sector-body { display: none; }
 
-.fb-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px dashed #ecdfbf; }
+.fb-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px dashed #e8dfcd; }
 .fb-row:last-of-type { border-bottom: none; }
 .fb-label { font-size: 0.88rem; color: var(--text); }
 
 .stars { display: inline-flex; gap: 3px; }
-.star { width: 28px; height: 28px; background: transparent; border: none; cursor: pointer; padding: 0; color: #e3d4b1; font-size: 22px; line-height: 1; transition: color 0.12s, transform 0.12s; }
+.star { width: 28px; height: 28px; background: transparent; border: none; cursor: pointer; padding: 0; color: #e3dccd; font-size: 22px; line-height: 1; transition: color 0.12s, transform 0.12s; }
 .star:hover { transform: scale(1.12); }
 .star.filled { color: var(--gold); }
 .star:focus { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
@@ -93,7 +93,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
 .general-field label small { font-weight: 400; color: var(--muted); }
 .general-field textarea, .general-field input[type=email] {
   width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 8px;
-  font-family: inherit; font-size: 0.92rem; background: #fbf5e6; color: var(--text); resize: vertical;
+  font-family: inherit; font-size: 0.92rem; background: #faf6ee; color: var(--text); resize: vertical;
 }
 .general-field textarea { min-height: 100px; }
 .general-field textarea:focus, .general-field input[type=email]:focus { outline: none; border-color: var(--primary); background: white; }
@@ -128,9 +128,9 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
 .fb-quick { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: 26px 32px; margin-bottom: 18px; }
 .fb-quick h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; color: var(--prim2); }
 .fb-quick .fb-intro { font-size: 0.9rem; color: var(--muted); margin-bottom: 14px; line-height: 1.55; }
-.fb-quick textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.92rem; background: #fbf5e6; color: var(--text); resize: vertical; min-height: 90px; }
+.fb-quick textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.92rem; background: #faf6ee; color: var(--text); resize: vertical; min-height: 90px; }
 .fb-quick textarea:focus { outline: none; border-color: var(--primary); background: white; }
-.fb-quick input[type=email] { width: 100%; margin-top: 10px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.9rem; background: #fbf5e6; color: var(--text); }
+.fb-quick input[type=email] { width: 100%; margin-top: 10px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 0.9rem; background: #faf6ee; color: var(--text); }
 .fb-quick input[type=email]:focus { outline: none; border-color: var(--primary); background: white; }
 .fb-quick .fb-quick-actions { margin-top: 14px; display: flex; justify-content: flex-end; }
 .fb-quick .fb-counter { margin-top: 6px; }
@@ -143,7 +143,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
 .fb-full-toggle { background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; }
 .fb-full-toggle > summary { cursor: pointer; padding: 22px 32px; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; transition: background 0.12s; }
 .fb-full-toggle > summary::-webkit-details-marker { display: none; }
-.fb-full-toggle > summary:hover { background: #fbf5e6; }
+.fb-full-toggle > summary:hover { background: #faf6ee; }
 .fb-full-toggle > summary .summary-text { font-size: 1.05rem; font-weight: 700; color: var(--prim2); }
 .fb-full-toggle > summary .summary-sub { font-size: 0.85rem; font-weight: 400; color: var(--muted); margin-top: 3px; display: block; }
 .fb-full-toggle > summary .summary-icon { font-size: 1.4rem; color: var(--muted); transition: transform 0.2s; }
@@ -171,8 +171,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
   <button class="nav-toggle" onclick="document.getElementById('siteHead').classList.toggle('open')" aria-label="Menü">☰</button>
   <ul class="site-nav">
     <li><a href="index.html">Start</a></li>
-    <li class="has-sub"><a href="finfide.html">Produkte</a>
-      <ul class="sub"><li><a href="finfide.html"><img src="img/finfide_icon.png" alt=""><span>FinFide<small>Haushaltsbuch · Depot · Charts</small></span></a></li></ul></li>
+    <li class="has-sub"><a href="finfide.html">Funktionen</a>
+      <ul class="sub"><li><a href="finfide.html"><span>Überblick<small>Alles in einem Programm</small></span></a></li><li><a href="haushaltsbuch.html"><span>Haushaltsbuch<small>Einnahmen, Ausgaben, Budgets</small></span></a></li><li><a href="depot-tracker.html"><span>Depot-Tracker<small>Mehrere Depots, Dividenden, Rendite</small></span></a></li><li><a href="chartanalyse.html"><span>Chartanalyse<small>Indikatoren, Watchlists, Scan</small></span></a></li></ul></li>
     <li><a href="kurzanleitung.html">Anleitung</a></li>
     <li><a href="partnerprogramm.html">Partner werden</a></li>
     <li><a href="transparenz.html">Transparenz</a></li>
@@ -293,14 +293,13 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 40px;
 </div>
 
 <footer class="site-foot"><div class="site-wrap">
-  <p>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</p>
-  <nav>
-    <a href="impressum.html">Impressum</a>
-    <a href="impressum.html#datenschutz">Datenschutz</a>
-    <a href="erstattung.html">Erstattung</a>
-    <a href="transparenz.html">Transparenz</a>
-    <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank" rel="noopener">GitHub</a>
-  </nav>
+  <div class="foot-cols">
+    <div><h4><span class="logo-ff">FinFide</span></h4><p>Haushaltsbuch, Depot-Tracker und Chartanalyse in einem Windows-Programm. Lokal, ohne Anmeldung, ohne Abo.</p></div>
+    <div><h4>Funktionen</h4><a href="finfide.html">Überblick</a><a href="haushaltsbuch.html">Haushaltsbuch</a><a href="depot-tracker.html">Depot-Tracker</a><a href="chartanalyse.html">Chartanalyse</a></div>
+    <div><h4>Mehr</h4><a href="lokal-und-offline.html">Lokal und offline</a><a href="faq.html">Häufige Fragen</a><a href="kurzanleitung.html">Anleitung</a><a href="partnerprogramm.html">Partner werden</a></div>
+    <div><h4>Rechtliches</h4><a href="impressum.html">Impressum</a><a href="impressum.html#datenschutz">Datenschutz</a><a href="erstattung.html">Erstattung</a><a href="transparenz.html">Transparenz</a><a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank" rel="noopener">GitHub</a></div>
+  </div>
+  <div class="foot-base"><span>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</span><span>Kontakt: <a href="mailto:info@kassenwartpro.de" style="display:inline">info@kassenwartpro.de</a></span></div>
 </div></footer>
 
 <script>

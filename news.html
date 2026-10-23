@@ -24,7 +24,7 @@
 .pill { display: inline-block; background: var(--metal); color: #fff; font-size: 0.74rem; font-weight: 700; padding: 4px 11px; border-radius: 999px; letter-spacing: .04em; }
 .pill.soft { background: var(--accent-tint); color: var(--primary); }
 .meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; font-size: 0.84rem; color: var(--muted); }
-.news h1 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 2.1rem; line-height: 1.2; margin-bottom: 8px; }
+.news h1 { font-family:'DM Sans',system-ui,sans-serif; font-weight:600; font-size: 2.1rem; line-height: 1.2; margin-bottom: 8px; }
 .lead { color: var(--muted); font-size: 1.02rem; margin-bottom: 22px; }
 .news h2 { font-size: 1.1rem; color: var(--primary); margin: 24px 0 10px; }
 .news ul, .news ol { padding-left: 22px; }
@@ -48,8 +48,8 @@
   <button class="nav-toggle" onclick="document.getElementById('siteHead').classList.toggle('open')" aria-label="Menü">☰</button>
   <ul class="site-nav">
     <li><a href="index.html">Start</a></li>
-    <li class="has-sub"><a href="finfide.html">Produkte</a>
-      <ul class="sub"><li><a href="finfide.html"><img src="img/finfide_icon.png" alt=""><span>FinFide<small>Haushaltsbuch · Depot · Charts</small></span></a></li></ul></li>
+    <li class="has-sub"><a href="finfide.html">Funktionen</a>
+      <ul class="sub"><li><a href="finfide.html"><span>Überblick<small>Alles in einem Programm</small></span></a></li><li><a href="haushaltsbuch.html"><span>Haushaltsbuch<small>Einnahmen, Ausgaben, Budgets</small></span></a></li><li><a href="depot-tracker.html"><span>Depot-Tracker<small>Mehrere Depots, Dividenden, Rendite</small></span></a></li><li><a href="chartanalyse.html"><span>Chartanalyse<small>Indikatoren, Watchlists, Scan</small></span></a></li></ul></li>
     <li><a href="kurzanleitung.html">Anleitung</a></li>
     <li><a href="partnerprogramm.html">Partner werden</a></li>
     <li><a href="transparenz.html">Transparenz</a></li>
@@ -59,13 +59,13 @@
 <main class="container"><div class="news" id="news"></div></main>
 
 <footer class="site-foot"><div class="site-wrap">
-  <p>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</p>
-  <nav>
-    <a href="impressum.html">Impressum</a>
-    <a href="impressum.html#datenschutz">Datenschutz</a>
-    <a href="erstattung.html">Erstattung</a>
-    <a href="transparenz.html">Transparenz</a>
-  </nav>
+  <div class="foot-cols">
+    <div><h4><span class="logo-ff">FinFide</span></h4><p>Haushaltsbuch, Depot-Tracker und Chartanalyse in einem Windows-Programm. Lokal, ohne Anmeldung, ohne Abo.</p></div>
+    <div><h4>Funktionen</h4><a href="finfide.html">Überblick</a><a href="haushaltsbuch.html">Haushaltsbuch</a><a href="depot-tracker.html">Depot-Tracker</a><a href="chartanalyse.html">Chartanalyse</a></div>
+    <div><h4>Mehr</h4><a href="lokal-und-offline.html">Lokal und offline</a><a href="faq.html">Häufige Fragen</a><a href="kurzanleitung.html">Anleitung</a><a href="partnerprogramm.html">Partner werden</a></div>
+    <div><h4>Rechtliches</h4><a href="impressum.html">Impressum</a><a href="impressum.html#datenschutz">Datenschutz</a><a href="erstattung.html">Erstattung</a><a href="transparenz.html">Transparenz</a><a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank" rel="noopener">GitHub</a></div>
+  </div>
+  <div class="foot-base"><span>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</span><span>Kontakt: <a href="mailto:info@kassenwartpro.de" style="display:inline">info@kassenwartpro.de</a></span></div>
 </div></footer>
 
 <script>

@@ -13,13 +13,13 @@
 <style>
 .p-hero { padding: 56px 0 56px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
 .p-hero > * { min-width: 0; }
-.p-hero h1 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 3rem; line-height: 1.12; margin-bottom: 18px; }
+.p-hero h1 { font-family:'DM Sans',system-ui,sans-serif; font-weight:600; font-size: 3rem; line-height: 1.12; margin-bottom: 18px; }
 .p-hero h1 em { color: var(--primary); }
 .p-sub { font-size: 1.05rem; color: var(--muted); max-width: 520px; margin-bottom: 26px; line-height: 1.7; }
 .p-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .p-note { margin-top: 16px; font-size: 0.82rem; color: var(--muted); }
 .big-card { padding: 30px 32px; }
-.big-card .num { font-family: 'DM Serif Display', serif; font-size: 4.2rem; line-height: 1; color: var(--primary); }
+.big-card .num { font-family:'DM Sans',system-ui,sans-serif; font-size: 4.2rem; line-height: 1; color: var(--primary); }
 .big-card .num small { font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--muted); font-weight: 500; margin-left: 6px; }
 .big-card ul { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 9px; }
 .big-card li { padding-left: 24px; position: relative; font-size: 0.95rem; }
@@ -87,10 +87,10 @@ table.tiers tr:last-child td { border-bottom: none; }
   <button class="nav-toggle" onclick="document.getElementById('siteHead').classList.toggle('open')" aria-label="Menü">☰</button>
   <ul class="site-nav">
     <li><a href="index.html">Start</a></li>
-    <li class="has-sub"><a href="finfide.html">Produkte</a>
-      <ul class="sub"><li><a href="finfide.html"><img src="img/finfide_icon.png" alt=""><span>FinFide<small>Haushaltsbuch · Depot · Charts</small></span></a></li></ul></li>
+    <li class="has-sub"><a href="finfide.html">Funktionen</a>
+      <ul class="sub"><li><a href="finfide.html"><span>Überblick<small>Alles in einem Programm</small></span></a></li><li><a href="haushaltsbuch.html"><span>Haushaltsbuch<small>Einnahmen, Ausgaben, Budgets</small></span></a></li><li><a href="depot-tracker.html"><span>Depot-Tracker<small>Mehrere Depots, Dividenden, Rendite</small></span></a></li><li><a href="chartanalyse.html"><span>Chartanalyse<small>Indikatoren, Watchlists, Scan</small></span></a></li></ul></li>
     <li><a href="kurzanleitung.html">Anleitung</a></li>
-    <li><a href="partnerprogramm.html" class="active">Partner werden</a></li>
+    <li><a href="partnerprogramm.html">Partner werden</a></li>
     <li><a href="transparenz.html">Transparenz</a></li>
   </ul>
 </div></header>
@@ -122,12 +122,13 @@ table.tiers tr:last-child td { border-bottom: none; }
 </main>
 
 <footer class="site-foot"><div class="site-wrap">
-  <p>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</p>
-  <nav>
-    <a href="impressum.html">Impressum</a>
-    <a href="impressum.html#datenschutz">Datenschutz</a>
-    <a href="partnerbedingungen.html">Teilnahmebedingungen</a>
-  </nav>
+  <div class="foot-cols">
+    <div><h4><span class="logo-ff">FinFide</span></h4><p>Haushaltsbuch, Depot-Tracker und Chartanalyse in einem Windows-Programm. Lokal, ohne Anmeldung, ohne Abo.</p></div>
+    <div><h4>Funktionen</h4><a href="finfide.html">Überblick</a><a href="haushaltsbuch.html">Haushaltsbuch</a><a href="depot-tracker.html">Depot-Tracker</a><a href="chartanalyse.html">Chartanalyse</a></div>
+    <div><h4>Mehr</h4><a href="lokal-und-offline.html">Lokal und offline</a><a href="faq.html">Häufige Fragen</a><a href="kurzanleitung.html">Anleitung</a><a href="partnerprogramm.html">Partner werden</a></div>
+    <div><h4>Rechtliches</h4><a href="impressum.html">Impressum</a><a href="impressum.html#datenschutz">Datenschutz</a><a href="erstattung.html">Erstattung</a><a href="transparenz.html">Transparenz</a><a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank" rel="noopener">GitHub</a></div>
+  </div>
+  <div class="foot-base"><span>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</span><span>Kontakt: <a href="mailto:info@kassenwartpro.de" style="display:inline">info@kassenwartpro.de</a></span></div>
 </div></footer>
 
 <script>

@@ -13,13 +13,13 @@
 <link rel="stylesheet" href="site.css">
 <style>
 :root {
-  --bg:       #f5eedc;
-  --card:     #fffbf2;
-  --primary:  #8a5a1f;
-  --primary2: #6d4514;
-  --text:     #2a1f12;
-  --muted:    #76644a;
-  --border:   #e3d4b1;
+  --bg:       #f3efe6;
+  --card:     #fbf9f4;
+  --primary:  #7a5c3e;
+  --primary2: #5f4630;
+  --text:     #2b2620;
+  --muted:    #7a7064;
+  --border:   #e3dccd;
   --shadow:   0 4px 24px rgba(0,0,0,0.08);
   --green:    #2d6e4a;
 }
@@ -74,7 +74,7 @@ nav {
   text-align: center;
 }
 .page-header h1 {
-  font-family: 'DM Serif Display', serif;
+  font-family:'DM Sans',system-ui,sans-serif;
   font-size: 2.2rem;
   color: var(--text);
   letter-spacing: -0.02em;
@@ -98,7 +98,7 @@ nav {
   margin-bottom: 28px;
 }
 .section-card h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family:'DM Sans',system-ui,sans-serif;
   font-size: 1.4rem;
   color: var(--text);
   margin-bottom: 16px;
@@ -281,8 +281,8 @@ footer a:hover { text-decoration: underline; }
   <button class="nav-toggle" onclick="document.getElementById('siteHead').classList.toggle('open')" aria-label="Menü">☰</button>
   <ul class="site-nav">
     <li><a href="index.html">Start</a></li>
-    <li class="has-sub"><a href="finfide.html">Produkte</a>
-      <ul class="sub"><li><a href="finfide.html"><img src="img/finfide_icon.png" alt=""><span>FinFide<small>Haushaltsbuch · Depot · Charts</small></span></a></li></ul></li>
+    <li class="has-sub"><a href="finfide.html">Funktionen</a>
+      <ul class="sub"><li><a href="finfide.html"><span>Überblick<small>Alles in einem Programm</small></span></a></li><li><a href="haushaltsbuch.html"><span>Haushaltsbuch<small>Einnahmen, Ausgaben, Budgets</small></span></a></li><li><a href="depot-tracker.html"><span>Depot-Tracker<small>Mehrere Depots, Dividenden, Rendite</small></span></a></li><li><a href="chartanalyse.html"><span>Chartanalyse<small>Indikatoren, Watchlists, Scan</small></span></a></li></ul></li>
     <li><a href="kurzanleitung.html">Anleitung</a></li>
     <li><a href="partnerprogramm.html">Partner werden</a></li>
     <li><a href="transparenz.html" class="active">Transparenz</a></li>
@@ -434,7 +434,7 @@ footer a:hover { text-decoration: underline; }
     <p>
       Die Kurzanleitung beschreibt Installation, Einrichtung und Bedienung von FinFide — kompakt auf wenigen Seiten.
     </p>
-    <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro/raw/main/KassenwartPro_Kurzanleitung.pdf" style="color:#8a5a1f;font-weight:bold;">PDF öffnen</a></td>'
+    <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro/raw/main/KassenwartPro_Kurzanleitung.pdf" style="color:#7a5c3e;font-weight:bold;">PDF öffnen</a></td>'
       → Kurzanleitung herunterladen (PDF)
     </a>
   </div>
@@ -443,14 +443,13 @@ footer a:hover { text-decoration: underline; }
 
 <!-- FOOTER -->
 <footer class="site-foot"><div class="site-wrap">
-  <p>FinFide ist ein Produkt von FinFide · © 2026 Simon Bellviure Bigas · Leun</p>
-  <nav>
-    <a href="impressum.html">Impressum</a>
-    <a href="impressum.html#datenschutz">Datenschutz</a>
-    <a href="erstattung.html">Erstattung</a>
-    <a href="transparenz.html">Transparenz</a>
-    <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank" rel="noopener">GitHub</a>
-  </nav>
+  <div class="foot-cols">
+    <div><h4><span class="logo-ff">FinFide</span></h4><p>Haushaltsbuch, Depot-Tracker und Chartanalyse in einem Windows-Programm. Lokal, ohne Anmeldung, ohne Abo.</p></div>
+    <div><h4>Funktionen</h4><a href="finfide.html">Überblick</a><a href="haushaltsbuch.html">Haushaltsbuch</a><a href="depot-tracker.html">Depot-Tracker</a><a href="chartanalyse.html">Chartanalyse</a></div>
+    <div><h4>Mehr</h4><a href="lokal-und-offline.html">Lokal und offline</a><a href="faq.html">Häufige Fragen</a><a href="kurzanleitung.html">Anleitung</a><a href="partnerprogramm.html">Partner werden</a></div>
+    <div><h4>Rechtliches</h4><a href="impressum.html">Impressum</a><a href="impressum.html#datenschutz">Datenschutz</a><a href="erstattung.html">Erstattung</a><a href="transparenz.html">Transparenz</a><a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank" rel="noopener">GitHub</a></div>
+  </div>
+  <div class="foot-base"><span>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</span><span>Kontakt: <a href="mailto:info@kassenwartpro.de" style="display:inline">info@kassenwartpro.de</a></span></div>
 </div></footer>
 
 <script>

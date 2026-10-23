@@ -11,15 +11,15 @@
 <link rel="stylesheet" href="site.css">
 <style>
 :root {
-  --bg:      #f5eedc;
-  --card:    #fffbf2;
-  --primary: #8a5a1f;
-  --prim2:   #6d4514;
-  --text:    #2a1f12;
-  --muted:   #76644a;
-  --border:  #e3d4b1;
+  --bg:      #f3efe6;
+  --card:    #fbf9f4;
+  --primary: #7a5c3e;
+  --prim2:   #5f4630;
+  --text:    #2b2620;
+  --muted:   #7a7064;
+  --border:  #e3dccd;
   --accent:  #f4b400;
-  --tint:    #f6e9c9;
+  --tint:    #efe7d8;
   --tintWarn:#fff3cd;
   --shadow:  0 4px 24px rgba(0,0,0,0.08);
 }
@@ -97,7 +97,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 .qs-card ul, .qs-card ol { padding-left: 22px; margin-bottom: 14px; }
 .qs-card li { font-size: 0.95rem; margin-bottom: 6px; }
 .qs-card strong { color: var(--text); }
-.qs-card code { background: #f3e8cc; padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
+.qs-card code { background: #efe7d8; padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
 
 .qs-box { border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 0.92rem; line-height: 1.6; break-inside: avoid; page-break-inside: avoid; }
 .qs-box.tip  { background: var(--tint);     border-left: 4px solid var(--primary); }
@@ -146,14 +146,14 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 }
 .qs-vrow { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 12px; }
 @media print { .qs-vrow { display: none !important; } }
-.qs-how { margin: 16px 0 6px; background: var(--bg2, #efe4c8); border-left: 3px solid var(--accent, #c99d4a); border-radius: 0 10px 10px 0; padding: 12px 16px 8px; break-inside: avoid; page-break-inside: avoid; }
+.qs-how { margin: 16px 0 6px; background: var(--bg2, #ebe5d7); border-left: 3px solid var(--accent, #a98960); border-radius: 0 10px 10px 0; padding: 12px 16px 8px; break-inside: avoid; page-break-inside: avoid; }
 .qs-how > b { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); margin-bottom: 6px; }
-.qs-path { display: grid; grid-template-columns: 200px 1fr; align-items: baseline; gap: 4px 12px; padding: 5px 0; border-top: 1px dashed rgba(138, 90, 31, 0.18); font-size: 0.88rem; }
+.qs-path { display: grid; grid-template-columns: 200px 1fr; align-items: baseline; gap: 4px 12px; padding: 5px 0; border-top: 1px dashed rgba(122, 92, 62, 0.18); font-size: 0.88rem; }
 .qs-path:first-of-type { border-top: none; }
 .qs-path .task { font-weight: 700; color: var(--text); }
 .qs-path .steps { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
-.qs-path .st { background: var(--card, #fffbf2); border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; white-space: nowrap; }
-.qs-path .ar { color: var(--accent, #c99d4a); font-weight: 700; }
+.qs-path .st { background: var(--card, #fbf9f4); border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; white-space: nowrap; }
+.qs-path .ar { color: var(--accent, #a98960); font-weight: 700; }
 .qs-box.must { background: #fbe7e2; border-left: 5px solid #b0513d; box-shadow: 0 0 0 1px rgba(176, 81, 61, 0.25); }
 .qs-box.must > strong:first-child { display: block; color: #8e3a2a; font-size: 1rem; margin-bottom: 4px; }
 .qs-box.must > strong:first-child::before { content: '⚠ '; }
@@ -169,8 +169,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
   <button class="nav-toggle" onclick="document.getElementById('siteHead').classList.toggle('open')" aria-label="Menü">☰</button>
   <ul class="site-nav">
     <li><a href="index.html">Start</a></li>
-    <li class="has-sub"><a href="finfide.html">Produkte</a>
-      <ul class="sub"><li><a href="finfide.html"><img src="img/finfide_icon.png" alt=""><span>FinFide<small>Haushaltsbuch · Depot · Charts</small></span></a></li></ul></li>
+    <li class="has-sub"><a href="finfide.html">Funktionen</a>
+      <ul class="sub"><li><a href="finfide.html"><span>Überblick<small>Alles in einem Programm</small></span></a></li><li><a href="haushaltsbuch.html"><span>Haushaltsbuch<small>Einnahmen, Ausgaben, Budgets</small></span></a></li><li><a href="depot-tracker.html"><span>Depot-Tracker<small>Mehrere Depots, Dividenden, Rendite</small></span></a></li><li><a href="chartanalyse.html"><span>Chartanalyse<small>Indikatoren, Watchlists, Scan</small></span></a></li></ul></li>
     <li><a href="kurzanleitung.html" class="active">Anleitung</a></li>
     <li><a href="partnerprogramm.html">Partner werden</a></li>
     <li><a href="transparenz.html">Transparenz</a></li>
@@ -221,7 +221,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
         <ol start="10">
           <li><a href="#s10">Depot einrichten (Initialisierung)</a></li>
           <li><a href="#s11">Mehrere Depots</a></li>
-          <li><a href="#s12">Hauptansicht</a></li>
+          <li><a href="#s12">Übersicht</a></li>
           <li><a href="#s13">Buchungen</a></li>
           <li><a href="#s14">Sparpläne</a></li>
           <li><a href="#s15">Kurse</a></li>
@@ -270,53 +270,53 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     </section>
     <section class="qs-card" id="s2">
       <h2><span class="qs-num">02</span>Aufbau der App</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="V1_Ein_Monat_mit_FinFide" data-title="Ein Monat mit FinFide">Video: Ein Monat mit FinFide <small>1:08</small></button> <button class="vid-btn" data-video="A01_Haushaltsbuch_im_Ueberblick" data-title="Haushaltsbuch im Überblick">Video: Haushaltsbuch im Überblick <small>0:31</small></button></div>
-      <p>FinFide öffnet sich im Standardbrowser unter einer lokalen Adresse. Die Kopfzeile verbindet die drei Bereiche:</p><ul><li><strong>Haushaltsbuch</strong> – Einnahmen, Ausgaben, Budgets, Fixkosten, Rücklagen, Auswertung.</li><li><strong>Depot</strong> – Positionen, mehrere Depots, Sparpläne, Dividenden, Wertzuwachs, Export.</li><li><strong>Charts</strong> – eigenes Analyse-Fenster mit Indikatoren, Watchlists und Scan.</li></ul><p>Daneben liegen die Einstellungen (Zahnrad) und der Beenden-Knopf.</p>
+      <div class="qs-vrow"><button class="vid-btn" data-video="V1_Ein_Monat_mit_FinFide" data-title="Ein Monat mit FinFide">Video: Ein Monat mit FinFide <small></small></button> <button class="vid-btn" data-video="A01_Haushaltsbuch_im_Ueberblick" data-title="Haushaltsbuch im Überblick">Video: Haushaltsbuch im Überblick <small></small></button></div>
+      <p>FinFide öffnet sich im Standardbrowser unter einer lokalen Adresse. Links steht die Seitenleiste, rechts die jeweilige Seite. Oben in der Seitenleiste wechselt ein Umschalter zwischen zwei Bereichen:</p><ul><li><strong>Haushaltsbuch</strong> – Übersicht, Buchungen, Analyse; dazu Budgets, Fixkosten und Rücklagen.</li><li><strong>Depot</strong> – Übersicht, Dividenden, Analyse, Watchlists und Prognose; Transaktionen und Sparpläne erreicht man über die Verweise „Alle Transaktionen →“ und „Ein-/Auszahlung →“.</li></ul><p>Die <strong>Charts</strong> öffnen sich in einem eigenen Fenster („Chart öffnen“). Unten in der Seitenleiste stehen „Aktualisieren“ (Kurse), Einstellungen und Beenden. Jede Seite ist gleich aufgebaut: Kopf, Kennzahlen, darunter Karten mit Verweisen in die Tiefe.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Zum Depot wechseln</span><span class="steps"><span class="st">Kopfzeile</span><span class="ar">→</span><span class="st">DEPOT</span></span></div>
-        <div class="qs-path"><span class="task">Zurück zum Haushaltsbuch</span><span class="steps"><span class="st">Kopfzeile</span><span class="ar">→</span><span class="st">HAUSHALTSBUCH</span></span></div>
-        <div class="qs-path"><span class="task">Chart-Fenster öffnen</span><span class="steps"><span class="st">Kopfzeile</span><span class="ar">→</span><span class="st">CHARTS</span></span></div>
-        <div class="qs-path"><span class="task">Einstellungen</span><span class="steps"><span class="st">Kopfzeile</span><span class="ar">→</span><span class="st">⚙</span></span></div>
-        <div class="qs-path"><span class="task">Beenden</span><span class="steps"><span class="st">Kopfzeile</span><span class="ar">→</span><span class="st">⏻</span><span class="ar">→</span><span class="st">Beenden</span></span></div>
+        <div class="qs-path"><span class="task">Bereich wechseln</span><span class="steps"><span class="st">Seitenleiste oben</span><span class="ar">→</span><span class="st">Depot · Haushaltsbuch</span></span></div>
+        <div class="qs-path"><span class="task">Chart-Fenster öffnen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Übersicht</span><span class="ar">→</span><span class="st">Chart öffnen</span></span></div>
+        <div class="qs-path"><span class="task">Kurse aktualisieren</span><span class="steps"><span class="st">Seitenleiste unten</span><span class="ar">→</span><span class="st">Aktualisieren</span></span></div>
+        <div class="qs-path"><span class="task">Einstellungen</span><span class="steps"><span class="st">Seitenleiste unten</span><span class="ar">→</span><span class="st">Einstellungen</span></span></div>
+        <div class="qs-path"><span class="task">Beenden</span><span class="steps"><span class="st">Seitenleiste unten</span><span class="ar">→</span><span class="st">Beenden</span></span></div>
       </div>
     </section>
 
     <div class="qs-chapter">Haushaltsbuch</div>
     <section class="qs-card" id="s3">
       <h2><span class="qs-num">03</span>Einstellungen im Überblick</h2>
-      <p>Vor der ersten Buchung lohnt ein kurzer Blick in die Einstellungen. Pflicht ist nichts davon – FinFide startet mit sinnvollen Standardkategorien.</p><ul><li><strong>Konten</strong> – Anfangs- und Mindestbestand.</li><li><strong>Kategorien &amp; Budgets</strong> – Kategorien und monatliche Budgets.</li><li><strong>Rollover</strong> – nicht verbrauchtes Budget in den Folgemonat mitnehmen.</li><li><strong>regl. Buchungen</strong> – Vorlagen für Fixkosten.</li><li><strong>Rücklagen</strong> – Töpfe für Jahresrechnungen.</li><li><strong>Daten</strong> – Lizenz, Buchungen eines Zeitraums löschen, Papierkorb.</li><li><strong>Darstellung</strong> – Farbschema und Ansicht (siehe Abschnitt 24).</li></ul>
+      <p>Vor der ersten Buchung lohnt ein kurzer Blick in die Einstellungen (im Bereich Haushaltsbuch). Pflicht ist nichts davon – FinFide startet mit sinnvollen Standardkategorien.</p><ul><li><strong>Initialisierung</strong> – Anfangsbestand, Mindestbestand (Reserve) und Rücklagen-Startwert.</li><li><strong>Kategorien und Budgets</strong> – Kategorien und monatliche Budgets.</li><li><strong>Rücklagen</strong> – Töpfe für Jahresrechnungen.</li><li><strong>Regelmäßige Buchungen</strong> – Vorlagen für Fixkosten.</li><li><strong>Rollover</strong> – nicht verbrauchtes Budget in den Folgemonat mitnehmen.</li><li><strong>Buchungsregeln</strong> – persönliche Notizen zur Kategorie.</li><li><strong>Daten</strong> – Buchungen eines Zeitraums löschen, Papierkorb, Archiv, Komplett-Reset.</li><li><strong>Darstellung</strong> – Vorlage und eigene Farben (siehe Abschnitt 24).</li></ul>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Anfangsbestand setzen</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Konten</span><span class="ar">→</span><span class="st">Initialbestand</span><span class="ar">→</span><span class="st">Speichern &amp; Schließen</span></span></div>
-        <div class="qs-path"><span class="task">Mindestbestand (Reserve)</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Konten</span><span class="ar">→</span><span class="st">Mindestbestand</span><span class="ar">→</span><span class="st">Speichern &amp; Schließen</span></span></div>
+        <div class="qs-path"><span class="task">Anfangsbestand setzen</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Initialisierung</span><span class="ar">→</span><span class="st">Initialbestand (€)</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
+        <div class="qs-path"><span class="task">Mindestbestand (Reserve)</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Initialisierung</span><span class="ar">→</span><span class="st">Mindestbestand (€)</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s4">
       <h2><span class="qs-num">04</span>Kategorien und Budgets</h2>
-      <p>Jede Kategorie gehört zu einer Gruppe – <strong>Variable</strong> Ausgaben, <strong>Fixkosten</strong> oder <strong>Einnahmen</strong> – und hat ein monatliches Budget. Die Budget-Kachel zeigt je Kategorie den Stand, Überschreitungen fallen sofort auf.</p><p>Einige Kategorien sind fest vorgegeben (z. B. Rücklagen und Depot-Übertrag), damit Sparquote und Brücke zum Depot stimmen.</p>
+      <p>Jede Kategorie gehört zu einer Gruppe – <strong>Variabel</strong>, <strong>Fix</strong> oder <strong>Einnahmen</strong> – und hat ein monatliches Budget. Die Karte „Budget“ zeigt je Kategorie den Stand, Überschreitungen fallen sofort auf.</p><p>Einige Kategorien sind fest vorgegeben (z. B. Rücklagen und Depot-Übertrag), damit Sparquote und Brücke zum Depot stimmen.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Kategorie anlegen</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Kategorien &amp; Budgets</span><span class="ar">→</span><span class="st">Name, Art</span><span class="ar">→</span><span class="st">Hinzufügen</span></span></div>
-        <div class="qs-path"><span class="task">Budget ändern</span><span class="steps"><span class="st">Budget-Kachel</span><span class="ar">→</span><span class="st">Kategorie</span><span class="ar">→</span><span class="st">✎</span><span class="ar">→</span><span class="st">Budget</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
-        <div class="qs-path"><span class="task">Gruppe ansehen</span><span class="steps"><span class="st">Budget-Kachel</span><span class="ar">→</span><span class="st">Variable · Fixkosten · Einnahmen</span></span></div>
+        <div class="qs-path"><span class="task">Kategorie anlegen</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Kategorien und Budgets</span><span class="ar">→</span><span class="st">Name, Gruppe</span><span class="ar">→</span><span class="st">Hinzufügen</span></span></div>
+        <div class="qs-path"><span class="task">Budget ändern</span><span class="steps"><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Kategorien und Budgets</span><span class="ar">→</span><span class="st">Budget € eintragen</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
+        <div class="qs-path"><span class="task">Gruppe ansehen</span><span class="steps"><span class="st">Übersicht</span><span class="ar">→</span><span class="st">Karte Budget</span><span class="ar">→</span><span class="st">Variabel · Fix · Einnahmen</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s5">
       <h2><span class="qs-num">05</span>Buchungsregeln (Gedankenstütze)</h2>
       <p>Buchungsregeln sind bewusst schlicht: eine persönliche Notiz, welche Kategorie für welchen Posten gilt (z. B. „Reifenwechsel → Mobilität“). Beim nächsten Mal lässt sich nachschauen und einheitlich buchen.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Regel notieren</span><span class="steps"><span class="st">Buchungsregeln</span><span class="ar">→</span><span class="st">Stichwort und Kategorie notieren</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
+        <div class="qs-path"><span class="task">Regel notieren</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Buchungsregeln</span><span class="ar">→</span><span class="st">Stichwort und Kategorie notieren</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s6">
       <h2><span class="qs-num">06</span>Regelmäßige Buchungen (Fixkosten)</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A02_Buchen_und_Fixkosten" data-title="Buchen und Fixkosten">Video: Buchen und Fixkosten <small>0:24</small></button></div>
-      <p>Wiederkehrende Beträge – Miete, Versicherungen, Abos, aber auch Sparraten – werden einmal als Vorlage angelegt. Ist ein Posten fällig, weist FinFide darauf hin; übernommen wird mit einem Klick, einzelne Posten lassen sich für einen Monat überspringen.</p>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A02_Buchen_und_Fixkosten" data-title="Buchen und Fixkosten">Video: Buchen und Fixkosten <small></small></button></div>
+      <p>Wiederkehrende Beträge – Miete, Versicherungen, Abos, aber auch Sparraten – werden einmal als Vorlage angelegt. Ist ein Posten fällig, steht er auf der Seite <strong>Buchungen</strong> in der Karte <strong>Fixkosten</strong> bereit; übernommen wird mit einem Klick, einzelne Posten lassen sich für einen Monat überspringen.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Vorlage anlegen</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">regl. Buchungen</span><span class="ar">→</span><span class="st">Beschreibung, Betrag, Kategorie, Typ, Fälligkeitstag</span><span class="ar">→</span><span class="st">Vorlage speichern</span></span></div>
-        <div class="qs-path"><span class="task">Fällige übernehmen</span><span class="steps"><span class="st">Warnleiste „Regelmäßige Buchungen fehlen diesen Monat“</span><span class="ar">→</span><span class="st">Posten prüfen</span><span class="ar">→</span><span class="st">übernehmen</span></span></div>
+        <div class="qs-path"><span class="task">Vorlage anlegen</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Regelmäßige Buchungen</span><span class="ar">→</span><span class="st">Beschreibung, Betrag, Kategorie, Typ, Fälligkeitstag</span><span class="ar">→</span><span class="st">Vorlage speichern</span></span></div>
+        <div class="qs-path"><span class="task">Fällige übernehmen</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">Buchungen</span><span class="ar">→</span><span class="st">Karte Fixkosten</span><span class="ar">→</span><span class="st">Posten prüfen</span><span class="ar">→</span><span class="st">✓</span></span></div>
       </div>
       <div class="qs-box must">
         <strong>Wichtig: ohne regelmäßige Einnahme kein Soll-Budget</strong>
-        Der Soll-Haushaltsplan (Plan-Budget und Soll-Sparquote) wird erst berechnet, wenn mindestens eine <b>regelmäßige Buchung vom Typ „Einnahme“</b> gespeichert ist – z. B. das Gehalt: ⚙ Einstellungen → regl. Buchungen → Typ „Einnahme“ → Vorlage speichern. Budgets allein reichen dafür nicht.
+        Der Soll-Haushaltsplan (Plan-Budget und Soll-Sparquote) wird erst angezeigt, wenn mindestens eine <b>regelmäßige Buchung vom Typ „Einnahme“</b> gespeichert ist – z. B. das Gehalt.
       </div>
       <div class="qs-box tip">
         <strong>Sparrate ins Depot</strong>
@@ -325,44 +325,44 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     </section>
     <section class="qs-card" id="s7">
       <h2><span class="qs-num">07</span>Rücklagen</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A03_Budget_und_Ruecklagen" data-title="Budget und Rücklagen">Video: Budget und Rücklagen <small>0:28</small></button></div>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A03_Budget_und_Ruecklagen" data-title="Budget und Rücklagen">Video: Budget und Rücklagen <small></small></button></div>
       <p>Rücklagen sind Töpfe für größere, seltene Ausgaben: Versicherung, Kfz-Steuer, Reparaturen. FinFide legt monatlich den passenden Anteil zurück; ist ein Posten fällig, wird er direkt aus dem Topf bezahlt. Die Sparquote zählt Rücklagen als Sparen, nicht als Ausgabe.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Rücklage anlegen</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Rücklagen</span><span class="ar">→</span><span class="st">Name, Jahresbetrag, Fälligkeit</span><span class="ar">→</span><span class="st">Unterposition speichern</span></span></div>
-        <div class="qs-path"><span class="task">Fällige Rücklage bezahlen</span><span class="steps"><span class="st">Rücklagen-Kachel</span><span class="ar">→</span><span class="st">Jetzt bezahlen</span><span class="ar">→</span><span class="st">Zahlung bestätigen</span></span></div>
-        <div class="qs-path"><span class="task">Details ansehen</span><span class="steps"><span class="st">Rücklagen-Kachel</span><span class="ar">→</span><span class="st">↗</span></span></div>
+        <div class="qs-path"><span class="task">Rücklage anlegen</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Rücklagen</span><span class="ar">→</span><span class="st">Name, Jahresbetrag, Fälligkeit</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
+        <div class="qs-path"><span class="task">Fällige Rücklage bezahlen</span><span class="steps"><span class="st">Übersicht</span><span class="ar">→</span><span class="st">Karte Rücklagen</span><span class="ar">→</span><span class="st">Alle Rücklagen →</span><span class="ar">→</span><span class="st">Posten</span><span class="ar">→</span><span class="st">Jetzt bezahlen</span></span></div>
+        <div class="qs-path"><span class="task">Stand ansehen</span><span class="steps"><span class="st">Übersicht</span><span class="ar">→</span><span class="st">Karte Rücklagen</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s8">
       <h2><span class="qs-num">08</span>Buchungen erfassen</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A01_Haushaltsbuch_im_Ueberblick" data-title="Haushaltsbuch im Überblick">Video: Haushaltsbuch im Überblick <small>0:31</small></button></div>
-      <p>Neue Buchungen entstehen in der Kachel <strong>Neue Buchung</strong>: Beschreibung, Betrag, Typ (Ausgabe oder Einnahme), Kategorie und Datum. Die Summen oben aktualisieren sich sofort.</p>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A01_Haushaltsbuch_im_Ueberblick" data-title="Haushaltsbuch im Überblick">Video: Haushaltsbuch im Überblick <small></small></button></div>
+      <p>Neue Buchungen entstehen über <strong>+ Buchung</strong> (Übersicht oder Seite Buchungen): Beschreibung, Betrag, Typ (Ausgabe oder Einnahme), Kategorie und Datum. Die Summen oben aktualisieren sich sofort. Zu bekannten Beschreibungen schlägt FinFide die Kategorie vor.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Buchung erfassen</span><span class="steps"><span class="st">Neue Buchung</span><span class="ar">→</span><span class="st">Beschreibung, Betrag, Typ, Kategorie, Datum</span><span class="ar">→</span><span class="st">Hinzufügen</span></span></div>
-        <div class="qs-path"><span class="task">Monat wechseln</span><span class="steps"><span class="st">Monatsauswahl (z. B. „Sep 26“)</span><span class="ar">→</span><span class="st">Monat wählen</span></span></div>
-        <div class="qs-path"><span class="task">Buchung ändern</span><span class="steps"><span class="st">Transaktionen</span><span class="ar">→</span><span class="st">Zeile</span><span class="ar">→</span><span class="st">✎</span></span></div>
+        <div class="qs-path"><span class="task">Buchung erfassen</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">+ Buchung</span><span class="ar">→</span><span class="st">Beschreibung, Betrag, Typ, Kategorie, Datum</span><span class="ar">→</span><span class="st">Buchen</span></span></div>
+        <div class="qs-path"><span class="task">Monat wechseln</span><span class="steps"><span class="st">Monatsauswahl oben rechts (z. B. „September 2026“)</span><span class="ar">→</span><span class="st">Monat wählen</span></span></div>
+        <div class="qs-path"><span class="task">Buchung ändern</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">Buchungen</span><span class="ar">→</span><span class="st">Zeile</span><span class="ar">→</span><span class="st">✎</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s9">
       <h2><span class="qs-num">09</span>Auswertung und Kacheln</h2>
-      <p>Die Kachelreihe oben zeigt Kontostand, Einnahmen, Ausgaben und Saldo. Über die Pfeile neben „Buchung &amp; Budget“ geht es zur zweiten Seite <strong>Analyse &amp; Vergleich</strong>: Soll-/Ist-Haushaltsplan, Durchschnitt über 3, 6 oder 12 Monate und Sparquote.</p>
+      <p>Die Kennzahlenzeile oben zeigt Kontostand, Einnahmen, Ausgaben, Saldo und Rücklagen. Die Seite <strong>Analyse</strong> bietet Soll-/Ist-Haushaltsplan, Durchschnitt über 3, 6 oder 12 Monate und Sparquote.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Auswertung öffnen</span><span class="steps"><span class="st">Pfeil › neben „Buchung &amp; Budget“</span><span class="ar">→</span><span class="st">Analyse &amp; Vergleich</span></span></div>
-        <div class="qs-path"><span class="task">Kachel vergrößern</span><span class="steps"><span class="st">Kachel</span><span class="ar">→</span><span class="st">↗</span></span></div>
+        <div class="qs-path"><span class="task">Auswertung öffnen</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">Analyse</span></span></div>
+        <div class="qs-path"><span class="task">Soll und Ist</span><span class="steps"><span class="st">Übersicht</span><span class="ar">→</span><span class="st">Karte Stand zum Plan</span></span></div>
       </div>
       <div class="qs-box must">
         <strong>Wichtig: ohne regelmäßige Einnahme kein Soll-Budget</strong>
-        Der Soll-Haushaltsplan (Plan-Budget und Soll-Sparquote) wird erst berechnet, wenn mindestens eine <b>regelmäßige Buchung vom Typ „Einnahme“</b> gespeichert ist – z. B. das Gehalt: ⚙ Einstellungen → regl. Buchungen → Typ „Einnahme“ → Vorlage speichern. Budgets allein reichen dafür nicht.
+        Der Soll-Haushaltsplan (Plan-Budget und Soll-Sparquote) wird erst angezeigt, wenn mindestens eine <b>regelmäßige Buchung vom Typ „Einnahme“</b> gespeichert ist – z. B. das Gehalt.
       </div>
     </section>
 
     <div class="qs-chapter">Depot</div>
     <section class="qs-card" id="s10">
       <h2><span class="qs-num">10</span>Depot einrichten (Initialisierung)</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A11_Depot_einrichten" data-title="Depot einrichten">Video: Depot einrichten <small>0:26</small></button></div>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A11_Depot_einrichten" data-title="Depot einrichten">Video: Depot einrichten <small></small></button></div>
       <p>Damit das Depot von Beginn an stimmt, wird der aktuelle Bestand einmalig eingetragen: Guthaben auf dem Verrechnungskonto und die vorhandenen Wertpapiere mit Kaufdatum, Anzahl und Kurs. Danach läuft alles über normale Buchungen.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Guthaben eintragen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">⚙</span><span class="ar">→</span><span class="st">Initialisierung</span><span class="ar">→</span><span class="st">Depot wählen</span><span class="ar">→</span><span class="st">Initialbestand (EUR)</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
+        <div class="qs-path"><span class="task">Guthaben eintragen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Initialisierung</span><span class="ar">→</span><span class="st">Depot wählen</span><span class="ar">→</span><span class="st">Verrechnungskonto</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
         <div class="qs-path"><span class="task">Bestand eintragen</span><span class="steps"><span class="st">Initialisierung</span><span class="ar">→</span><span class="st">Wertpapier suchen</span><span class="ar">→</span><span class="st">Datum, Anzahl, Kurs</span><span class="ar">→</span><span class="st">Hinzufügen</span></span></div>
         <div class="qs-path"><span class="task">Später korrigieren</span><span class="steps"><span class="st">Initialisierung</span><span class="ar">→</span><span class="st">Initialisierung entsperren</span></span></div>
       </div>
@@ -373,36 +373,37 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     </section>
     <section class="qs-card" id="s11">
       <h2><span class="qs-num">11</span>Mehrere Depots</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A12_Mehrere_Depots" data-title="Mehrere Depots">Video: Mehrere Depots <small>0:42</small></button></div>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A12_Mehrere_Depots" data-title="Mehrere Depots">Video: Mehrere Depots <small></small></button></div>
       <p>Neobroker, Direktbank, Krypto-Börse: Jedes Depot rechnet für sich (Bestand, Verrechnungskonto, FIFO), „Alle Depots“ zeigt die Summe. Jede Buchung gehört zu einem Depot.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Depot anlegen</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Depots</span><span class="ar">→</span><span class="st">+ Depot anlegen</span><span class="ar">→</span><span class="st">Name</span></span></div>
-        <div class="qs-path"><span class="task">Umbenennen / sortieren</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Depots</span><span class="ar">→</span><span class="st">✎ bzw. ↑ ↓</span></span></div>
-        <div class="qs-path"><span class="task">Ansicht umschalten</span><span class="steps"><span class="st">Allokation</span><span class="ar">→</span><span class="st">„Alle Depots ▾“</span><span class="ar">→</span><span class="st">Depot wählen</span></span></div>
-        <div class="qs-path"><span class="task">Wert umhängen</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Depots</span><span class="ar">→</span><span class="st">Wert in anderes Depot umhängen</span><span class="ar">→</span><span class="st">aus … nach …</span><span class="ar">→</span><span class="st">Umhängen</span></span></div>
+        <div class="qs-path"><span class="task">Depot anlegen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Depots</span><span class="ar">→</span><span class="st">Neues Depot</span><span class="ar">→</span><span class="st">Name</span><span class="ar">→</span><span class="st">Depot anlegen</span></span></div>
+        <div class="qs-path"><span class="task">Umbenennen / sortieren</span><span class="steps"><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Depots</span><span class="ar">→</span><span class="st">✎ bzw. ↑ ↓</span></span></div>
+        <div class="qs-path"><span class="task">Ansicht umschalten</span><span class="steps"><span class="st">Seitenleiste</span><span class="ar">→</span><span class="st">„Alle Depots ▾“</span><span class="ar">→</span><span class="st">Depot wählen</span></span></div>
+        <div class="qs-path"><span class="task">Wert umhängen</span><span class="steps"><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Depots</span><span class="ar">→</span><span class="st">Wert in anderes Depot umhängen</span><span class="ar">→</span><span class="st">aus … nach …</span><span class="ar">→</span><span class="st">Umhängen</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s12">
-      <h2><span class="qs-num">12</span>Hauptansicht</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A04_Depot_im_Ueberblick" data-title="Depot im Überblick">Video: Depot im Überblick <small>0:39</small></button></div>
-      <p>Oben stehen Gesamt-G/V, Depotwert, Verrechnungskonto und Dividenden des Jahres (⋯ zeigt Details). Darunter blättert ein Slider durch <strong>Allokation</strong>, <strong>Wertzuwachs</strong>, <strong>Dividende</strong> und <strong>Prognose</strong>. Ganz unten liegen die Reiter Transaktionen und Sparpläne.</p>
+      <h2><span class="qs-num">12</span>Übersicht</h2>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A04_Depot_im_Ueberblick" data-title="Depot im Überblick">Video: Depot im Überblick <small></small></button></div>
+      <p>Oben stehen Wert, Heute, Gewinn/Verlust, Rendite p. a. und Dividenden der letzten 12 Monate – die Zahlen behalten auf jeder Seite denselben Platz. Darunter zeigt <strong>Verteilung</strong> den Donut nach Klasse, Thema oder Wert, <strong>Rendite</strong> die Aufschlüsselung, <strong>Wertentwicklung</strong> den Verlauf und das Verrechnungskonto. Weiter unten folgen die nächsten Schritte (Sparpläne), nächste Dividenden und letzte Transaktionen; die Verweise „Alle … →“ führen in die Tiefe. Die Positionsliste steht am Ende.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Aufteilung wechseln</span><span class="steps"><span class="st">Allokation</span><span class="ar">→</span><span class="st">POSITIONEN · KLASSEN · THEMA</span></span></div>
-        <div class="qs-path"><span class="task">Vollansicht</span><span class="steps"><span class="st">Allokation</span><span class="ar">→</span><span class="st">Klick auf den Donut</span></span></div>
-        <div class="qs-path"><span class="task">Slider blättern</span><span class="steps"><span class="st">‹ › oder Allokation · Wertzuwachs · Dividende · Prognose</span></span></div>
+        <div class="qs-path"><span class="task">Aufteilung wechseln</span><span class="steps"><span class="st">Verteilung</span><span class="ar">→</span><span class="st">Klassen · Themen · Werte</span></span></div>
+        <div class="qs-path"><span class="task">Zeitraum wählen</span><span class="steps"><span class="st">Wertentwicklung</span><span class="ar">→</span><span class="st">1M · 6M · 1J · Max</span></span></div>
+        <div class="qs-path"><span class="task">Wert ansehen</span><span class="steps"><span class="st">Positionsliste</span><span class="ar">→</span><span class="st">Zeile anklicken</span></span></div>
+        <div class="qs-path"><span class="task">Depot wechseln</span><span class="steps"><span class="st">Seitenleiste</span><span class="ar">→</span><span class="st">„Alle Depots ▾“</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s13">
       <h2><span class="qs-num">13</span>Buchungen</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A06_Kauf_Verkauf_Dividende" data-title="Kauf, Verkauf, Dividende">Video: Kauf, Verkauf, Dividende <small>0:39</small></button></div>
-      <p>Die Knöpfe über der Transaktionsliste legen Buchungen an. Verkäufe verbrauchen immer die ältesten Käufe zuerst (FIFO). Bei Verkauf und Dividende wird der tatsächlich erhaltene Betrag aus der Brokerabrechnung eingetragen.</p>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A06_Kauf_Verkauf_Dividende" data-title="Kauf, Verkauf, Dividende">Video: Kauf, Verkauf, Dividende <small></small></button></div>
+      <p>Die Seite <strong>Transaktionen</strong> (Übersicht > „Alle Transaktionen →“) listet alle Buchungen, filterbar nach Art und Jahr. Kauf, Dividende und Ein-/Auszahlung legen die Knöpfe oben an; einen Verkauf bucht man in der Ansicht des jeweiligen Werts. Verkäufe verbrauchen immer die ältesten Käufe zuerst (FIFO). Bei Verkauf und Dividende wird der tatsächlich erhaltene Betrag aus der Brokerabrechnung eingetragen.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Kauf</span><span class="steps"><span class="st">KAUF</span><span class="ar">→</span><span class="st">Depot, Wert, Datum, Anzahl, Kurs</span><span class="ar">→</span><span class="st">buchen</span></span></div>
-        <div class="qs-path"><span class="task">Verkauf</span><span class="steps"><span class="st">VERKAUF</span><span class="ar">→</span><span class="st">Wert, Anzahl, Kurs, tatsächlich erhalten</span><span class="ar">→</span><span class="st">buchen</span></span></div>
-        <div class="qs-path"><span class="task">Dividende</span><span class="steps"><span class="st">DIVIDENDE</span><span class="ar">→</span><span class="st">Wert, Brutto, tatsächlich erhalten</span><span class="ar">→</span><span class="st">buchen</span></span></div>
-        <div class="qs-path"><span class="task">Zinsen (z. B. Verrechnungskonto)</span><span class="steps"><span class="st">DIVIDENDE</span><span class="ar">→</span><span class="st">Wert „Cash – Zinsen“, Brutto, tatsächlich erhalten, Intervall (z. B. monatlich)</span><span class="ar">→</span><span class="st">buchen. Mit Intervall erscheinen die Zinsen in Prognose und Kalender; Hover auf die Zeile zeigt die Kennzahlen.</span></span></div>
-        <div class="qs-path"><span class="task">Ein-/Auszahlung</span><span class="steps"><span class="st">TRANSFER</span><span class="ar">→</span><span class="st">Betrag, Richtung</span><span class="ar">→</span><span class="st">buchen</span></span></div>
-        <div class="qs-path"><span class="task">Buchung ändern</span><span class="steps"><span class="st">TRANSAKTIONEN</span><span class="ar">→</span><span class="st">Zeile</span><span class="ar">→</span><span class="st">✎</span></span></div>
+        <div class="qs-path"><span class="task">Kauf</span><span class="steps"><span class="st">Transaktionen</span><span class="ar">→</span><span class="st">Kauf</span><span class="ar">→</span><span class="st">Wert, Datum, Stück, Kurs, Gebühr</span><span class="ar">→</span><span class="st">Kauf buchen</span></span></div>
+        <div class="qs-path"><span class="task">Verkauf</span><span class="steps"><span class="st">Wert anklicken</span><span class="ar">→</span><span class="st">Verkauf</span><span class="ar">→</span><span class="st">Stück, Kurs, Gutschrift laut Abrechnung</span><span class="ar">→</span><span class="st">Verkauf buchen</span></span></div>
+        <div class="qs-path"><span class="task">Dividende</span><span class="steps"><span class="st">Transaktionen</span><span class="ar">→</span><span class="st">Dividende</span><span class="ar">→</span><span class="st">Wert, Brutto, erhalten laut Abrechnung, Intervall</span><span class="ar">→</span><span class="st">Dividende buchen</span></span></div>
+        <div class="qs-path"><span class="task">Zinsen (z. B. Verrechnungskonto)</span><span class="steps"><span class="st">Dividende</span><span class="ar">→</span><span class="st">Wert „Cash – Zinsen“, Brutto, erhalten, Intervall (z. B. monatlich)</span><span class="ar">→</span><span class="st">buchen. Mit Intervall erscheinen die Zinsen in Prognose und Kalender.</span></span></div>
+        <div class="qs-path"><span class="task">Ein-/Auszahlung</span><span class="steps"><span class="st">Transaktionen</span><span class="ar">→</span><span class="st">Ein-/Auszahlung</span><span class="ar">→</span><span class="st">Art, Betrag, Datum</span><span class="ar">→</span><span class="st">Buchen</span></span></div>
+        <div class="qs-path"><span class="task">Buchung ändern</span><span class="steps"><span class="st">Transaktionen</span><span class="ar">→</span><span class="st">Zeile</span><span class="ar">→</span><span class="st">✎</span></span></div>
       </div>
       <div class="qs-box warn">
         <strong>Keine Steuerberechnung</strong>
@@ -411,31 +412,31 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     </section>
     <section class="qs-card" id="s14">
       <h2><span class="qs-num">14</span>Sparpläne</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A07_Sparplaene_und_Bruecke" data-title="Sparpläne und Brücke">Video: Sparpläne und Brücke <small>0:23</small></button></div>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A07_Sparplaene_und_Bruecke" data-title="Sparpläne und Brücke">Video: Sparpläne und Brücke <small></small></button></div>
       <p>Ein Sparplan ist ein wiederkehrender Kauf mit fester Rate und festem Intervall (wöchentlich bis jährlich). Fällige Raten sammelt FinFide – bestätigt wird gesammelt, einzelne Raten lassen sich anpassen oder überspringen.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Sparplan anlegen</span><span class="steps"><span class="st">SPARPLAN</span><span class="ar">→</span><span class="st">Wert, Rate, Intervall, Stichtag</span><span class="ar">→</span><span class="st">anlegen</span></span></div>
-        <div class="qs-path"><span class="task">Fällige Raten buchen</span><span class="steps"><span class="st">SPARPLÄNE</span><span class="ar">→</span><span class="st">Hinweis „fällig“</span><span class="ar">→</span><span class="st">Raten prüfen</span><span class="ar">→</span><span class="st">buchen</span></span></div>
-        <div class="qs-path"><span class="task">Rate überspringen</span><span class="steps"><span class="st">Fällige Raten</span><span class="ar">→</span><span class="st">Zeile</span><span class="ar">→</span><span class="st">×</span></span></div>
+        <div class="qs-path"><span class="task">Sparplan anlegen</span><span class="steps"><span class="st">Transaktionen</span><span class="ar">→</span><span class="st">Reiter Sparpläne</span><span class="ar">→</span><span class="st">+ Sparplan</span><span class="ar">→</span><span class="st">Wert, Rate, Intervall, Tag</span><span class="ar">→</span><span class="st">Sparplan anlegen</span></span></div>
+        <div class="qs-path"><span class="task">Fällige Raten buchen</span><span class="steps"><span class="st">Übersicht</span><span class="ar">→</span><span class="st">Karte Nächste Schritte</span><span class="ar">→</span><span class="st">Rate</span><span class="ar">→</span><span class="st">buchen</span></span></div>
+        <div class="qs-path"><span class="task">Rate überspringen</span><span class="steps"><span class="st">Nächste Schritte</span><span class="ar">→</span><span class="st">Zeile</span><span class="ar">→</span><span class="st">×</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s15">
       <h2><span class="qs-num">15</span>Kurse</h2>
       <p>Kurse kommen aus öffentlichen Quellen (Yahoo Finance) und sind verzögert – FinFide ist für langfristige Anleger gemacht, nicht für Daytrading. Ohne Internet zeigt FinFide die zuletzt geladenen Kurse.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Kurse aktualisieren</span><span class="steps"><span class="st">⟳ Kurse aktualisieren</span></span></div>
-        <div class="qs-path"><span class="task">Kein Kurs für einen Wert</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Verwaltung</span><span class="ar">→</span><span class="st">Symbol verifizieren</span></span></div>
+        <div class="qs-path"><span class="task">Kurse aktualisieren</span><span class="steps"><span class="st">Seitenleiste unten</span><span class="ar">→</span><span class="st">Aktualisieren</span></span></div>
+        <div class="qs-path"><span class="task">Kein Kurs für einen Wert</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Positionen verwalten</span><span class="ar">→</span><span class="st">Symbol prüfen</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s16">
       <h2><span class="qs-num">16</span>Notizen, These und Thesen-Check</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A14_These_und_Thesen_Check" data-title="These und Thesen-Check">Video: These und Thesen-Check <small>0:34</small></button> <button class="vid-btn" data-video="A09_Orders_und_Notizen" data-title="Orders und Notizen">Video: Orders und Notizen <small>0:26</small></button></div>
-      <p>Jede Position hat eine Detailansicht mit Notizfeldern: <strong>These</strong> (warum gekauft), <strong>Burggraben</strong>, <strong>Risiken</strong>, <strong>Katalysatoren</strong>, <strong>Thesenbruch</strong> (messbare Kriterien) und <strong>Verlauf</strong>. Dazu Tags, z. B. als Thema für Watchlists.</p><p>Der <strong>Thesen-Check</strong> kopiert einen fertigen Prompt für die eigene KI – nur mit Prozentwerten, ohne Beträge. Ein grüner Haken zeigt die letzte Prüfung und verblasst mit der Zeit; wie schnell, ist je Anlageklasse einstellbar.</p>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A14_These_und_Thesen_Check" data-title="These und Thesen-Check">Video: These und Thesen-Check <small></small></button> <button class="vid-btn" data-video="A09_Orders_und_Notizen" data-title="Orders und Notizen">Video: Orders und Notizen <small></small></button></div>
+      <p>Jeder Wert hat in seiner Ansicht einen Reiter <strong>These</strong>: Kaufgrund, <strong>Burggraben</strong>, <strong>Risiken</strong>, <strong>Katalysatoren</strong>, <strong>Thesenbruch</strong> (messbare Kriterien) und <strong>Verlauf</strong>. Dazu Themen-Tags, z. B. für Watchlists.</p><p>Der <strong>Thesen-Check</strong> kopiert einen fertigen Prompt für die eigene KI – nur mit Prozentwerten, ohne Beträge. Ein grüner Haken zeigt die letzte Prüfung und verblasst mit der Zeit; wie schnell, ist je Anlageklasse einstellbar.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">These schreiben</span><span class="steps"><span class="st">Position anklicken</span><span class="ar">→</span><span class="st">Notizen</span><span class="ar">→</span><span class="st">These, Risiken, Thesenbruch …</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
-        <div class="qs-path"><span class="task">Eine These prüfen</span><span class="steps"><span class="st">Detailansicht</span><span class="ar">→</span><span class="st">🔍 These</span><span class="ar">→</span><span class="st">Prompt kopieren</span><span class="ar">→</span><span class="st">in die eigene KI einfügen</span></span></div>
-        <div class="qs-path"><span class="task">Alle Thesen prüfen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Thesen-Check</span><span class="ar">→</span><span class="st">Prompt kopieren</span></span></div>
-        <div class="qs-path"><span class="task">Prüf-Intervall</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Thesen-Check</span><span class="ar">→</span><span class="st">Halbwertszeit pro Asset-Klasse (Tage)</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
+        <div class="qs-path"><span class="task">These schreiben</span><span class="steps"><span class="st">Wert anklicken</span><span class="ar">→</span><span class="st">These</span><span class="ar">→</span><span class="st">Bearbeiten</span><span class="ar">→</span><span class="st">These, Risiken, Thesenbruch …</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
+        <div class="qs-path"><span class="task">Eine These prüfen</span><span class="steps"><span class="st">Wert</span><span class="ar">→</span><span class="st">These</span><span class="ar">→</span><span class="st">Prompt kopieren</span><span class="ar">→</span><span class="st">in die eigene KI einfügen</span></span></div>
+        <div class="qs-path"><span class="task">Alle Thesen prüfen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Analyse</span><span class="ar">→</span><span class="st">Master-Check kopieren</span></span></div>
+        <div class="qs-path"><span class="task">Prüf-Intervall</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Thesen-Check</span><span class="ar">→</span><span class="st">Tage je Anlageklasse</span><span class="ar">→</span><span class="st">Speichern</span></span></div>
       </div>
       <div class="qs-box tip">
         <strong>Einordnung</strong>
@@ -444,27 +445,27 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     </section>
     <section class="qs-card" id="s17">
       <h2><span class="qs-num">17</span>Wertzuwachs, Dividende und Prognose</h2>
-      <p><strong>Wertzuwachs</strong>: Verlauf des Depotwerts, zurückgerechnet aus Buchungen und Kursen, mit persönlicher Rendite p. a. – Einzahlungen werden berücksichtigt. <strong>Dividende</strong>: Prognose für 12 Monate und Kalender; ein Klick auf eine Zeile zeigt Kennzahlen wie Rendite auf Einstand und Wachstum. <strong>Prognose</strong>: Sparrate, erwartete Rendite und Laufzeit durchspielen.</p>
+      <p><strong>Wertzuwachs</strong>: Verlauf des Depotwerts, zurückgerechnet aus Buchungen und Kursen, mit persönlicher Rendite p. a. – Einzahlungen werden berücksichtigt. <strong>Dividenden</strong>: Prognose für 12 Monate und Kalender; ein Klick auf eine Zeile zeigt Kennzahlen wie Rendite auf Einstand und Wachstum. <strong>Prognose</strong>: Sparrate, erwartete Rendite und Laufzeit durchspielen.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Zeitraum wählen</span><span class="steps"><span class="st">Wertzuwachs</span><span class="ar">→</span><span class="st">1M · 3M · 6M · 1J · YTD · MAX</span></span></div>
-        <div class="qs-path"><span class="task">Je Depot</span><span class="steps"><span class="st">Wertzuwachs</span><span class="ar">→</span><span class="st">„Alle Depots ▾“</span><span class="ar">→</span><span class="st">Depot</span></span></div>
-        <div class="qs-path"><span class="task">Dividenden-Kennzahlen</span><span class="steps"><span class="st">Dividende</span><span class="ar">→</span><span class="st">Zeile in der Prognose anklicken</span></span></div>
-        <div class="qs-path"><span class="task">Prognose rechnen</span><span class="steps"><span class="st">Prognose</span><span class="ar">→</span><span class="st">Sparrate, Rendite, Laufzeit</span><span class="ar">→</span><span class="st">Berechnen</span></span></div>
+        <div class="qs-path"><span class="task">Zeitraum wählen</span><span class="steps"><span class="st">Übersicht</span><span class="ar">→</span><span class="st">Wertentwicklung</span><span class="ar">→</span><span class="st">1M · 6M · 1J · Max</span></span></div>
+        <div class="qs-path"><span class="task">Je Depot</span><span class="steps"><span class="st">Seitenleiste</span><span class="ar">→</span><span class="st">„Alle Depots ▾“</span><span class="ar">→</span><span class="st">Depot</span></span></div>
+        <div class="qs-path"><span class="task">Dividenden-Kennzahlen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Dividenden</span><span class="ar">→</span><span class="st">Zeile in der Prognose anklicken</span></span></div>
+        <div class="qs-path"><span class="task">Prognose rechnen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Prognose</span><span class="ar">→</span><span class="st">Startbetrag, Sparrate, Rendite, Laufzeit eintragen</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s18">
       <h2><span class="qs-num">18</span>CSV-Import</h2>
       <p>Order-Historien aus Broker-Exporten lassen sich einlesen. Trennzeichen, Dezimal- und Datumsformat erkennt FinFide selbst; die Spalten werden einmal zugeordnet und als Profil je Broker gespeichert. Vor dem Import zeigt ein Probelauf, was gebucht wird – importiert wird alles oder nichts.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">CSV einlesen</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Initialisierung</span><span class="ar">→</span><span class="st">CSV importieren</span><span class="ar">→</span><span class="st">Datei</span><span class="ar">→</span><span class="st">Spalten zuordnen</span><span class="ar">→</span><span class="st">prüfen</span><span class="ar">→</span><span class="st">Importieren</span></span></div>
+        <div class="qs-path"><span class="task">CSV einlesen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Transaktionen</span><span class="ar">→</span><span class="st">CSV-Import</span><span class="ar">→</span><span class="st">Datei</span><span class="ar">→</span><span class="st">Spalten zuordnen</span><span class="ar">→</span><span class="st">prüfen</span><span class="ar">→</span><span class="st">Importieren</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s19">
       <h2><span class="qs-num">19</span>Steuer-Export (Excel)</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A10_Export_und_Darstellung" data-title="Export und Darstellung">Video: Export und Darstellung <small>0:27</small></button></div>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A10_Export_und_Darstellung" data-title="Export und Darstellung">Video: Export und Darstellung <small></small></button></div>
       <p>Alle Depot-Bewegungen eines Jahres oder Zeitraums als Excel-Mappe: Deckblatt, Verkäufe, Dividenden, Journal und Jahresübersicht – je Depot oder gesamt.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Export erstellen</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Datenexport</span><span class="ar">→</span><span class="st">Depot, Zeitraum</span><span class="ar">→</span><span class="st">Daten exportieren</span></span></div>
+        <div class="qs-path"><span class="task">Export erstellen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Datenexport</span><span class="ar">→</span><span class="st">Depot, Zeitraum</span><span class="ar">→</span><span class="st">Daten exportieren</span></span></div>
       </div>
       <div class="qs-box warn">
         <strong>Disclaimer</strong>
@@ -475,14 +476,14 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     <div class="qs-chapter">Charts</div>
     <section class="qs-card" id="s20">
       <h2><span class="qs-num">20</span>Chart-Fenster</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A08_Charts_und_Indikatoren" data-title="Charts und Indikatoren">Video: Charts und Indikatoren <small>0:49</small></button></div>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A08_Charts_und_Indikatoren" data-title="Charts und Indikatoren">Video: Charts und Indikatoren <small></small></button></div>
       <p>Das Chart-Fenster öffnet sich separat – auch mehrere nebeneinander. Links die Liste (Positionen, Watchlist, Orders), rechts der Chart mit Zeiträumen, Linie oder Kerzen, Zeichenwerkzeugen und Finanzdaten. Eigene Käufe und Verkäufe lassen sich einblenden.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Öffnen</span><span class="steps"><span class="st">Kopfzeile</span><span class="ar">→</span><span class="st">CHARTS</span></span></div>
+        <div class="qs-path"><span class="task">Öffnen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Übersicht</span><span class="ar">→</span><span class="st">Chart öffnen (oder Wert</span><span class="ar">→</span><span class="st">Chart)</span></span></div>
         <div class="qs-path"><span class="task">Darstellung</span><span class="steps"><span class="st">Linie · Kerzen · 1T · 1W · 1M</span></span></div>
         <div class="qs-path"><span class="task">Zeichnen</span><span class="steps"><span class="st">Werkzeugleiste links</span><span class="ar">→</span><span class="st">Linie, Rechteck, Fibonacci …</span></span></div>
         <div class="qs-path"><span class="task">Eigene Käufe zeigen</span><span class="steps"><span class="st">B/S Trades</span></span></div>
-        <div class="qs-path"><span class="task">Order als Merkzettel</span><span class="steps"><span class="st">+ Order</span><span class="ar">→</span><span class="st">Anzahl, Limit</span><span class="ar">→</span><span class="st">speichern</span></span></div>
+        <div class="qs-path"><span class="task">Order als Merkzettel</span><span class="steps"><span class="st">+ Order</span><span class="ar">→</span><span class="st">Stück, Limit</span><span class="ar">→</span><span class="st">Order anlegen</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s21">
@@ -495,34 +496,34 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
     </section>
     <section class="qs-card" id="s22">
       <h2><span class="qs-num">22</span>Watchlists nach Thema und Scan</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A15_Watchlists_und_Scan" data-title="Watchlists nach Thema und Scan">Video: Watchlists nach Thema und Scan <small>0:30</small></button></div>
-      <p>Werte ohne Bestand kommen auf die Watchlist. Mit Tags entstehen Themen-Listen wie „Raumfahrt“, die sich gezielt anzeigen und vergleichen lassen. Der Scan prüft eigene Bedingungen – etwa „Kurs über dem 200-Tage-Durchschnitt“ – über eine ganze Liste. Er zeigt Treffer, keine Empfehlungen.</p>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A15_Watchlists_und_Scan" data-title="Watchlists nach Thema und Scan">Video: Watchlists nach Thema und Scan <small></small></button></div>
+      <p>Werte ohne Bestand kommen auf die Watchlist. Mit Themen-Tags entstehen Listen wie „Raumfahrt“, die sich gezielt anzeigen und vergleichen lassen. Der Scan prüft eigene Bedingungen – etwa „Kurs über dem 200-Tage-Durchschnitt“ – über eine ganze Liste. Jede Bedingung hat ihre eigene Zeiteinheit. Er zeigt Treffer, keine Empfehlungen.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Wert beobachten</span><span class="steps"><span class="st">Chart-Fenster</span><span class="ar">→</span><span class="st">+ Watchlist</span></span></div>
-        <div class="qs-path"><span class="task">Thema vergeben</span><span class="steps"><span class="st">Details</span><span class="ar">→</span><span class="st">Notizen</span><span class="ar">→</span><span class="st">Tags</span><span class="ar">→</span><span class="st">Tag eintragen</span></span></div>
-        <div class="qs-path"><span class="task">Nur ein Thema zeigen</span><span class="steps"><span class="st">Liste</span><span class="ar">→</span><span class="st">Watchlist</span><span class="ar">→</span><span class="st">„Alle ▾“</span><span class="ar">→</span><span class="st">Thema wählen</span></span></div>
-        <div class="qs-path"><span class="task">Scan starten</span><span class="steps"><span class="st">Scan</span><span class="ar">→</span><span class="st">Bedingungen wählen oder gespeicherten Scan</span><span class="ar">→</span><span class="st">▶</span></span></div>
+        <div class="qs-path"><span class="task">Wert beobachten</span><span class="steps"><span class="st">Chart-Fenster</span><span class="ar">→</span><span class="st">+ Watchlist</span><span class="ar">→</span><span class="st">Liste wählen</span></span></div>
+        <div class="qs-path"><span class="task">Thema vergeben</span><span class="steps"><span class="st">Wert anklicken</span><span class="ar">→</span><span class="st">Übersicht</span><span class="ar">→</span><span class="st">Ändern</span><span class="ar">→</span><span class="st">Tag eintragen</span></span></div>
+        <div class="qs-path"><span class="task">Listen ansehen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Watchlists</span></span></div>
+        <div class="qs-path"><span class="task">Scan starten</span><span class="steps"><span class="st">Chart-Fenster</span><span class="ar">→</span><span class="st">Scan</span><span class="ar">→</span><span class="st">gespeicherter Scan</span><span class="ar">→</span><span class="st">▶ (oder + Scan</span><span class="ar">→</span><span class="st">Bedingungen wählen)</span></span></div>
       </div>
     </section>
 
     <div class="qs-chapter">Verbindung und Pflege</div>
     <section class="qs-card" id="s23">
       <h2><span class="qs-num">23</span>Brücke Haushaltsbuch ↔ Depot</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A07_Sparplaene_und_Bruecke" data-title="Sparpläne und Brücke">Video: Sparpläne und Brücke <small>0:23</small></button></div>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A07_Sparplaene_und_Bruecke" data-title="Sparpläne und Brücke">Video: Sparpläne und Brücke <small></small></button></div>
       <p>Geld, das vom Girokonto ins Depot geht, wird einmal gebucht und erscheint auf beiden Seiten – entweder beide Buchungen oder keine. Es zählt als Sparen, nicht als Ausgabe. Wird eine Seite gelöscht, fällt die andere mit.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Einzeln übertragen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">TRANSFER</span><span class="ar">→</span><span class="st">verknüpft mit Haushaltsbuch</span><span class="ar">→</span><span class="st">Betrag</span><span class="ar">→</span><span class="st">buchen</span></span></div>
-        <div class="qs-path"><span class="task">Monatlich automatisch</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">regl. Buchungen</span><span class="ar">→</span><span class="st">Kategorie „Depot-Übertrag“</span><span class="ar">→</span><span class="st">Brücken-Richtung</span><span class="ar">→</span><span class="st">Vorlage speichern</span></span></div>
+        <div class="qs-path"><span class="task">Einzeln übertragen</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">Transaktionen</span><span class="ar">→</span><span class="st">Ein-/Auszahlung</span><span class="ar">→</span><span class="st">Art „Übertrag aus dem Haushaltsbuch“</span><span class="ar">→</span><span class="st">Betrag</span><span class="ar">→</span><span class="st">Buchen</span></span></div>
+        <div class="qs-path"><span class="task">Monatlich automatisch</span><span class="steps"><span class="st">Haushaltsbuch</span><span class="ar">→</span><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Regelmäßige Buchungen</span><span class="ar">→</span><span class="st">Kategorie „Depot-Übertrag“</span><span class="ar">→</span><span class="st">Brücken-Richtung</span><span class="ar">→</span><span class="st">Vorlage speichern</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s24">
       <h2><span class="qs-num">24</span>Darstellung</h2>
-      <div class="qs-vrow"><button class="vid-btn" data-video="A13_Eigene_Ansicht" data-title="Eigene Ansicht">Video: Eigene Ansicht <small>0:17</small></button></div>
-      <p>Farbschemas von edel bis Cyberpunk, eigene Farben und ein eigenes Hintergrundbild – für Haushaltsbuch, Depot und Charts. Das Depot kann auch als Startbildschirm dienen.</p>
+      <div class="qs-vrow"><button class="vid-btn" data-video="A13_Eigene_Ansicht" data-title="Eigene Ansicht">Video: Eigene Ansicht <small></small></button></div>
+      <p>Sieben Vorlagen (Standard, Nacht, Papier, Matt, Petrol, Gold, Kontrast), eigene Farben und ein eigenes Hintergrundbild – für die ganze Oberfläche und das Chart-Fenster. Gestaltete Ansichten lassen sich speichern. Auch der Startbereich (Depot oder Haushaltsbuch) ist einstellbar.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Farbschema wählen</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Darstellung</span><span class="ar">→</span><span class="st">Ansicht wählen</span></span></div>
-        <div class="qs-path"><span class="task">Eigene Farben / Hintergrund</span><span class="steps"><span class="st">⚙</span><span class="ar">→</span><span class="st">Darstellung</span><span class="ar">→</span><span class="st">Anpassen ▾</span><span class="ar">→</span><span class="st">Farben, Hintergrundbild</span><span class="ar">→</span><span class="st">Als neue Ansicht …</span></span></div>
-        <div class="qs-path"><span class="task">Depot als Start</span><span class="steps"><span class="st">Depot</span><span class="ar">→</span><span class="st">⚙</span><span class="ar">→</span><span class="st">Darstellung</span><span class="ar">→</span><span class="st">Depot als Startbildschirm</span></span></div>
+        <div class="qs-path"><span class="task">Vorlage wählen</span><span class="steps"><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Darstellung</span><span class="ar">→</span><span class="st">Darstellung anpassen</span><span class="ar">→</span><span class="st">Vorlage</span></span></div>
+        <div class="qs-path"><span class="task">Eigene Farben / Hintergrund</span><span class="steps"><span class="st">Darstellung anpassen</span><span class="ar">→</span><span class="st">Farben, Hintergrundbild</span><span class="ar">→</span><span class="st">Als neue Ansicht speichern</span></span></div>
+        <div class="qs-path"><span class="task">Startbereich</span><span class="steps"><span class="st">Einstellungen</span><span class="ar">→</span><span class="st">Darstellung</span><span class="ar">→</span><span class="st">Beim Start öffnen</span><span class="ar">→</span><span class="st">Depot · Haushaltsbuch</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s25">
@@ -540,14 +541,14 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
       <h2><span class="qs-num">26</span>Updates einspielen</h2>
       <p>Gibt es eine neue Version, zeigt FinFide das beim Beenden an. Der Installer ersetzt nur die Programmdatei – Buchungen, Einstellungen und Lizenz bleiben erhalten.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Update</span><span class="steps"><span class="st">⏻ Beenden</span><span class="ar">→</span><span class="st">„Neues Update zum Download bereit“</span><span class="ar">→</span><span class="st">herunterladen</span><span class="ar">→</span><span class="st">Datei starten</span><span class="ar">→</span><span class="st">Aktualisierung</span><span class="ar">→</span><span class="st">Aktualisieren &amp; starten</span></span></div>
+        <div class="qs-path"><span class="task">Update</span><span class="steps"><span class="st">Beenden</span><span class="ar">→</span><span class="st">„Neues Update zum Download bereit“</span><span class="ar">→</span><span class="st">herunterladen</span><span class="ar">→</span><span class="st">Datei starten</span><span class="ar">→</span><span class="st">Aktualisierung</span><span class="ar">→</span><span class="st">Aktualisieren &amp; starten</span></span></div>
       </div>
     </section>
     <section class="qs-card" id="s27">
       <h2><span class="qs-num">27</span>Feedback und Support</h2>
       <p>Fragen und Probleme: <a href="mailto:info@kassenwartpro.de">info@kassenwartpro.de</a>. Beim Beenden führt ein Link zum Feedback – alle Felder sind freiwillig. Jede Update-Runde startet mit einer Umfrage; Käufer bestimmen die Reihenfolge der nächsten Funktionen mit.</p>
       <div class="qs-how"><b>So geht’s</b>
-        <div class="qs-path"><span class="task">Feedback geben</span><span class="steps"><span class="st">⏻ Beenden</span><span class="ar">→</span><span class="st">Feedback geben</span></span></div>
+        <div class="qs-path"><span class="task">Feedback geben</span><span class="steps"><span class="st">Beenden</span><span class="ar">→</span><span class="st">Feedback geben</span></span></div>
       </div>
     </section>
   </div>
@@ -556,14 +557,13 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; }
 <hr class="divider">
 
 <footer class="site-foot"><div class="site-wrap">
-  <p>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</p>
-  <nav>
-    <a href="impressum.html">Impressum</a>
-    <a href="impressum.html#datenschutz">Datenschutz</a>
-    <a href="erstattung.html">Erstattung</a>
-    <a href="transparenz.html">Transparenz</a>
-    <a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank" rel="noopener">GitHub</a>
-  </nav>
+  <div class="foot-cols">
+    <div><h4><span class="logo-ff">FinFide</span></h4><p>Haushaltsbuch, Depot-Tracker und Chartanalyse in einem Windows-Programm. Lokal, ohne Anmeldung, ohne Abo.</p></div>
+    <div><h4>Funktionen</h4><a href="finfide.html">Überblick</a><a href="haushaltsbuch.html">Haushaltsbuch</a><a href="depot-tracker.html">Depot-Tracker</a><a href="chartanalyse.html">Chartanalyse</a></div>
+    <div><h4>Mehr</h4><a href="lokal-und-offline.html">Lokal und offline</a><a href="faq.html">Häufige Fragen</a><a href="kurzanleitung.html">Anleitung</a><a href="partnerprogramm.html">Partner werden</a></div>
+    <div><h4>Rechtliches</h4><a href="impressum.html">Impressum</a><a href="impressum.html#datenschutz">Datenschutz</a><a href="erstattung.html">Erstattung</a><a href="transparenz.html">Transparenz</a><a href="https://github.com/hackmatefoo-cmyk/KassenwartPro" target="_blank" rel="noopener">GitHub</a></div>
+  </div>
+  <div class="foot-base"><span>FinFide ist ein Produkt von KassenwartPro · © 2026 Simon Bellviure Bigas · Leun</span><span>Kontakt: <a href="mailto:info@kassenwartpro.de" style="display:inline">info@kassenwartpro.de</a></span></div>
 </div></footer>
 
 <script src="video.js" defer></script>
